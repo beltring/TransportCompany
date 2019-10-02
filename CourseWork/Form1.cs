@@ -16,5 +16,39 @@ namespace CourseWork
         {
             InitializeComponent();
         }
+
+        private void Button4_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            Form autorization = new Authorization(this);
+            autorization.Show();
+            OnVisible(false);
+        }
+
+        private void Button2_Click(object sender, EventArgs e)
+        {
+            Form form = new Registration();
+            form.Show();
+        }
+
+        private void Button5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        public void OnVisible(bool check)
+        {
+            if(check == true) {
+                this.Visible = true;
+            }
+            else
+            {
+                this.Visible = false;
+            }
+        }
     }
 }
