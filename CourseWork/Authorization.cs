@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,7 +13,8 @@ namespace CourseWork
 {
     public partial class Authorization : Form
     {
-        Form1 form;
+        SqlConnection sqlConnection;
+        readonly Form1 form;
         public Authorization(Form1 form)
         {
             this.form = form;
@@ -21,28 +23,77 @@ namespace CourseWork
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            if(textBox1.Text.Length == 0 && textBox2.Text.Length == 0)
-            {
-                MessageBox.Show("Поля логин и пароль должны быть заполнены");
-            }
-            else if(textBox1.Text.Length < 4 || textBox1.Text.Length > 25)
-            {
-                MessageBox.Show("Логин должен содержать от 4 до 25 символов");
-            }
-            else if(textBox2.Text.Length < 6 || textBox2.Text.Length > 25)
-            {
-                MessageBox.Show("Пароль должен содержать от 6 до 25 символов");
-            }
+            bool isUser = IsUser(textBox1.Text, textBox2.Text);
+            bool isAdmin = IsAdmin(textBox1.Text, textBox2.Text);
 
-            if(textBox1.Text == "admin" && textBox2.Text == "admin99")
+            if (isAdmin)
             {
-                form.OnVisible(true);
+                Admin admin = new Admin();
+                admin.Show();
             }
+            else if (isUser)
+            {
+                User user = new User();
+                user.Show();
+            }
+            else
+            {
+                MessageBox.Show("Логин или пароль введены неверно! Попробуйте ещё раз!");
+                textBox1.Clear();
+                textBox2.Clear();
+            }
+            
+        }
+
+        public bool IsAdmin(string login, string password)
+        {
+            if(login.Equals("admin") && password.Equals("admin99"))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool IsUser(string login,string password)
+        {
+            SqlDataReader sqlReader = null;
+            SqlCommand sqlCommand = new SqlCommand("SELECT Login, Password FROM Users", sqlConnection);
+            try
+            {
+                sqlReader = sqlCommand.ExecuteReader();
+                while (sqlReader.Read())
+                {
+                    if (Convert.ToString(sqlReader["Login"]) == login && Convert.ToString(sqlReader["Password"]) == password)
+                    {
+                        return true;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
+            finally
+            {
+                if (sqlReader != null)
+                    sqlReader.Close();
+            }
+            sqlConnection.Close();
+            return false;
         }
 
         private void Authorization_FormClosed(object sender, FormClosedEventArgs e)
         {
             form.OnVisible(true);
+        }
+
+        private async void Authorization_LoadAsync(object sender, EventArgs e)
+        {
+            sqlConnection = new SqlConnection(Constants.connectionString);
+            await sqlConnection.OpenAsync();
         }
     }
 }

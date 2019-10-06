@@ -10,12 +10,23 @@ namespace CourseWork
     {
         public static bool CheckEmptyFields(string str1,string str2, string str3)
         {
-            if(str1.Length != 0 || str2.Length != 0 || str3.Length != 0)
+            if(str1.Length != 0 && str2.Length != 0 && str3.Length != 0)
             {
                 return true;
             }
             else
             {
+                return false;
+            }
+        }
+
+        public static bool CheckEmptyFields(string str1, string str2)
+        {
+            if (str1.Length != 0 && str2.Length != 0)
+            {
+                return true;
+            }
+            else {
                 return false;
             }
         }
