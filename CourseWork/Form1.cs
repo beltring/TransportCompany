@@ -31,8 +31,9 @@ namespace CourseWork
 
         private void Button2_Click(object sender, EventArgs e)
         {
-            Form form = new Registration();
+            Form form = new Registration(this);
             form.Show();
+            OnVisible(false);
         }
 
         private void Button5_Click(object sender, EventArgs e)

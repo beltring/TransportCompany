@@ -12,10 +12,10 @@ namespace CourseWork
 {
     public partial class Authorization : Form
     {
-        Form1 f;
+        Form1 form;
         public Authorization(Form1 form)
         {
-            f = form;
+            this.form = form;
             InitializeComponent();
         }
 
@@ -36,8 +36,13 @@ namespace CourseWork
 
             if(textBox1.Text == "admin" && textBox2.Text == "admin99")
             {
-                f.OnVisible(true);
+                form.OnVisible(true);
             }
+        }
+
+        private void Authorization_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            form.OnVisible(true);
         }
     }
 }

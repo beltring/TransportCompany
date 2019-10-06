@@ -89,6 +89,7 @@
             this.Controls.Add(this.label1);
             this.Name = "Authorization";
             this.Text = "Authorization";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Authorization_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

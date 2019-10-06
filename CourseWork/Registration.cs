@@ -13,55 +13,68 @@ namespace CourseWork
     public partial class Registration : Form
     {
         SqlConnection sqlConnection;
-        public Registration()
+        readonly Form1 form;
+
+        public Registration(Form1 form)
         {
+            this.form = form;
             InitializeComponent();
         }
 
         private async void Button1_Click(object sender, EventArgs e)
         {
-            if(textBox1.Text.Length == 0 || textBox2.Text.Length == 0 || textBox3.Text.Length == 0)
+            if (DataValidation.CheckEmptyFields(textBox1.Text, textBox2.Text, textBox3.Text))
             {
-                MessageBox.Show("Одно из полей пустое");
-            }
-            else if(textBox2.Text.Length < 6 || textBox2.Text.Length > 25)
-            {
-                MessageBox.Show("Пароль содержит недоступное количество символов");
-                textBox2.Clear();
-            }
-            else if(textBox2.Text != textBox3.Text)
-            {
-                MessageBox.Show("Пароли не совпадают");
-                textBox2.Clear();
-                textBox3.Clear();
-            }
-            else if(textBox1.Text.Length < 4 || textBox1.Text.Length > 25)
-            {
-                MessageBox.Show("Логин содержит недоступное количество символов");
-                textBox1.Clear();
+                if (DataValidation.CheckLenghtLogin(textBox1.Text))
+                {
+                    if (DataValidation.CheckLenghtPassword(textBox2.Text))
+                    {
+                        if (DataValidation.CheckPasswordMatch(textBox2.Text, textBox3.Text))
+                        {
+                            SqlCommand sqlCommand = new SqlCommand("INSERT INTO [Users] (Login, Password)VALUES(@Login, @Password)", sqlConnection);
+
+                            sqlCommand.Parameters.AddWithValue("Login", textBox1.Text);
+                            sqlCommand.Parameters.AddWithValue("Password", textBox2.Text);
+
+                            await sqlCommand.ExecuteNonQueryAsync();
+
+                            MessageBox.Show("Регистрация прошла успешно");
+                            form.OnVisible(true);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Пароли не совпадают");
+                            textBox2.Clear();
+                            textBox3.Clear();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Пароль содержит недоступное количество символов");
+                        textBox2.Clear();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Логин содержит недоступное количество символов");
+                    textBox1.Clear();
+                }
             }
             else
             {
-                SqlCommand sqlCommand = new SqlCommand("INSERT INTO [Users] (Login, Password)VALUES(@Login, @Password)", sqlConnection);
-
-                sqlCommand.Parameters.AddWithValue("Login", textBox1.Text);
-                sqlCommand.Parameters.AddWithValue("Password", textBox2.Text);
-
-                await sqlCommand.ExecuteNonQueryAsync();
-
-                MessageBox.Show("Регистрация прошла успешно");
-            }
+                MessageBox.Show("Одно из полей пустое");
+            } 
         }
 
         private async void Registration_Load(object sender, EventArgs e)
         {
-            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\study\BNTU\5 sem\Тестирование\курсач\прога\CourseWork\CourseWork\Database1.mdf;Integrated Security=True";
-
-            sqlConnection = new SqlConnection(connectionString);
-
+            sqlConnection = new SqlConnection(Constants.connectionString);
             await sqlConnection.OpenAsync();
-            
+        }
 
+        private void Registration_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            form.OnVisible(true);
         }
     }
 }
