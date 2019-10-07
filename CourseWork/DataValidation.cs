@@ -8,7 +8,7 @@ namespace CourseWork
 {
     class DataValidation
     {
-        public static bool CheckEmptyFields(string str1,string str2, string str3)
+        /*public static bool CheckEmptyFields(string str1,string str2, string str3)
         {
             if(str1.Length != 0 && str2.Length != 0 && str3.Length != 0)
             {
@@ -29,6 +29,17 @@ namespace CourseWork
             else {
                 return false;
             }
+        }*/
+        public static bool CheckEmptyFields(params string[] fields)
+        {
+            foreach (string str in fields)
+            {
+                if (str.Length == 0)
+                {
+                    return false;
+                }
+            }
+            return true;
         }
 
         public static bool CheckLenghtPassword(string password)
@@ -65,6 +76,18 @@ namespace CourseWork
             {
                 return false;
             }
+        }
+
+        public static bool CheckNegativeNumber(params int[] fields)
+        {
+            foreach(int number in fields)
+            {
+                if(number < 1)
+                {
+                    return false;
+                }
+            }
+            return true;
         }
     }
 }

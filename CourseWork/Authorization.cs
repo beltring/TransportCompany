@@ -11,6 +11,7 @@ using System.Windows.Forms;
 
 namespace CourseWork
 {
+    //Класс для авторизации в программе
     public partial class Authorization : Form
     {
         SqlConnection sqlConnection;
@@ -21,7 +22,8 @@ namespace CourseWork
             InitializeComponent();
         }
 
-        private void Button1_Click(object sender, EventArgs e)
+        //Авторизация пользователя и администратора
+        private void UserAuthorization(object sender, EventArgs e)
         {
             bool isUser = IsUser(textBox1.Text, textBox2.Text);
             bool isAdmin = IsAdmin(textBox1.Text, textBox2.Text);
@@ -45,6 +47,7 @@ namespace CourseWork
             
         }
 
+        //Проверка авторизации адинистратора
         public bool IsAdmin(string login, string password)
         {
             if(login.Equals("admin") && password.Equals("admin99"))
@@ -57,6 +60,7 @@ namespace CourseWork
             }
         }
 
+        //Проверка авторизации пользователя
         public bool IsUser(string login,string password)
         {
             SqlDataReader sqlReader = null;

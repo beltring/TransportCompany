@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 namespace CourseWork
 {
+    // Регистрация пользователей
     public partial class Registration : Form
     {
         SqlConnection sqlConnection;
@@ -21,7 +22,8 @@ namespace CourseWork
             InitializeComponent();
         }
 
-        private async void Button1_Click(object sender, EventArgs e)
+        //Регистрация пользователя и занесение данных в БД
+        private async void RegistrationOfUsers(object sender, EventArgs e)
         {
             if (DataValidation.CheckEmptyFields(textBox1.Text, textBox2.Text, textBox3.Text))
             {

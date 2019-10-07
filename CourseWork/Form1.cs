@@ -38,7 +38,8 @@ namespace CourseWork
 
         private void Button5_Click(object sender, EventArgs e)
         {
-
+            Catalog catalog = new Catalog();
+            catalog.Show();
         }
 
         public void OnVisible(bool check)
@@ -50,6 +51,18 @@ namespace CourseWork
             {
                 this.Visible = false;
             }
+        }
+
+        private void Button6_Click(object sender, EventArgs e)
+        {
+            Add add = new Add();
+            add.Show();
+        }
+
+        private void Button7_Click(object sender, EventArgs e)
+        {
+            Delete delete = new Delete();
+            delete.Show();
         }
     }
 }
