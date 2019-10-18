@@ -13,20 +13,17 @@ namespace CourseWork
 {
     public partial class Delete : Form
     {
-        SqlConnection sqlConnection;
         public Delete()
         {
             InitializeComponent();
         }
 
         //Запись данных в таблицу
-        private async void Delete_Load(object sender, EventArgs e)
+        private void Delete_Load(object sender, EventArgs e)
         {
-            sqlConnection = new SqlConnection(Constants.connectionString);
-            await sqlConnection.OpenAsync();
-
+            Connection.openConection();
             SqlDataReader sqlReader = null;
-            SqlCommand sqlCommand = new SqlCommand(@"SELECT * FROM Cargos", sqlConnection);
+            SqlCommand sqlCommand = new SqlCommand(@"SELECT * FROM Cargos", Connection.sqlConnection);
             try
             {
                 sqlReader = sqlCommand.ExecuteReader();
@@ -48,26 +45,28 @@ namespace CourseWork
             {
                 MessageBox.Show(ex.Message.ToString(), ex.Source.ToString(), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-            sqlConnection.Close();
+            finally
+            {
+                Connection.closeConection();
+            }
         }
 
         //Удаление записи из БД
         private void CargoDelete(object sender, EventArgs e)
         {
-            sqlConnection.Open();
+            Connection.openConection();
             if (MessageBox.Show("Удалить груз?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 int line = dataGridView1.CurrentRow.Index;
                 int Id = Convert.ToInt32(dataGridView1.Rows[line].Cells[0].Value.ToString());
 
-                SqlCommand command = new SqlCommand(@"DELETE FROM Cargos WHERE Id = @Id", sqlConnection);
+                SqlCommand command = new SqlCommand(@"DELETE FROM Cargos WHERE Id = @Id", Connection.sqlConnection);
                 command.Parameters.AddWithValue("Id", Id);
                 command.ExecuteNonQuery();
 
                 MessageBox.Show("Книга успешно удалена", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            sqlConnection.Close();
+            Connection.closeConection();
             this.Close();
         }
     }

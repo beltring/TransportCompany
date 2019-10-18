@@ -13,8 +13,6 @@ namespace CourseWork
 {
     public partial class Add : Form
     {
-        SqlConnection sqlConnection;
-
         public Add()
         {
             InitializeComponent();
@@ -37,7 +35,7 @@ namespace CourseWork
                 SqlCommand sqlCommand = new SqlCommand(@"INSERT INTO Cargos (
                             Name, Cost, Weight, Volume, TrailerType, UploadDate, Status)
                             VALUES(@name, @cost, @weight, @volume, @trailerType, @uploadDate, @status)",
-                            sqlConnection);
+                            Connection.sqlConnection);
                 sqlCommand.Parameters.AddWithValue("Name", name);
                 sqlCommand.Parameters.AddWithValue("Cost", cost);
                 sqlCommand.Parameters.AddWithValue("Weight", weight);
@@ -54,16 +52,10 @@ namespace CourseWork
                 MessageBoxButtons.OK, MessageBoxIcon.Error,
                 MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
             }
-            sqlConnection.Close();
+            Connection.closeConection();
             MessageBox.Show("Груз успешно добавлен.");
             this.Close();
 
-        }
-
-        private async void Add_Load(object sender, EventArgs e)
-        {
-            sqlConnection = new SqlConnection(Constants.connectionString);
-            await sqlConnection.OpenAsync();
         }
     }
 }

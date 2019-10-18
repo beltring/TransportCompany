@@ -13,7 +13,6 @@ namespace CourseWork
     // Регистрация пользователей
     public partial class Registration : Form
     {
-        SqlConnection sqlConnection;
         readonly Form1 form;
 
         public Registration(Form1 form)
@@ -21,9 +20,13 @@ namespace CourseWork
             this.form = form;
             InitializeComponent();
         }
+        public Registration()
+        {
+            InitializeComponent();
+        }
 
         //Регистрация пользователя и занесение данных в БД
-        private async void RegistrationOfUsers(object sender, EventArgs e)
+        public async void RegistrationOfUsers(object sender, EventArgs e)
         {
             if (DataValidation.CheckEmptyFields(textBox1.Text, textBox2.Text, textBox3.Text))
             {
@@ -33,7 +36,7 @@ namespace CourseWork
                     {
                         if (DataValidation.CheckPasswordMatch(textBox2.Text, textBox3.Text))
                         {
-                            SqlCommand sqlCommand = new SqlCommand("INSERT INTO [Users] (Login, Password)VALUES(@Login, @Password)", sqlConnection);
+                            SqlCommand sqlCommand = new SqlCommand("INSERT INTO [Users] (Login, Password)VALUES(@Login, @Password)", Connection.sqlConnection);
 
                             sqlCommand.Parameters.AddWithValue("Login", textBox1.Text);
                             sqlCommand.Parameters.AddWithValue("Password", textBox2.Text);
@@ -65,13 +68,9 @@ namespace CourseWork
             else
             {
                 MessageBox.Show("Одно из полей пустое");
-            } 
-        }
-
-        private async void Registration_Load(object sender, EventArgs e)
-        {
-            sqlConnection = new SqlConnection(Constants.connectionString);
-            await sqlConnection.OpenAsync();
+            }
+            Connection.closeConection();
+            this.Close();
         }
 
         private void Registration_FormClosed(object sender, FormClosedEventArgs e)

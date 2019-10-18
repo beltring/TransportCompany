@@ -86,6 +86,7 @@
       <DependentUpon>Catalog.cs</DependentUpon>
     </Compile>
     <Compile Include="Check.cs" />
+    <Compile Include="Connection.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="DataValidation.cs" />
     <Compile Include="Delete.cs">
@@ -114,6 +115,12 @@
     <Compile Include="User.Designer.cs">
       <DependentUpon>User.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserCatalog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserCatalog.Designer.cs">
+      <DependentUpon>UserCatalog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Users.cs" />
     <EmbeddedResource Include="Add.resx">
       <DependentUpon>Add.cs</DependentUpon>
@@ -141,6 +148,12 @@
     </Compile>
     <EmbeddedResource Include="Registration.resx">
       <DependentUpon>Registration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User.resx">
+      <DependentUpon>User.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserCatalog.resx">
+      <DependentUpon>UserCatalog.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

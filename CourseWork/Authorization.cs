@@ -14,11 +14,14 @@ namespace CourseWork
     //Класс для авторизации в программе
     public partial class Authorization : Form
     {
-        SqlConnection sqlConnection;
         readonly Form1 form;
         public Authorization(Form1 form)
         {
             this.form = form;
+            InitializeComponent();
+        }
+        public Authorization()
+        {
             InitializeComponent();
         }
 
@@ -44,7 +47,7 @@ namespace CourseWork
                 textBox1.Clear();
                 textBox2.Clear();
             }
-            
+            this.Close();
         }
 
         //Проверка авторизации адинистратора
@@ -63,8 +66,9 @@ namespace CourseWork
         //Проверка авторизации пользователя
         public bool IsUser(string login,string password)
         {
+            Connection.openConection();
             SqlDataReader sqlReader = null;
-            SqlCommand sqlCommand = new SqlCommand("SELECT Login, Password FROM Users", sqlConnection);
+            SqlCommand sqlCommand = new SqlCommand("SELECT Login, Password FROM Users", Connection.sqlConnection);
             try
             {
                 sqlReader = sqlCommand.ExecuteReader();
@@ -82,22 +86,18 @@ namespace CourseWork
             }
             finally
             {
+                Connection.closeConection();
+
                 if (sqlReader != null)
                     sqlReader.Close();
             }
-            sqlConnection.Close();
+            
             return false;
         }
 
         private void Authorization_FormClosed(object sender, FormClosedEventArgs e)
         {
             form.OnVisible(true);
-        }
-
-        private async void Authorization_LoadAsync(object sender, EventArgs e)
-        {
-            sqlConnection = new SqlConnection(Constants.connectionString);
-            await sqlConnection.OpenAsync();
         }
     }
 }

@@ -16,5 +16,21 @@ namespace CourseWork
         {
             InitializeComponent();
         }
+
+        private void Button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Exit(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            Form userCatalog = new UserCatalog();
+            userCatalog.Show();
+        }
     }
 }

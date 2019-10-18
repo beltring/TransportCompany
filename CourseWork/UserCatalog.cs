@@ -11,16 +11,14 @@ using System.Windows.Forms;
 
 namespace CourseWork
 {
-    //Работа со списком грузов
-    public partial class Catalog : Form
+    public partial class UserCatalog : Form
     {
-        public Catalog()
+        public UserCatalog()
         {
             InitializeComponent();
         }
 
-        //Запись данных в таблицу
-        private async void Catalog_Load(object sender, EventArgs e)
+        private void UserCatalog_Load(object sender, EventArgs e)
         {
             Connection.openConection();
             SqlDataReader sqlReader = null;
@@ -52,4 +50,3 @@ namespace CourseWork
         }
     }
 }
-

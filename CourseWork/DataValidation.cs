@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CourseWork
 {
-    class DataValidation
+    public class DataValidation
     {
         /*public static bool CheckEmptyFields(string str1,string str2, string str3)
         {

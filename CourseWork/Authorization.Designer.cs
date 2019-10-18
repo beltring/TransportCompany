@@ -90,7 +90,6 @@
             this.Name = "Authorization";
             this.Text = "Authorization";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Authorization_FormClosed);
-            this.Load += new System.EventHandler(this.Authorization_LoadAsync);
             this.ResumeLayout(false);
             this.PerformLayout();
 
