@@ -28,22 +28,24 @@ namespace CourseWork
         public static void Select(DataGridView dataGridView1)
         {
             openConection();
-            SqlDataReader sqlReader = null;
             SqlCommand sqlCommand = new SqlCommand(@"SELECT Id,Name,Cost,Weight,Volume FROM Cargos", sqlConnection);
 
             try
             {
-                sqlReader = sqlCommand.ExecuteReader();
-
-                while (sqlReader.Read())
+                using (SqlDataReader sqlReader = sqlCommand.ExecuteReader())
                 {
-                    dataGridView1.Rows.Add(new string[] {
+                    while (sqlReader.Read())
+                    {
+                        dataGridView1.Rows.Add(new string[] {
                             Convert.ToString(sqlReader["Id"]),
                             Convert.ToString(sqlReader["Name"]),
                             Convert.ToString(sqlReader["Cost"]),
                             Convert.ToString(sqlReader["Weight"]),
                             Convert.ToString(sqlReader["Volume"]) });
+                    }
                 }
+
+                    
             }
             catch (Exception ex)
             {
@@ -104,6 +106,41 @@ namespace CourseWork
             finally
             {
                 closeConection();
+            }
+        }
+
+        public static void SelectFavourites(DataGridView dataGridView1,int[] id)
+        {
+            openConection();
+            foreach(int element in id)
+            {
+                SqlCommand sqlCommand = new SqlCommand($@"SELECT Id,Name,Cost,Weight,Volume FROM Cargos WHERE Id = {element}", sqlConnection);
+
+                try
+                {
+                    using (SqlDataReader sqlReader = sqlCommand.ExecuteReader())
+                    {
+                        while (sqlReader.Read())
+                        {
+                            dataGridView1.Rows.Add(new string[] {
+                            Convert.ToString(sqlReader["Id"]),
+                            Convert.ToString(sqlReader["Name"]),
+                            Convert.ToString(sqlReader["Cost"]),
+                            Convert.ToString(sqlReader["Weight"]),
+                            Convert.ToString(sqlReader["Volume"]) });
+                        }
+                    }
+
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString(), ex.Source.ToString(), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    closeConection();
+                }
             }
         }
     }

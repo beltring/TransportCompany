@@ -28,9 +28,11 @@ namespace CourseWork
             InitializeComponent();
         }
 
-        private void Button2_Click(object sender, EventArgs e)
+        private void LoadFavourites(object sender, EventArgs e)
         {
-            
+            Favourites favourites = new Favourites(this);
+            favourites.Show();
+            this.Visible = false;
         }
 
         private void Exit(object sender, EventArgs e)
@@ -39,7 +41,7 @@ namespace CourseWork
             homeForm.Visible = true;
         }
 
-        private void Button1_Click(object sender, EventArgs e)
+        private void LoadCargoCatalog(object sender, EventArgs e)
         {
             Catalog catalog = new Catalog(this);
             catalog.Show();

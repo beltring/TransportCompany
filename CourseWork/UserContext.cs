@@ -44,5 +44,30 @@ namespace CourseWork
                 closeConection();
             }
         }
+        public static string SelectCargoId(string login)
+        {
+            string result = null;
+            openConection();
+            SqlCommand sqlCommand = new SqlCommand($@"SELECT * FROM [Users] WHERE [Login] = {login}", sqlConnection);
+
+            try
+            {
+                SqlDataReader sqlReader = sqlCommand.ExecuteReader();
+
+                while (sqlReader.Read())
+                {
+                    result = Convert.ToString(sqlReader["CargoId"]);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString(), ex.Source.ToString(), MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                closeConection();
+            }
+            return result;
+        }
     }
 }

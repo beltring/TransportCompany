@@ -85,15 +85,19 @@
     <Compile Include="Catalog.Designer.cs">
       <DependentUpon>Catalog.cs</DependentUpon>
     </Compile>
-    <Compile Include="Check.cs" />
     <Compile Include="CatalogContext.cs" />
-    <Compile Include="Constants.cs" />
     <Compile Include="DataValidation.cs" />
     <Compile Include="Delete.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Delete.Designer.cs">
       <DependentUpon>Delete.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Favourites.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Favourites.Designer.cs">
+      <DependentUpon>Favourites.cs</DependentUpon>
     </Compile>
     <Compile Include="HomeForm.cs">
       <SubType>Form</SubType>
@@ -115,14 +119,7 @@
     <Compile Include="User.Designer.cs">
       <DependentUpon>User.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserCatalog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UserCatalog.Designer.cs">
-      <DependentUpon>UserCatalog.cs</DependentUpon>
-    </Compile>
     <Compile Include="UserContext.cs" />
-    <Compile Include="Users.cs" />
     <EmbeddedResource Include="Add.resx">
       <DependentUpon>Add.cs</DependentUpon>
     </EmbeddedResource>
@@ -134,6 +131,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Delete.resx">
       <DependentUpon>Delete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Favourites.resx">
+      <DependentUpon>Favourites.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HomeForm.resx">
       <DependentUpon>HomeForm.cs</DependentUpon>
@@ -152,9 +152,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="User.resx">
       <DependentUpon>User.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserCatalog.resx">
-      <DependentUpon>UserCatalog.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

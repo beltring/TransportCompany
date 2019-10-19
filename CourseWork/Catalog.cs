@@ -72,6 +72,13 @@ namespace CourseWork
             int line = dataGridView1.CurrentRow.Index;
             int id = Convert.ToInt32(dataGridView1.Rows[line].Cells[0].Value);
             UserContext.UpdateFavourites(id, userForm.Login);
+            CatalogContext.UpdateStatus("В пути", id);
+        }
+
+        private void ExitUserPage(object sender, EventArgs e)
+        {
+            Close();
+            userForm.Visible = true;
         }
     }
 }
