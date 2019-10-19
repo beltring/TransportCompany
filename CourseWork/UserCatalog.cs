@@ -13,40 +13,26 @@ namespace CourseWork
 {
     public partial class UserCatalog : Form
     {
+        readonly User user;
         public UserCatalog()
         {
+            InitializeComponent();
+        }
+        public UserCatalog(User user)
+        {
+            this.user = user;
             InitializeComponent();
         }
 
         private void UserCatalog_Load(object sender, EventArgs e)
         {
-            Connection.openConection();
-            SqlDataReader sqlReader = null;
-            SqlCommand sqlCommand = new SqlCommand(@"SELECT * FROM Cargos", Connection.sqlConnection);
-            try
-            {
-                sqlReader = sqlCommand.ExecuteReader();
+            user.Visible = false;
+            CatalogContext.Select(dataGridView1);
+        }
 
-                while (sqlReader.Read())
-                {
-                    dataGridView1.Rows.Add(new string[] {
-                            Convert.ToString(sqlReader["Name"]),
-                            Convert.ToString(sqlReader["Cost"]),
-                            Convert.ToString(sqlReader["Weight"]),
-                            Convert.ToString(sqlReader["Volume"]),
-                            Convert.ToString(sqlReader["TrailerType"]),
-                            Convert.ToString(sqlReader["UploadDate"]),
-                            Convert.ToString(sqlReader["Status"])});
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message.ToString(), ex.Source.ToString(), MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                Connection.closeConection();
-            }
+        private void UserCatalog_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            user.Visible = true;
         }
     }
 }

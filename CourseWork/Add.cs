@@ -28,14 +28,19 @@ namespace CourseWork
             string uploadDate = textBox5.Text;
             string trailerType = comboBox1.SelectedItem.ToString();
             string status = comboBox2.SelectedItem.ToString();
+            string downloadLocation = "Minsk";
+            string placeOfDischarge = "Gomel";
+            int distance = 382;
 
             if(DataValidation.CheckEmptyFields(name,uploadDate,trailerType,status) && 
                 DataValidation.CheckNegativeNumber(cost, weight, volume))
             {
+                CatalogContext.openConection();
                 SqlCommand sqlCommand = new SqlCommand(@"INSERT INTO Cargos (
-                            Name, Cost, Weight, Volume, TrailerType, UploadDate, Status)
-                            VALUES(@name, @cost, @weight, @volume, @trailerType, @uploadDate, @status)",
-                            Connection.sqlConnection);
+                            Name, Cost, Weight, Volume, TrailerType, UploadDate, Status, DownloadLocation, PlaceOfDischarge,Distance)
+                            VALUES(@name, @cost, @weight, @volume, @trailerType, @uploadDate, @status,@downloadLocation,@placeOfDischarge,
+                            @distance)",
+                            CatalogContext.sqlConnection);
                 sqlCommand.Parameters.AddWithValue("Name", name);
                 sqlCommand.Parameters.AddWithValue("Cost", cost);
                 sqlCommand.Parameters.AddWithValue("Weight", weight);
@@ -43,8 +48,12 @@ namespace CourseWork
                 sqlCommand.Parameters.AddWithValue("TrailerType", trailerType);
                 sqlCommand.Parameters.AddWithValue("UploadDate", uploadDate);
                 sqlCommand.Parameters.AddWithValue("Status", status);
-                sqlCommand.ExecuteNonQuery();
+                sqlCommand.Parameters.AddWithValue("DownloadLocation", downloadLocation);
+                sqlCommand.Parameters.AddWithValue("PlaceOfDischarge", placeOfDischarge);
+                sqlCommand.Parameters.AddWithValue("Distance", distance);
 
+                sqlCommand.ExecuteNonQuery();
+                CatalogContext.closeConection();
             }
             else
             {
@@ -52,7 +61,7 @@ namespace CourseWork
                 MessageBoxButtons.OK, MessageBoxIcon.Error,
                 MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
             }
-            Connection.closeConection();
+            CatalogContext.closeConection();
             MessageBox.Show("Груз успешно добавлен.");
             this.Close();
 

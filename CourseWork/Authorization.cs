@@ -14,15 +14,17 @@ namespace CourseWork
     //Класс для авторизации в программе
     public partial class Authorization : Form
     {
-        readonly Form1 form;
-        public Authorization(Form1 form)
+        readonly HomeForm homeForm;
+        public Authorization(HomeForm form)
         {
-            this.form = form;
+            this.homeForm = form;
             InitializeComponent();
+            //Connection.openConection();
         }
         public Authorization()
         {
             InitializeComponent();
+            CatalogContext.openConection();
         }
 
         //Авторизация пользователя и администратора
@@ -38,7 +40,7 @@ namespace CourseWork
             }
             else if (isUser)
             {
-                User user = new User();
+                User user = new User(homeForm, textBox1.Text);
                 user.Show();
             }
             else
@@ -66,9 +68,9 @@ namespace CourseWork
         //Проверка авторизации пользователя
         public bool IsUser(string login,string password)
         {
-            Connection.openConection();
+            CatalogContext.openConection();
             SqlDataReader sqlReader = null;
-            SqlCommand sqlCommand = new SqlCommand("SELECT Login, Password FROM Users", Connection.sqlConnection);
+            SqlCommand sqlCommand = new SqlCommand("SELECT Login, Password FROM Users", CatalogContext.sqlConnection);
             try
             {
                 sqlReader = sqlCommand.ExecuteReader();
@@ -86,10 +88,9 @@ namespace CourseWork
             }
             finally
             {
-                Connection.closeConection();
-
                 if (sqlReader != null)
                     sqlReader.Close();
+                CatalogContext.closeConection();
             }
             
             return false;
@@ -97,7 +98,7 @@ namespace CourseWork
 
         private void Authorization_FormClosed(object sender, FormClosedEventArgs e)
         {
-            form.OnVisible(true);
+            homeForm.Visible = false;
         }
     }
 }

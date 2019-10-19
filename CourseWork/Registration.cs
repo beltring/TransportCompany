@@ -13,9 +13,9 @@ namespace CourseWork
     // Регистрация пользователей
     public partial class Registration : Form
     {
-        readonly Form1 form;
+        readonly HomeForm form;
 
-        public Registration(Form1 form)
+        public Registration(HomeForm form)
         {
             this.form = form;
             InitializeComponent();
@@ -36,7 +36,7 @@ namespace CourseWork
                     {
                         if (DataValidation.CheckPasswordMatch(textBox2.Text, textBox3.Text))
                         {
-                            SqlCommand sqlCommand = new SqlCommand("INSERT INTO [Users] (Login, Password)VALUES(@Login, @Password)", Connection.sqlConnection);
+                            SqlCommand sqlCommand = new SqlCommand("INSERT INTO [Users] (Login, Password)VALUES(@Login, @Password)", CatalogContext.sqlConnection);
 
                             sqlCommand.Parameters.AddWithValue("Login", textBox1.Text);
                             sqlCommand.Parameters.AddWithValue("Password", textBox2.Text);
@@ -44,7 +44,7 @@ namespace CourseWork
                             await sqlCommand.ExecuteNonQueryAsync();
 
                             MessageBox.Show("Регистрация прошла успешно");
-                            form.OnVisible(true);
+                            form.Visible = true;
                         }
                         else
                         {
@@ -69,13 +69,13 @@ namespace CourseWork
             {
                 MessageBox.Show("Одно из полей пустое");
             }
-            Connection.closeConection();
+            CatalogContext.closeConection();
             this.Close();
         }
 
         private void Registration_FormClosed(object sender, FormClosedEventArgs e)
         {
-            form.OnVisible(true);
+            form.Visible = true;
         }
     }
 }

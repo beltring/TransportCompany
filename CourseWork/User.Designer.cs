@@ -73,6 +73,8 @@
             this.Controls.Add(this.button1);
             this.Name = "User";
             this.Text = "Пользователь";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.User_FormClosed);
+            this.Load += new System.EventHandler(this.User_Load);
             this.ResumeLayout(false);
 
         }

@@ -14,41 +14,64 @@ namespace CourseWork
     //Работа со списком грузов
     public partial class Catalog : Form
     {
+        readonly User userForm = null;
         public Catalog()
         {
             InitializeComponent();
         }
+        public Catalog(User user)
+        {
+            this.userForm = user;
+            InitializeComponent();
+        }
 
         //Запись данных в таблицу
-        private async void Catalog_Load(object sender, EventArgs e)
+        private void Catalog_Load(object sender, EventArgs e)
         {
-            Connection.openConection();
-            SqlDataReader sqlReader = null;
-            SqlCommand sqlCommand = new SqlCommand(@"SELECT * FROM Cargos", Connection.sqlConnection);
-            try
-            {
-                sqlReader = sqlCommand.ExecuteReader();
+            CheckUserCatalog();
+            CatalogContext.Select(dataGridView1);
+            
+        }
 
-                while (sqlReader.Read())
-                {
-                    dataGridView1.Rows.Add(new string[] {
-                            Convert.ToString(sqlReader["Name"]),
-                            Convert.ToString(sqlReader["Cost"]),
-                            Convert.ToString(sqlReader["Weight"]),
-                            Convert.ToString(sqlReader["Volume"]),
-                            Convert.ToString(sqlReader["TrailerType"]),
-                            Convert.ToString(sqlReader["UploadDate"]),
-                            Convert.ToString(sqlReader["Status"])});
-                }
-            }
-            catch (Exception ex)
+        private void Catalog_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if(userForm != null)
             {
-                MessageBox.Show(ex.Message.ToString(), ex.Source.ToString(), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                userForm.Visible = true;
             }
-            finally
+        }
+
+        private void CheckUserCatalog()
+        {
+            if(userForm != null)
             {
-                Connection.closeConection();
+                button1.Visible = true;
+                button2.Visible = true;
+                button3.Visible = true;
+                button4.Visible = true;
             }
+        }
+
+        private void DetailedInformation(object sender, EventArgs e)
+        {
+            int line = dataGridView1.CurrentRow.Index;
+            int id = Convert.ToInt32(dataGridView1.Rows[line].Cells[0].Value);
+            string information = CatalogContext.SelectAllDetailed(id);
+            MessageBox.Show(information,"Просмотр",MessageBoxButtons.OK);
+        }
+
+        private void StatusChange(object sender, EventArgs e)
+        {
+            int line = dataGridView1.CurrentRow.Index;
+            int id = Convert.ToInt32(dataGridView1.Rows[line].Cells[0].Value);
+            CatalogContext.UpdateStatus("В пути", id);
+        }
+
+        private void AddToFavourites(object sender, EventArgs e)
+        {
+            int line = dataGridView1.CurrentRow.Index;
+            int id = Convert.ToInt32(dataGridView1.Rows[line].Cells[0].Value);
+            UserContext.UpdateFavourites(id, userForm.Login);
         }
     }
 }

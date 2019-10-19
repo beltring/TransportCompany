@@ -33,9 +33,6 @@
             this.cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.weight = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.volume = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.trailerType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.uploadDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,15 +43,12 @@
             this.name,
             this.cost,
             this.weight,
-            this.volume,
-            this.trailerType,
-            this.uploadDate,
-            this.status});
-            this.dataGridView1.Location = new System.Drawing.Point(28, 28);
+            this.volume});
+            this.dataGridView1.Location = new System.Drawing.Point(334, 12);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(836, 403);
+            this.dataGridView1.Size = new System.Drawing.Size(554, 403);
             this.dataGridView1.TabIndex = 1;
             // 
             // name
@@ -85,27 +79,6 @@
             this.volume.Name = "volume";
             this.volume.Width = 125;
             // 
-            // trailerType
-            // 
-            this.trailerType.HeaderText = "Тип кузова";
-            this.trailerType.MinimumWidth = 6;
-            this.trailerType.Name = "trailerType";
-            this.trailerType.Width = 125;
-            // 
-            // uploadDate
-            // 
-            this.uploadDate.HeaderText = "Дата загрузки";
-            this.uploadDate.MinimumWidth = 6;
-            this.uploadDate.Name = "uploadDate";
-            this.uploadDate.Width = 125;
-            // 
-            // status
-            // 
-            this.status.HeaderText = "Статус";
-            this.status.MinimumWidth = 6;
-            this.status.Name = "status";
-            this.status.Width = 125;
-            // 
             // UserCatalog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -114,6 +87,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Name = "UserCatalog";
             this.Text = "Список грузов";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.UserCatalog_FormClosed);
             this.Load += new System.EventHandler(this.UserCatalog_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
@@ -127,8 +101,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cost;
         private System.Windows.Forms.DataGridViewTextBoxColumn weight;
         private System.Windows.Forms.DataGridViewTextBoxColumn volume;
-        private System.Windows.Forms.DataGridViewTextBoxColumn trailerType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn uploadDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn status;
     }
 }

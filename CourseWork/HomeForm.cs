@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace CourseWork
 {
-    public partial class Form1 : Form
+    public partial class HomeForm : Form
     {
-        public Form1()
+        public HomeForm()
         {
             InitializeComponent();
         }
@@ -26,31 +26,20 @@ namespace CourseWork
         {
             Form autorization = new Authorization(this);
             autorization.Show();
-            OnVisible(false);
+            this.Visible = false;
         }
 
         private void Button2_Click(object sender, EventArgs e)
         {
             Form form = new Registration(this);
             form.Show();
-            OnVisible(false);
+            this.Visible = false;
         }
 
         private void Button5_Click(object sender, EventArgs e)
         {
             Catalog catalog = new Catalog();
             catalog.Show();
-        }
-
-        public void OnVisible(bool check)
-        {
-            if(check == true) {
-                this.Visible = true;
-            }
-            else
-            {
-                this.Visible = false;
-            }
         }
 
         private void Button6_Click(object sender, EventArgs e)
