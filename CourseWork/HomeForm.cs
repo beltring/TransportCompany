@@ -17,19 +17,19 @@ namespace CourseWork
             InitializeComponent();
         }
 
-        private void Button4_Click(object sender, EventArgs e)
+        private void Close(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void Button1_Click(object sender, EventArgs e)
+        private void Authorization(object sender, EventArgs e)
         {
             Form autorization = new Authorization(this);
             autorization.Show();
             this.Visible = false;
         }
 
-        private void Button2_Click(object sender, EventArgs e)
+        private void Registration(object sender, EventArgs e)
         {
             Form form = new Registration(this);
             form.Show();

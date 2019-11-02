@@ -54,7 +54,11 @@ namespace CourseWork
         {
             int line = dataGridView1.CurrentRow.Index;
             int id = Convert.ToInt32(dataGridView1.Rows[line].Cells[0].Value);
-            UserContext.UpdateFavourites(0, userForm.Login);
+            string cargoId = UserContext.SelectCargoId(userForm.Login);
+            int n = cargoId.IndexOf(id.ToString());
+            cargoId = cargoId.Remove(n, id.ToString().Length);
+            UserContext.UpdateFavourites(cargoId, userForm.Login);
+            //Favourites_Load(sender, e);
         }
 
         private void Favourites_FormClosed(object sender, FormClosedEventArgs e)

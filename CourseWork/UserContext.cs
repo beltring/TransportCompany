@@ -25,14 +25,14 @@ namespace CourseWork
                 sqlConnection.Close();
         }
 
-        public static void UpdateFavourites(int id,string login)
+        public static void UpdateFavourites(string cargoId, string login)
         {
             try
             {
                 openConection();
-                SqlCommand sqlCommand = new SqlCommand(@"UPDATE [Users] SET [CargoId] = @id WHERE [Login] = @login", sqlConnection);
+                SqlCommand sqlCommand = new SqlCommand(@"UPDATE [Users] SET [CargoId] = @cargoId WHERE [Login] = @Login", sqlConnection);
                 sqlCommand.Parameters.AddWithValue("Login", login);
-                sqlCommand.Parameters.AddWithValue("Id", id);
+                sqlCommand.Parameters.AddWithValue("CargoId", cargoId);
                 sqlCommand.ExecuteNonQuery();
             }
             catch (Exception ex)
@@ -44,19 +44,20 @@ namespace CourseWork
                 closeConection();
             }
         }
-        public static string SelectCargoId(string login)
+        public static string SelectCargoId(string userId)
         {
             string result = null;
             openConection();
-            SqlCommand sqlCommand = new SqlCommand($@"SELECT * FROM [Users] WHERE [Login] = {login}", sqlConnection);
+            SqlCommand sqlCommand = new SqlCommand($@"SELECT * FROM [Users] WHERE [Login] = '{userId}'", sqlConnection);
 
             try
             {
-                SqlDataReader sqlReader = sqlCommand.ExecuteReader();
-
-                while (sqlReader.Read())
+                using (SqlDataReader sqlReader = sqlCommand.ExecuteReader())
                 {
-                    result = Convert.ToString(sqlReader["CargoId"]);
+                    while (sqlReader.Read())
+                    {
+                        result = Convert.ToString(sqlReader["CargoId"]);
+                    }
                 }
             }
             catch (Exception ex)

@@ -111,9 +111,10 @@ namespace CourseWork
 
         public static void SelectFavourites(DataGridView dataGridView1,int[] id)
         {
-            openConection();
+            dataGridView1.Update();
             foreach(int element in id)
             {
+                openConection();
                 SqlCommand sqlCommand = new SqlCommand($@"SELECT Id,Name,Cost,Weight,Volume FROM Cargos WHERE Id = {element}", sqlConnection);
 
                 try

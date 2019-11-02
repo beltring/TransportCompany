@@ -71,7 +71,8 @@ namespace CourseWork
         {
             int line = dataGridView1.CurrentRow.Index;
             int id = Convert.ToInt32(dataGridView1.Rows[line].Cells[0].Value);
-            UserContext.UpdateFavourites(id, userForm.Login);
+            string result = UserContext.SelectCargoId("kess") + " " + Convert.ToString(id);
+            UserContext.UpdateFavourites(result, userForm.Login);
             CatalogContext.UpdateStatus("В пути", id);
         }
 
