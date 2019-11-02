@@ -21,6 +21,7 @@ namespace CourseWork
         //Добавление записи в БД
         private void CargoAdd(object sender, EventArgs e)
         {
+            DataValidation dv = new DataValidation();
             string name = textBox1.Text;
             int cost = Convert.ToInt32(textBox2.Text);
             int weight = Convert.ToInt32(textBox3.Text);
@@ -32,8 +33,8 @@ namespace CourseWork
             string placeOfDischarge = "Gomel";
             int distance = 382;
 
-            if(DataValidation.CheckEmptyFields(name,uploadDate,trailerType,status) && 
-                DataValidation.CheckNegativeNumber(cost, weight, volume))
+            if(dv.CheckEmptyFields(name,uploadDate,trailerType,status) &&
+                dv.CheckNegativeNumber(cost, weight, volume))
             {
                 CatalogContext.openConection();
                 SqlCommand sqlCommand = new SqlCommand(@"INSERT INTO Cargos (

@@ -28,13 +28,14 @@ namespace CourseWork
         //Регистрация пользователя и занесение данных в БД
         public async void RegistrationOfUsers(object sender, EventArgs e)
         {
-            if (DataValidation.CheckEmptyFields(textBox1.Text, textBox2.Text, textBox3.Text))
+            DataValidation dv = new DataValidation();
+            if (dv.CheckEmptyFields(textBox1.Text, textBox2.Text, textBox3.Text))
             {
-                if (DataValidation.CheckLenghtLogin(textBox1.Text))
+                if (dv.CheckLenghtLogin(textBox1.Text))
                 {
-                    if (DataValidation.CheckLenghtPassword(textBox2.Text))
+                    if (dv.CheckLenghtPassword(textBox2.Text))
                     {
-                        if (DataValidation.CheckPasswordMatch(textBox2.Text, textBox3.Text))
+                        if (dv.CheckPasswordMatch(textBox2.Text, textBox3.Text))
                         {
                             SqlCommand sqlCommand = new SqlCommand("INSERT INTO [Users] (Login, Password)VALUES(@Login, @Password)", CatalogContext.sqlConnection);
 
