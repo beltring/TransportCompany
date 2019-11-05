@@ -35,13 +35,15 @@ namespace CourseWork
 
             if (isAdmin)
             {
-                Admin admin = new Admin();
+                Admin admin = new Admin(homeForm);
                 admin.Show();
+                this.Close();
             }
             else if (isUser)
             {
                 User user = new User(homeForm, textBox1.Text);
                 user.Show();
+                this.Close();
             }
             else
             {
@@ -49,7 +51,6 @@ namespace CourseWork
                 textBox1.Clear();
                 textBox2.Clear();
             }
-            this.Close();
         }
 
         //Проверка авторизации адинистратора
@@ -98,7 +99,7 @@ namespace CourseWork
 
         private void Authorization_FormClosed(object sender, FormClosedEventArgs e)
         {
-            homeForm.Visible = false;
+            homeForm.Visible = true;
         }
     }
 }

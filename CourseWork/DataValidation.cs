@@ -97,5 +97,15 @@ namespace CourseWork
             return result;
         }
 
+        public bool CheckDistance(int number)
+        {
+            bool result = false;
+            if (number >= 1 && number <= 5000)
+            {
+                result = true;
+            }
+            return result;
+        }
+
+        }
     }
-}

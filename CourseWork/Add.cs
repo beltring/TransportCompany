@@ -33,6 +33,8 @@ namespace CourseWork
             string placeOfDischarge = "Gomel";
             int distance = 382;
 
+            Cargo cargo = new Cargo(name, cost, weight, volume, uploadDate, trailerType, status, downloadLocation, placeOfDischarge, distance);
+
             if(dv.CheckEmptyFields(name,uploadDate,trailerType,status) &&
                 dv.CheckNegativeNumber(cost, weight, volume))
             {

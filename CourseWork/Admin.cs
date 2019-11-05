@@ -12,9 +12,33 @@ namespace CourseWork
 {
     public partial class Admin : Form
     {
+        readonly HomeForm homeForm;
+
         public Admin()
         {
             InitializeComponent();
+        }
+
+        public Admin(HomeForm homeForm)
+        {
+            this.homeForm = homeForm;
+            InitializeComponent();
+        }
+
+        private void Button6_Click(object sender, EventArgs e)
+        {
+            homeForm.Visible = true;
+            this.Close();
+        }
+
+        private void Admin_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            homeForm.Visible = true;
+        }
+
+        private void Admin_Load(object sender, EventArgs e)
+        {
+            homeForm.Visible = false;
         }
     }
 }
