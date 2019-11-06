@@ -44,6 +44,7 @@
             this.button1.TabIndex = 0;
             this.button1.Text = "Добавить новый груз";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.AddCargo);
             // 
             // button2
             // 
@@ -105,7 +106,6 @@
             this.Name = "Admin";
             this.Text = "Администратор";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Admin_FormClosed);
-            this.Load += new System.EventHandler(this.Admin_Load);
             this.ResumeLayout(false);
 
         }

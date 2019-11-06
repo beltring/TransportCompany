@@ -35,15 +35,15 @@ namespace CourseWork
 
             if (isAdmin)
             {
-                Admin admin = new Admin(homeForm);
+                Admin admin = new Admin(new HomeForm());
                 admin.Show();
-                this.Close();
+                Visible = false;
             }
             else if (isUser)
             {
                 User user = new User(homeForm, textBox1.Text);
                 user.Show();
-                this.Close();
+                Visible = false;
             }
             else
             {
@@ -56,14 +56,13 @@ namespace CourseWork
         //Проверка авторизации адинистратора
         public bool IsAdmin(string login, string password)
         {
+            bool result = false;
             if(login.Equals("admin") && password.Equals("admin99"))
             {
-                return true;
+                result = true;
             }
-            else
-            {
-                return false;
-            }
+
+            return result;
         }
 
         //Проверка авторизации пользователя
@@ -72,6 +71,8 @@ namespace CourseWork
             CatalogContext.openConection();
             SqlDataReader sqlReader = null;
             SqlCommand sqlCommand = new SqlCommand("SELECT Login, Password FROM Users", CatalogContext.sqlConnection);
+            bool result = false;
+
             try
             {
                 sqlReader = sqlCommand.ExecuteReader();
@@ -79,7 +80,7 @@ namespace CourseWork
                 {
                     if (Convert.ToString(sqlReader["Login"]) == login && Convert.ToString(sqlReader["Password"]) == password)
                     {
-                        return true;
+                        result = true;
                     }
                 }
             }
@@ -94,7 +95,7 @@ namespace CourseWork
                 CatalogContext.closeConection();
             }
             
-            return false;
+            return result;
         }
 
         private void Authorization_FormClosed(object sender, FormClosedEventArgs e)

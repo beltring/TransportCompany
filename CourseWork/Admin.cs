@@ -21,8 +21,8 @@ namespace CourseWork
 
         public Admin(HomeForm homeForm)
         {
-            this.homeForm = homeForm;
             InitializeComponent();
+            this.homeForm = homeForm;
         }
 
         private void Button6_Click(object sender, EventArgs e)
@@ -36,9 +36,10 @@ namespace CourseWork
             homeForm.Visible = true;
         }
 
-        private void Admin_Load(object sender, EventArgs e)
+        private void AddCargo(object sender, EventArgs e)
         {
-            homeForm.Visible = false;
+            Add addForm = new Add(this);
+            addForm.Show();
         }
     }
 }
