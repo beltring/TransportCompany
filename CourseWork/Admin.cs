@@ -25,7 +25,7 @@ namespace CourseWork
             this.homeForm = homeForm;
         }
 
-        private void Button6_Click(object sender, EventArgs e)
+        private void ExitToHomeForm(object sender, EventArgs e)
         {
             homeForm.Visible = true;
             this.Close();
@@ -40,6 +40,12 @@ namespace CourseWork
         {
             Add addForm = new Add(this);
             addForm.Show();
+        }
+
+        private void DeleteCargo(object sender, EventArgs e)
+        {
+            Catalog catalog = new Catalog(this);
+            catalog.Show();
         }
     }
 }

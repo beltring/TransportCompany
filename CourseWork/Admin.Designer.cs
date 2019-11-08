@@ -63,6 +63,7 @@
             this.button3.TabIndex = 2;
             this.button3.Text = "Удалить груз";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.DeleteCargo);
             // 
             // button4
             // 
@@ -90,7 +91,7 @@
             this.button6.TabIndex = 5;
             this.button6.Text = "Выйти";
             this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.Button6_Click);
+            this.button6.Click += new System.EventHandler(this.ExitToHomeForm);
             // 
             // Admin
             // 

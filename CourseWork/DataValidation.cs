@@ -13,7 +13,7 @@ namespace CourseWork
         {
             foreach (string str in fields)
             {
-                if (str.Length == 0)
+                if (str == "")
                 {
                     return false;
                 }
@@ -107,5 +107,9 @@ namespace CourseWork
             return result;
         }
 
+        public bool CheckDate(string date)
+        {
         }
+
     }
+}

@@ -147,47 +147,89 @@ namespace CourseWork
 
         public static bool AddCargo(Cargo cargo)
         {
-            DataValidation dataValidation = new DataValidation();
-
-            string name = cargo.Name;
-            int cost = cargo.Cost;
-            int weight = cargo.Weight;
-            int volume = cargo.Volume;
-            string uploadDate = cargo.UploadDate;
-            string trailerType = cargo.TrailerType;
-            string status = cargo.Status;
-            string downloadLocation = cargo.DownloadLocation;
-            string placeOfDischarge = cargo.PlaceOfDischarge;
-            int distance = cargo.Distance;
-
-            if (dataValidation.CheckEmptyFields(name, uploadDate, trailerType, status, downloadLocation, placeOfDischarge) &&
-                dataValidation.CheckCost(cost) && dataValidation.CheckDistance(distance) && dataValidation.CheckVolume(volume) &&
-                dataValidation.CheckWeight(weight))
+            try
             {
                 openConection();
-                SqlCommand sqlCommand = new SqlCommand(@"INSERT INTO Cargos (
+                DataValidation dataValidation = new DataValidation();
+
+                string name = cargo.Name;
+                int cost = cargo.Cost;
+                int weight = cargo.Weight;
+                int volume = cargo.Volume;
+                string uploadDate = cargo.UploadDate;
+                string trailerType = cargo.TrailerType;
+                string status = cargo.Status;
+                string downloadLocation = cargo.DownloadLocation;
+                string placeOfDischarge = cargo.PlaceOfDischarge;
+                int distance = cargo.Distance;
+
+                if (dataValidation.CheckEmptyFields(name, uploadDate, trailerType, status, downloadLocation, placeOfDischarge) &&
+                    dataValidation.CheckCost(cost) && dataValidation.CheckDistance(distance) && dataValidation.CheckVolume(volume) &&
+                    dataValidation.CheckWeight(weight))
+                {
+                    SqlCommand sqlCommand = new SqlCommand(@"INSERT INTO Cargos (
                             Name, Cost, Weight, Volume, TrailerType, UploadDate, Status, DownloadLocation, PlaceOfDischarge,Distance)
                             VALUES(@name, @cost, @weight, @volume, @trailerType, @uploadDate, @status,@downloadLocation,@placeOfDischarge,
                             @distance)",
-                            CatalogContext.sqlConnection);
-                sqlCommand.Parameters.AddWithValue("Name", name);
-                sqlCommand.Parameters.AddWithValue("Cost", cost);
-                sqlCommand.Parameters.AddWithValue("Weight", weight);
-                sqlCommand.Parameters.AddWithValue("Volume", volume);
-                sqlCommand.Parameters.AddWithValue("TrailerType", trailerType);
-                sqlCommand.Parameters.AddWithValue("UploadDate", uploadDate);
-                sqlCommand.Parameters.AddWithValue("Status", status);
-                sqlCommand.Parameters.AddWithValue("DownloadLocation", downloadLocation);
-                sqlCommand.Parameters.AddWithValue("PlaceOfDischarge", placeOfDischarge);
-                sqlCommand.Parameters.AddWithValue("Distance", distance);
+                                CatalogContext.sqlConnection);
+                    sqlCommand.Parameters.AddWithValue("Name", name);
+                    sqlCommand.Parameters.AddWithValue("Cost", cost);
+                    sqlCommand.Parameters.AddWithValue("Weight", weight);
+                    sqlCommand.Parameters.AddWithValue("Volume", volume);
+                    sqlCommand.Parameters.AddWithValue("TrailerType", trailerType);
+                    sqlCommand.Parameters.AddWithValue("UploadDate", uploadDate);
+                    sqlCommand.Parameters.AddWithValue("Status", status);
+                    sqlCommand.Parameters.AddWithValue("DownloadLocation", downloadLocation);
+                    sqlCommand.Parameters.AddWithValue("PlaceOfDischarge", placeOfDischarge);
+                    sqlCommand.Parameters.AddWithValue("Distance", distance);
 
-                sqlCommand.ExecuteNonQuery();
-                closeConection();
-                return true;
+                    sqlCommand.ExecuteNonQuery();
+                    closeConection();
+
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
-            else
+            catch(Exception ex)
             {
+                MessageBox.Show(ex.Message.ToString(), ex.Source.ToString(), MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
+            }
+            finally
+            {
+                closeConection();
+            }
+                  
+        }
+
+        public static bool DeleteCargo(int id) {
+            try
+            {
+                openConection();
+
+                if (id > 0)
+                {
+                    SqlCommand sqlCommand = new SqlCommand("DELETE FROM [Cargos] WHERE [Id] = @id", sqlConnection);
+                    sqlCommand.Parameters.AddWithValue("Id", id);
+                    sqlCommand.ExecuteNonQuery();
+                    
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString(), ex.Source.ToString(), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            finally {
+                closeConection();
             }
         }
     }

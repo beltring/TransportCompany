@@ -15,6 +15,7 @@ namespace CourseWork
     public partial class Catalog : Form
     {
         readonly User userForm = null;
+        readonly Admin adminForm = null;
         public Catalog()
         {
             InitializeComponent();
@@ -24,11 +25,17 @@ namespace CourseWork
             this.userForm = user;
             InitializeComponent();
         }
+        public Catalog(Admin admin)
+        {
+            this.adminForm = admin;
+            InitializeComponent();
+        }
 
         //Запись данных в таблицу
         private void Catalog_Load(object sender, EventArgs e)
         {
             CheckUserCatalog();
+            CheckAdminCatalog();
             CatalogContext.Select(dataGridView1);
             
         }
@@ -39,16 +46,31 @@ namespace CourseWork
             {
                 userForm.Visible = true;
             }
+            else
+            {
+                adminForm.Visible = true;
+            }
         }
 
         private void CheckUserCatalog()
         {
             if(userForm != null)
             {
+                userForm.Visible = false;
                 button1.Visible = true;
                 button2.Visible = true;
                 button3.Visible = true;
                 button4.Visible = true;
+            }
+        }
+
+        private void CheckAdminCatalog()
+        {
+            if (adminForm != null)
+            {
+                adminForm.Visible = false;
+                button5.Visible = true;
+                button6.Visible = true;
             }
         }
 
@@ -76,10 +98,23 @@ namespace CourseWork
             CatalogContext.UpdateStatus("В пути", id);
         }
 
-        private void ExitUserPage(object sender, EventArgs e)
+        private void ExitToUserPage(object sender, EventArgs e)
         {
             Close();
             userForm.Visible = true;
+        }
+
+        private void DeleteCargo(object sender, EventArgs e)
+        {
+            int line = dataGridView1.CurrentRow.Index;
+            int id = Convert.ToInt32(dataGridView1.Rows[line].Cells[0].Value);
+
+        }
+
+        private void ExitToAdminFrom(object sender, EventArgs e)
+        {
+            Close();
+            adminForm.Visible = true;
         }
     }
 }

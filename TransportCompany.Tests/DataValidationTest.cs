@@ -126,5 +126,49 @@ namespace TransportCompany.Tests
             factResult = dataValidation.CheckNegativeNumber(number);
             Assert.IsFalse(factResult);
         }
+
+        [TestMethod]
+        public void CheckDateTest_CorrectDate_ReturnTrue()
+        {
+            DataValidation dataValidation = new DataValidation();
+            bool factResult;
+            string date = "12.12.2019";
+
+            factResult = dataValidation.CheckDate(date);
+            Assert.IsTrue(factResult);
+        }
+
+        [TestMethod]
+        public void CheckDateTest_incorrectYear_ReturnFalse()
+        {
+            DataValidation dataValidation = new DataValidation();
+            bool factResult;
+            string date = "12.12.2010";
+
+            factResult = dataValidation.CheckDate(date);
+            Assert.IsFalse(factResult);
+        }
+
+        [TestMethod]
+        public void CheckDateTest_incorrectMonth_ReturnFalse()
+        {
+            DataValidation dataValidation = new DataValidation();
+            bool factResult;
+            string date = "12.13.2019";
+
+            factResult = dataValidation.CheckDate(date);
+            Assert.IsFalse(factResult);
+        }
+
+        [TestMethod]
+        public void CheckDateTest_incorrectDay_ReturnFalse()
+        {
+            DataValidation dataValidation = new DataValidation();
+            bool factResult;
+            string date = "39.12.2019";
+
+            factResult = dataValidation.CheckDate(date);
+            Assert.IsFalse(factResult);
+        }
     }
 }
