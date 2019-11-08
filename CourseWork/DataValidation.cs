@@ -109,6 +109,46 @@ namespace CourseWork
 
         public bool CheckDate(string date)
         {
+            try {
+                string[] dateArray = date.Split(' ', '.', '-', '/', ':');
+
+                int dayInMonth;
+                int dayNow = Convert.ToInt32(DateTime.Now.Day);
+                int monthNow = Convert.ToInt32(DateTime.Now.Month);
+                int yearNow = Convert.ToInt32(DateTime.Now.Year);
+                int day = Convert.ToInt32(dateArray[0]);
+                int month = Convert.ToInt32(dateArray[1]);
+                int year = Convert.ToInt32(dateArray[2]);
+
+                if (year == yearNow)
+                {
+                    if (month >= 1 && month <= 12 && month >= monthNow)
+                    {
+                        dayInMonth = Convert.ToInt32(DateTime.DaysInMonth(year, month));
+                        if (day >= 1 && day <= dayInMonth && day >= dayNow)
+                        {
+                            return true;
+                        }
+                    }
+                }
+                else if (year > yearNow)
+                {
+                    if (month >= 1 && month <= 12)
+                    {
+                        dayInMonth = Convert.ToInt32(DateTime.DaysInMonth(year, month));
+                        if (day >= 1 && day <= dayInMonth)
+                        {
+                            return true;
+                        }
+                    }
+                }
+
+                return false;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
     }
