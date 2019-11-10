@@ -127,6 +127,7 @@ namespace TransportCompany.Tests
             Assert.IsFalse(factResult);
         }
 
+        //*****************************************************************
         [TestMethod]
         public void CheckDateTest_CorrectDate_ReturnTrue()
         {
@@ -168,6 +169,29 @@ namespace TransportCompany.Tests
             string date = "39.12.2019";
 
             factResult = dataValidation.CheckDate(date);
+            Assert.IsFalse(factResult);
+        }
+
+        //*********************************************
+        [TestMethod]
+        public void CheckLengthString3_10Test_CorrectStringLength_ReturnTrue()
+        {
+            DataValidation dataValidation = new DataValidation();
+            bool factResult;
+            string str = "asdfgh";
+
+            factResult = dataValidation.CheckLengthString3_10(str);
+            Assert.IsTrue(factResult);
+        }
+
+        [TestMethod]
+        public void CheckLengthString3_10Test_IncorrectStringLength_ReturnFalse()
+        {
+            DataValidation dataValidation = new DataValidation();
+            bool factResult;
+            string str = "as";
+
+            factResult = dataValidation.CheckLengthString3_10(str);
             Assert.IsFalse(factResult);
         }
     }

@@ -151,5 +151,16 @@ namespace CourseWork
             }
         }
 
+        public bool CheckLengthString3_10(string str)
+        {
+            if (str.Length >= 3 && str.Length <= 11)
+            {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+
     }
 }

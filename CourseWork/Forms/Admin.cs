@@ -47,5 +47,11 @@ namespace CourseWork
             Catalog catalog = new Catalog(this);
             catalog.Show();
         }
+
+        private void ViewTheListOfCargos(object sender, EventArgs e)
+        {
+            Catalog catalog = new Catalog();
+            catalog.Show();
+        }
     }
 }

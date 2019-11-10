@@ -82,6 +82,7 @@
             this.button5.TabIndex = 4;
             this.button5.Text = "Посмотреть список грузов";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.ViewTheListOfCargos);
             // 
             // button6
             // 
