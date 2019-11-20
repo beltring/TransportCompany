@@ -122,7 +122,7 @@ namespace CourseWork
 
                 if (year == yearNow)
                 {
-                    if (month >= 1 && month <= 12 && month >= monthNow)
+                    if (month >= 1 && month <= 12 && month >= monthNow) // добавление monthNow
                     {
                         dayInMonth = Convert.ToInt32(DateTime.DaysInMonth(year, month));
                         if (day >= 1 && day <= dayInMonth && day >= dayNow)

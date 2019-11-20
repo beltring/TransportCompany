@@ -28,11 +28,12 @@ namespace TransportCompany.Tests
             Assert.IsFalse(factResult);
         }
 
+        //**************
         [TestMethod]
         public void DeleteCargoTest_CorrectId_ReturnTrue()
         {
             bool factResult;
-            int id = 6;
+            int id = 14;
 
             factResult = CatalogContext.DeleteCargo(id);
             Assert.IsTrue(factResult);

@@ -14,7 +14,7 @@ namespace CourseWork
 
         public static void openConection()
         {
-            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\study\BNTU\5 sem\Тестирование\курсач\прога\CourseWork\CourseWork\Database1.mdf;Integrated Security=True";
+            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=d:\study\BNTU\5 sem\Тестирование\курсач\прога\CourseWork\CourseWork\Context\Database1.mdf;Integrated Security=True";
             sqlConnection = new SqlConnection(connectionString);
             sqlConnection.Open();
         }

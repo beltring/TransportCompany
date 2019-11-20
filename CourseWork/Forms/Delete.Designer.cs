@@ -43,6 +43,7 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
@@ -57,12 +58,12 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(927, 403);
+            this.dataGridView1.Size = new System.Drawing.Size(724, 403);
             this.dataGridView1.TabIndex = 1;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(489, 423);
+            this.button1.Location = new System.Drawing.Point(357, 421);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 2;
@@ -75,62 +76,58 @@
             this.Id.HeaderText = "Id";
             this.Id.MinimumWidth = 6;
             this.Id.Name = "Id";
-            this.Id.Width = 125;
+            this.Id.Width = 35;
             // 
             // name
             // 
             this.name.HeaderText = "Название";
             this.name.MinimumWidth = 6;
             this.name.Name = "name";
-            this.name.Width = 125;
             // 
             // cost
             // 
             this.cost.HeaderText = "Стоимость";
             this.cost.MinimumWidth = 6;
             this.cost.Name = "cost";
-            this.cost.Width = 125;
             // 
             // weight
             // 
             this.weight.HeaderText = "Вес";
             this.weight.MinimumWidth = 6;
             this.weight.Name = "weight";
-            this.weight.Width = 125;
+            this.weight.Width = 40;
             // 
             // volume
             // 
             this.volume.HeaderText = "Объём";
             this.volume.MinimumWidth = 6;
             this.volume.Name = "volume";
-            this.volume.Width = 125;
+            this.volume.Width = 80;
             // 
             // trailerType
             // 
             this.trailerType.HeaderText = "Тип кузова";
             this.trailerType.MinimumWidth = 6;
             this.trailerType.Name = "trailerType";
-            this.trailerType.Width = 125;
+            this.trailerType.Width = 115;
             // 
             // uploadDate
             // 
             this.uploadDate.HeaderText = "Дата загрузки";
             this.uploadDate.MinimumWidth = 6;
             this.uploadDate.Name = "uploadDate";
-            this.uploadDate.Width = 125;
             // 
             // status
             // 
             this.status.HeaderText = "Статус";
             this.status.MinimumWidth = 6;
             this.status.Name = "status";
-            this.status.Width = 125;
             // 
             // Delete
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(994, 458);
+            this.ClientSize = new System.Drawing.Size(747, 449);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView1);
             this.Name = "Delete";

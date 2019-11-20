@@ -14,7 +14,7 @@ namespace CourseWork
 
         public static void openConection()
         {
-            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\study\BNTU\5 sem\Тестирование\курсач\прога\CourseWork\CourseWork\Database1.mdf;Integrated Security=True";
+            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=d:\study\BNTU\5 sem\Тестирование\курсач\прога\CourseWork\CourseWork\Context\Database1.mdf;Integrated Security=True";
             sqlConnection = new SqlConnection(connectionString);
             sqlConnection.Open();
         }
@@ -165,7 +165,7 @@ namespace CourseWork
 
                 if (dataValidation.CheckEmptyFields(name, uploadDate, trailerType, status, downloadLocation, placeOfDischarge) &&
                     dataValidation.CheckCost(cost) && dataValidation.CheckDistance(distance) && dataValidation.CheckVolume(volume) &&
-                    dataValidation.CheckWeight(weight))
+                    dataValidation.CheckWeight(weight)) // проверка данных
                 {
                     SqlCommand sqlCommand = new SqlCommand(@"INSERT INTO Cargos (
                             Name, Cost, Weight, Volume, TrailerType, UploadDate, Status, DownloadLocation, PlaceOfDischarge,Distance)
@@ -206,7 +206,7 @@ namespace CourseWork
         }
 
         public static bool DeleteCargo(int id) {
-            try
+            try // обработчик ошибок
             {
                 openConection();
 
@@ -223,7 +223,7 @@ namespace CourseWork
                     return false;
                 }
             }
-            catch (Exception ex)
+            catch (Exception ex) // вызов при обнаружении ошибки
             {
                 MessageBox.Show(ex.Message.ToString(), ex.Source.ToString(), MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
