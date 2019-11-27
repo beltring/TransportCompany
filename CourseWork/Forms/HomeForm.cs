@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CourseWork.Context;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -36,22 +37,9 @@ namespace CourseWork
             this.Visible = false;
         }
 
-        private void Button5_Click(object sender, EventArgs e)
+        private void LogInAsAdministrator(object sender, EventArgs e)
         {
-            Catalog catalog = new Catalog();
-            catalog.Show();
-        }
-
-        private void Button6_Click(object sender, EventArgs e)
-        {
-            Add add = new Add();
-            add.Show();
-        }
-
-        private void Button7_Click(object sender, EventArgs e)
-        {
-            Delete delete = new Delete();
-            delete.Show();
+            Authorization(sender,e);
         }
     }
 }

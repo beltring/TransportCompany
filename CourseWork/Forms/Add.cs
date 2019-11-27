@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CourseWork.Context;
+using System;
 using System.Windows.Forms;
 
 namespace CourseWork
@@ -42,9 +35,21 @@ namespace CourseWork
                 string placeOfDischarge = textBox7.Text;
                 int distance = Convert.ToInt32(textBox8.Text);
 
-                cargo = new Cargo(name, cost, weight, volume, uploadDate, trailerType, status, downloadLocation, placeOfDischarge, distance);
+                cargo = new Cargo
+                {
+                    Name = name,
+                    Cost = cost,
+                    Weight = weight,
+                    Volume = volume,
+                    UploadDate = Convert.ToDateTime(uploadDate),
+                    TrailerType = trailerType,
+                    Status = status,
+                    DownloadLocation = downloadLocation,
+                    PlaceOfDischarge = placeOfDischarge,
+                    Distance = distance
+                };
 
-                if (CatalogContext.AddCargo(cargo))
+                if (CargosDB.AddCargo(cargo))
                 {
                     //CatalogContext.closeConection();
                     MessageBox.Show("Груз успешно добавлен.");

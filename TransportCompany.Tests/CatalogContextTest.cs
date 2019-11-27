@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using CourseWork;
 using TransportCompany;
+using CourseWork.Context;
 
 namespace TransportCompany.Tests
 {
@@ -14,7 +15,7 @@ namespace TransportCompany.Tests
             bool factResult;
             Cargo cargo = new Cargo("Минеральная воа", 1900, 4, 20, "09.11.2019", "Крытый", "В пути", "Минск", "Витебск", 350);
 
-            factResult = CatalogContext.AddCargo(cargo);
+            factResult = CargosDB.AddCargo(cargo);
             Assert.IsTrue(factResult);
         }
 
@@ -24,7 +25,7 @@ namespace TransportCompany.Tests
             bool factResult;
             Cargo cargo = new Cargo("Минеральная вода", -50, 0, 20, "", "Крытый", "В пути", "", "Гомель", -10);
 
-            factResult = CatalogContext.AddCargo(cargo);
+            factResult = CargosDB.AddCargo(cargo);
             Assert.IsFalse(factResult);
         }
 
@@ -35,7 +36,7 @@ namespace TransportCompany.Tests
             bool factResult;
             int id = 14;
 
-            factResult = CatalogContext.DeleteCargo(id);
+            factResult = CargosDB.DeleteCargo(id);
             Assert.IsTrue(factResult);
         }
         [TestMethod]
@@ -44,7 +45,7 @@ namespace TransportCompany.Tests
             bool factResult;
             int id = 0;
 
-            factResult = CatalogContext.DeleteCargo(id);
+            factResult = CargosDB.DeleteCargo(id);
             Assert.IsFalse(factResult);
         }
     }

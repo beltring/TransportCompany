@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CourseWork
@@ -19,12 +12,10 @@ namespace CourseWork
         {
             this.homeForm = form;
             InitializeComponent();
-            //Connection.openConection();
         }
         public Authorization()
         {
             InitializeComponent();
-            CatalogContext.openConection();
         }
 
         //Авторизация пользователя и администратора
@@ -41,7 +32,7 @@ namespace CourseWork
             }
             else if (isUser)
             {
-                User user = new User(homeForm, textBox1.Text);
+                UserForm user = new UserForm(homeForm, textBox1.Text);
                 user.Show();
                 Visible = false;
             }
@@ -68,34 +59,28 @@ namespace CourseWork
         //Проверка авторизации пользователя
         public bool IsUser(string login,string password)
         {
-            CatalogContext.openConection();
-            SqlDataReader sqlReader = null;
-            SqlCommand sqlCommand = new SqlCommand("SELECT Login, Password FROM Users", CatalogContext.sqlConnection);
-            bool result = false;
-
-            try
+            using (TransportCompanyContext db = new TransportCompanyContext())
             {
-                sqlReader = sqlCommand.ExecuteReader();
-                while (sqlReader.Read())
+                bool result = false;
+
+                try
                 {
-                    if (Convert.ToString(sqlReader["Login"]) == login && Convert.ToString(sqlReader["Password"]) == password)
+                    var users = db.Users.ToList();
+                    foreach (var user in users)
                     {
-                        result = true;
+                        if (user.Login == login && user.Password == password)
+                        {
+                            result = true;
+                        }
                     }
                 }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString());
+                }
+                return result;
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message.ToString());
-            }
-            finally
-            {
-                if (sqlReader != null)
-                    sqlReader.Close();
-                CatalogContext.closeConection();
-            }
-            
-            return result;
+
         }
 
         private void Authorization_FormClosed(object sender, FormClosedEventArgs e)

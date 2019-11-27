@@ -10,18 +10,19 @@ using System.Windows.Forms;
 
 namespace CourseWork
 {
-    public partial class User : Form
+    public partial class UserForm : Form
     {
         readonly HomeForm homeForm;
         private string login;
 
-        public string Login { get => login; set => login = value; }
+        public string Login { get; set; }
+        
 
-        public User()
+        public UserForm()
         {
             InitializeComponent();
         }
-        public User(HomeForm form,string login)
+        public UserForm(HomeForm form,string login)
         {
             this.homeForm = form;
             this.login = login;

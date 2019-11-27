@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CourseWork.Context;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,13 +13,13 @@ namespace CourseWork
 {
     public partial class Favourites : Form
     {
-        readonly User userForm;
+        readonly UserForm userForm;
         public Favourites()
         {
             InitializeComponent();
         }
 
-        public Favourites(User userForm)
+        public Favourites(UserForm userForm)
         {
             this.userForm = userForm;
             InitializeComponent();
@@ -26,13 +27,13 @@ namespace CourseWork
 
         private void Favourites_Load(object sender, EventArgs e)
         {
-            string resultId = UserContext.SelectCargoId(userForm.Login);
+            string resultId = UsersDB.SelectCargoId(userForm.Login);
 
             int[] id = resultId.Split(' ').
                         Where(x => !string.IsNullOrWhiteSpace(x)).
                         Select(x => int.Parse(x)).ToArray();
 
-            CatalogContext.SelectFavourites(dataGridView1, id);
+            CargosDB.SelectFavourites(dataGridView1, id);
 
         }
 
@@ -40,7 +41,7 @@ namespace CourseWork
         {
             int line = dataGridView1.CurrentRow.Index;
             int id = Convert.ToInt32(dataGridView1.Rows[line].Cells[0].Value);
-            string information = CatalogContext.SelectAllDetailed(id);
+            string information = CargosDB.SelectAllDetailed(id);
             MessageBox.Show(information, "Просмотр", MessageBoxButtons.OK);
         }
 
@@ -54,10 +55,10 @@ namespace CourseWork
         {
             int line = dataGridView1.CurrentRow.Index;
             int id = Convert.ToInt32(dataGridView1.Rows[line].Cells[0].Value);
-            string cargoId = UserContext.SelectCargoId(userForm.Login);
+            string cargoId = UsersDB.SelectCargoId(userForm.Login);
             int n = cargoId.IndexOf(id.ToString());
             cargoId = cargoId.Remove(n, id.ToString().Length);
-            UserContext.UpdateFavourites(cargoId, userForm.Login);
+            UsersDB.UpdateFavourites(cargoId, userForm.Login);
             //Favourites_Load(sender, e);
         }
 

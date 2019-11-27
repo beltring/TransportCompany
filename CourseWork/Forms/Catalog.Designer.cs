@@ -29,17 +29,23 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.weight = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.volume = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.placeOfDischarge = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.distance = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.weight = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.volume = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.trailerType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.uploadDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.downloadLocation = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,53 +54,22 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
+            this.placeOfDischarge,
+            this.distance,
             this.name,
             this.cost,
             this.weight,
-            this.volume});
+            this.volume,
+            this.trailerType,
+            this.uploadDate,
+            this.status,
+            this.downloadLocation});
             this.dataGridView1.Location = new System.Drawing.Point(209, 12);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(408, 403);
             this.dataGridView1.TabIndex = 2;
-            // 
-            // Id
-            // 
-            this.Id.HeaderText = "Id";
-            this.Id.MinimumWidth = 6;
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            this.Id.Visible = false;
-            this.Id.Width = 125;
-            // 
-            // name
-            // 
-            this.name.HeaderText = "Название";
-            this.name.MinimumWidth = 6;
-            this.name.Name = "name";
-            this.name.Width = 125;
-            // 
-            // cost
-            // 
-            this.cost.HeaderText = "Стоимость";
-            this.cost.MinimumWidth = 6;
-            this.cost.Name = "cost";
-            this.cost.Width = 125;
-            // 
-            // weight
-            // 
-            this.weight.HeaderText = "Вес";
-            this.weight.MinimumWidth = 6;
-            this.weight.Name = "weight";
-            this.weight.Width = 60;
-            // 
-            // volume
-            // 
-            this.volume.HeaderText = "Объём";
-            this.volume.MinimumWidth = 6;
-            this.volume.Name = "volume";
-            this.volume.Width = 70;
             // 
             // button1
             // 
@@ -162,6 +137,85 @@
             this.button6.Visible = false;
             this.button6.Click += new System.EventHandler(this.ExitToAdminFrom);
             // 
+            // Id
+            // 
+            this.Id.HeaderText = "Id";
+            this.Id.MinimumWidth = 6;
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Visible = false;
+            this.Id.Width = 125;
+            // 
+            // placeOfDischarge
+            // 
+            this.placeOfDischarge.HeaderText = "Место выгрузки";
+            this.placeOfDischarge.MinimumWidth = 6;
+            this.placeOfDischarge.Name = "placeOfDischarge";
+            this.placeOfDischarge.Width = 125;
+            // 
+            // distance
+            // 
+            this.distance.HeaderText = "Расстояние";
+            this.distance.MinimumWidth = 6;
+            this.distance.Name = "distance";
+            this.distance.Width = 125;
+            // 
+            // name
+            // 
+            this.name.HeaderText = "Название";
+            this.name.MinimumWidth = 6;
+            this.name.Name = "name";
+            this.name.Width = 125;
+            // 
+            // cost
+            // 
+            this.cost.HeaderText = "Стоимость";
+            this.cost.MinimumWidth = 6;
+            this.cost.Name = "cost";
+            this.cost.Width = 125;
+            // 
+            // weight
+            // 
+            this.weight.HeaderText = "Вес";
+            this.weight.MinimumWidth = 6;
+            this.weight.Name = "weight";
+            this.weight.Width = 60;
+            // 
+            // volume
+            // 
+            this.volume.HeaderText = "Объём";
+            this.volume.MinimumWidth = 6;
+            this.volume.Name = "volume";
+            this.volume.Width = 70;
+            // 
+            // trailerType
+            // 
+            this.trailerType.HeaderText = "Тип Кузова";
+            this.trailerType.MinimumWidth = 6;
+            this.trailerType.Name = "trailerType";
+            this.trailerType.Width = 125;
+            // 
+            // uploadDate
+            // 
+            this.uploadDate.HeaderText = "Дата загрузки";
+            this.uploadDate.MinimumWidth = 6;
+            this.uploadDate.Name = "uploadDate";
+            this.uploadDate.Width = 125;
+            // 
+            // status
+            // 
+            this.status.HeaderText = "Статус";
+            this.status.MinimumWidth = 6;
+            this.status.Name = "status";
+            this.status.Width = 125;
+            // 
+            // downloadLocation
+            // 
+            this.downloadLocation.HeaderText = "Место загрузки";
+            this.downloadLocation.MinimumWidth = 6;
+            this.downloadLocation.Name = "downloadLocation";
+            this.downloadLocation.Width = 125;
+            // 
             // Catalog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -193,9 +247,15 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn placeOfDischarge;
+        private System.Windows.Forms.DataGridViewTextBoxColumn distance;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
         private System.Windows.Forms.DataGridViewTextBoxColumn cost;
         private System.Windows.Forms.DataGridViewTextBoxColumn weight;
         private System.Windows.Forms.DataGridViewTextBoxColumn volume;
+        private System.Windows.Forms.DataGridViewTextBoxColumn trailerType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn uploadDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn status;
+        private System.Windows.Forms.DataGridViewTextBoxColumn downloadLocation;
     }
 }

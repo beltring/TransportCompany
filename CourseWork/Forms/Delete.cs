@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CourseWork.Context;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,7 +22,7 @@ namespace CourseWork
         //Запись данных в таблицу
         private void Delete_Load(object sender, EventArgs e)
         {
-            CatalogContext.Select(dataGridView1);
+            CargosDB.Select(dataGridView1);
         }
 
         //Удаление записи из БД

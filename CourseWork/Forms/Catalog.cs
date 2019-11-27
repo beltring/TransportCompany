@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CourseWork.Context;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,21 +15,21 @@ namespace CourseWork
     //Работа со списком грузов
     public partial class Catalog : Form
     {
-        readonly User userForm = null;
+        readonly UserForm userForm = null;
         readonly Admin adminForm = null;
         public Catalog()
         {
             InitializeComponent();
         }
-        public Catalog(User user)
+        public Catalog(UserForm user)
         {
-            this.userForm = user;
             InitializeComponent();
+            this.userForm = user;
         }
         public Catalog(Admin admin)
         {
-            this.adminForm = admin;
             InitializeComponent();
+            this.adminForm = admin;
         }
 
         //Запись данных в таблицу
@@ -36,7 +37,7 @@ namespace CourseWork
         {
             CheckUserCatalog();
             CheckAdminCatalog();
-            CatalogContext.Select(dataGridView1);
+            CargosDB.Select(dataGridView1);
             
         }
 
@@ -46,7 +47,7 @@ namespace CourseWork
             {
                 userForm.Visible = true;
             }
-            else
+            else if(adminForm != null)
             {
                 adminForm.Visible = true;
             }
@@ -78,7 +79,7 @@ namespace CourseWork
         {
             int line = dataGridView1.CurrentRow.Index;
             int id = Convert.ToInt32(dataGridView1.Rows[line].Cells[0].Value);
-            string information = CatalogContext.SelectAllDetailed(id);
+            string information = CargosDB.SelectAllDetailed(id);
             MessageBox.Show(information,"Просмотр",MessageBoxButtons.OK);
         }
 
@@ -86,16 +87,16 @@ namespace CourseWork
         {
             int line = dataGridView1.CurrentRow.Index;
             int id = Convert.ToInt32(dataGridView1.Rows[line].Cells[0].Value);
-            CatalogContext.UpdateStatus("В пути", id);
+            CargosDB.UpdateStatus("В пути", id);
         }
 
         private void AddToFavourites(object sender, EventArgs e)
         {
             int line = dataGridView1.CurrentRow.Index;
             int id = Convert.ToInt32(dataGridView1.Rows[line].Cells[0].Value);
-            string result = UserContext.SelectCargoId("kess") + " " + Convert.ToString(id);
-            UserContext.UpdateFavourites(result, userForm.Login);
-            CatalogContext.UpdateStatus("В пути", id);
+            string result = UsersDB.SelectCargoId("kess") + " " + Convert.ToString(id);
+            UsersDB.UpdateFavourites(result, userForm.Login);
+            CargosDB.UpdateStatus("В пути", id);
         }
 
         private void ExitToUserPage(object sender, EventArgs e)

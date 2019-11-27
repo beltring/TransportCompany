@@ -37,15 +37,15 @@ namespace CourseWork
                     {
                         if (dv.CheckPasswordMatch(textBox2.Text, textBox3.Text))
                         {
-                            SqlCommand sqlCommand = new SqlCommand("INSERT INTO [Users] (Login, Password)VALUES(@Login, @Password)", CatalogContext.sqlConnection);
+                            using (TransportCompanyContext db = new TransportCompanyContext())
+                            {
+                                User newUser = new User { Login = textBox1.Text, Password = textBox2.Text };
+                                db.Users.Add(newUser);
+                                db.SaveChanges();
 
-                            sqlCommand.Parameters.AddWithValue("Login", textBox1.Text);
-                            sqlCommand.Parameters.AddWithValue("Password", textBox2.Text);
-
-                            await sqlCommand.ExecuteNonQueryAsync();
-
-                            MessageBox.Show("Регистрация прошла успешно");
-                            form.Visible = true;
+                                MessageBox.Show("Регистрация прошла успешно");
+                                form.Visible = true;
+                            }
                         }
                         else
                         {

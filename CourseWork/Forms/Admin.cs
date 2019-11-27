@@ -53,5 +53,10 @@ namespace CourseWork
             Catalog catalog = new Catalog();
             catalog.Show();
         }
+
+        private void Button2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
