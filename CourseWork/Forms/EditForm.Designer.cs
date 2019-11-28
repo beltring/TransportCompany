@@ -1,6 +1,6 @@
 ﻿namespace CourseWork.Forms
 {
-    public class EditForm
+    public partial class EditForm
     {
         /// <summary>
         /// Required designer variable.

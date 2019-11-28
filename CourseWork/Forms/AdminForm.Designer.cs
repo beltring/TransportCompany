@@ -28,23 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.addCargoButton = new System.Windows.Forms.Button();
             this.editCargoButton = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.deleteCargoButton = new System.Windows.Forms.Button();
+            this.editStatusButton = new System.Windows.Forms.Button();
+            this.viewCargoButton = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button1
+            // addCargoButton
             // 
-            this.button1.Location = new System.Drawing.Point(53, 19);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(260, 34);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Добавить новый груз";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.AddCargo);
+            this.addCargoButton.Location = new System.Drawing.Point(53, 19);
+            this.addCargoButton.Name = "addCargoButton";
+            this.addCargoButton.Size = new System.Drawing.Size(260, 34);
+            this.addCargoButton.TabIndex = 0;
+            this.addCargoButton.Text = "Добавить новый груз";
+            this.addCargoButton.UseVisualStyleBackColor = true;
+            this.addCargoButton.Click += new System.EventHandler(this.AddCargo);
             // 
             // editCargoButton
             // 
@@ -56,34 +56,35 @@
             this.editCargoButton.UseVisualStyleBackColor = true;
             this.editCargoButton.Click += new System.EventHandler(this.EditCargo);
             // 
-            // button3
+            // deleteCargoButton
             // 
-            this.button3.Location = new System.Drawing.Point(53, 154);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(260, 34);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Удалить груз";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.DeleteCargo);
+            this.deleteCargoButton.Location = new System.Drawing.Point(53, 154);
+            this.deleteCargoButton.Name = "deleteCargoButton";
+            this.deleteCargoButton.Size = new System.Drawing.Size(260, 34);
+            this.deleteCargoButton.TabIndex = 2;
+            this.deleteCargoButton.Text = "Удалить груз";
+            this.deleteCargoButton.UseVisualStyleBackColor = true;
+            this.deleteCargoButton.Click += new System.EventHandler(this.DeleteCargo);
             // 
-            // button4
+            // editStatusButton
             // 
-            this.button4.Location = new System.Drawing.Point(53, 214);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(260, 34);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "Изменить статус груза";
-            this.button4.UseVisualStyleBackColor = true;
+            this.editStatusButton.Location = new System.Drawing.Point(53, 214);
+            this.editStatusButton.Name = "editStatusButton";
+            this.editStatusButton.Size = new System.Drawing.Size(260, 34);
+            this.editStatusButton.TabIndex = 3;
+            this.editStatusButton.Text = "Изменить статус груза";
+            this.editStatusButton.UseVisualStyleBackColor = true;
+            this.editStatusButton.Click += new System.EventHandler(this.EditStatusButton_Click);
             // 
-            // button5
+            // viewCargoButton
             // 
-            this.button5.Location = new System.Drawing.Point(53, 268);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(260, 34);
-            this.button5.TabIndex = 4;
-            this.button5.Text = "Посмотреть список грузов";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.ViewTheListOfCargos);
+            this.viewCargoButton.Location = new System.Drawing.Point(53, 268);
+            this.viewCargoButton.Name = "viewCargoButton";
+            this.viewCargoButton.Size = new System.Drawing.Size(260, 34);
+            this.viewCargoButton.TabIndex = 4;
+            this.viewCargoButton.Text = "Посмотреть список грузов";
+            this.viewCargoButton.UseVisualStyleBackColor = true;
+            this.viewCargoButton.Click += new System.EventHandler(this.ViewTheListOfCargos);
             // 
             // button6
             // 
@@ -95,18 +96,18 @@
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.ExitToHomeForm);
             // 
-            // Admin
+            // AdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(353, 373);
             this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.viewCargoButton);
+            this.Controls.Add(this.editStatusButton);
+            this.Controls.Add(this.deleteCargoButton);
             this.Controls.Add(this.editCargoButton);
-            this.Controls.Add(this.button1);
-            this.Name = "Admin";
+            this.Controls.Add(this.addCargoButton);
+            this.Name = "AdminForm";
             this.Text = "Администратор";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Admin_FormClosed);
             this.ResumeLayout(false);
@@ -115,11 +116,11 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button addCargoButton;
         private System.Windows.Forms.Button editCargoButton;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button deleteCargoButton;
+        private System.Windows.Forms.Button editStatusButton;
+        private System.Windows.Forms.Button viewCargoButton;
         private System.Windows.Forms.Button button6;
     }
 }

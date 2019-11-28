@@ -28,61 +28,61 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.viewCargoButton = new System.Windows.Forms.Button();
+            this.favouritesButton = new System.Windows.Forms.Button();
+            this.exitButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button1
+            // viewCargoButton
             // 
-            this.button1.Location = new System.Drawing.Point(48, 16);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(185, 61);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Просмотреть список грузов";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.LoadCargoCatalog);
+            this.viewCargoButton.Location = new System.Drawing.Point(48, 16);
+            this.viewCargoButton.Name = "viewCargoButton";
+            this.viewCargoButton.Size = new System.Drawing.Size(185, 61);
+            this.viewCargoButton.TabIndex = 0;
+            this.viewCargoButton.Text = "Просмотреть список грузов";
+            this.viewCargoButton.UseVisualStyleBackColor = true;
+            this.viewCargoButton.Click += new System.EventHandler(this.LoadCargoCatalog);
             // 
-            // button2
+            // favouritesButton
             // 
-            this.button2.Location = new System.Drawing.Point(48, 110);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(185, 61);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Избранное";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.LoadFavourites);
+            this.favouritesButton.Location = new System.Drawing.Point(48, 110);
+            this.favouritesButton.Name = "favouritesButton";
+            this.favouritesButton.Size = new System.Drawing.Size(185, 61);
+            this.favouritesButton.TabIndex = 1;
+            this.favouritesButton.Text = "Избранное";
+            this.favouritesButton.UseVisualStyleBackColor = true;
+            this.favouritesButton.Click += new System.EventHandler(this.LoadFavourites);
             // 
-            // button3
+            // exitButton
             // 
-            this.button3.Location = new System.Drawing.Point(48, 207);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(185, 61);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Выйти";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.Exit);
+            this.exitButton.Location = new System.Drawing.Point(48, 207);
+            this.exitButton.Name = "exitButton";
+            this.exitButton.Size = new System.Drawing.Size(185, 61);
+            this.exitButton.TabIndex = 2;
+            this.exitButton.Text = "Выйти";
+            this.exitButton.UseVisualStyleBackColor = true;
+            this.exitButton.Click += new System.EventHandler(this.Exit);
             // 
-            // User
+            // UserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(290, 280);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Name = "User";
+            this.Controls.Add(this.exitButton);
+            this.Controls.Add(this.favouritesButton);
+            this.Controls.Add(this.viewCargoButton);
+            this.Name = "UserForm";
             this.Text = "Пользователь";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.User_FormClosed);
-            this.Load += new System.EventHandler(this.User_Load);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.UserForm_Closed);
+            this.Load += new System.EventHandler(this.UserForm_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button viewCargoButton;
+        private System.Windows.Forms.Button favouritesButton;
+        private System.Windows.Forms.Button exitButton;
     }
 }

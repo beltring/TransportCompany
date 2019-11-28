@@ -15,8 +15,7 @@ namespace CourseWork
         readonly HomeForm homeForm;
         private string login;
 
-        public string Login { get; set; }
-        
+        public string Login { get => login; set => login = value; }
 
         public UserForm()
         {
@@ -46,15 +45,15 @@ namespace CourseWork
         {
             Catalog catalog = new Catalog(this);
             catalog.Show();
-            this.Visible = false;
+            //this.Visible = false;
         }
 
-        private void User_Load(object sender, EventArgs e)
+        private void UserForm_Load(object sender, EventArgs e)
         {
             homeForm.Visible = false;
         }
 
-        private void User_FormClosed(object sender, FormClosedEventArgs e)
+        private void UserForm_Closed(object sender, FormClosedEventArgs e)
         {
             homeForm.Visible = true;
         }

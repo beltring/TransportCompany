@@ -73,6 +73,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\CatalogForAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CatalogForAdmin.Designer.cs">
+      <DependentUpon>CatalogForAdmin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\EditForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,11 +115,11 @@
     </Compile>
     <Compile Include="Util\Editor.cs" />
     <Compile Include="Validation\DataValidation.cs" />
-    <Compile Include="Forms\Delete.cs">
+    <Compile Include="Forms\DeleteCargoForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Delete.Designer.cs">
-      <DependentUpon>Delete.cs</DependentUpon>
+    <Compile Include="Forms\DeleteCargoForm.Designer.cs">
+      <DependentUpon>DeleteCargoForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Favourites.cs">
       <SubType>Form</SubType>
@@ -154,8 +160,11 @@
     <EmbeddedResource Include="Forms\Catalog.resx">
       <DependentUpon>Catalog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Delete.resx">
-      <DependentUpon>Delete.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\CatalogForAdmin.resx">
+      <DependentUpon>CatalogForAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DeleteCargoForm.resx">
+      <DependentUpon>DeleteCargoForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\EditForm.resx">
       <DependentUpon>EditForm.cs</DependentUpon>

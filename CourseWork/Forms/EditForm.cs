@@ -26,7 +26,7 @@ namespace CourseWork.Forms
         {
             InitializeComponent();
             this.adminForm = adminForm;
-            CargosDB.SelectAll(informationGridView);
+            CargosDB.SelectAllInfo(informationGridView);
         }
 
         private void EditForm_FormClosed(object sender, FormClosedEventArgs e)

@@ -16,7 +16,6 @@ namespace CourseWork
     public partial class Catalog : Form
     {
         readonly UserForm userForm = null;
-        readonly AdminForm adminForm = null;
         public Catalog()
         {
             InitializeComponent();
@@ -26,18 +25,14 @@ namespace CourseWork
             InitializeComponent();
             this.userForm = user;
         }
-        public Catalog(AdminForm admin)
-        {
-            InitializeComponent();
-            this.adminForm = admin;
-        }
+
 
         //Запись данных в таблицу
         private void Catalog_Load(object sender, EventArgs e)
         {
             CheckUserCatalog();
-            CheckAdminCatalog();
-            CargosDB.SelectAll(dataGridView1);
+            userForm.Visible = false;
+            CargosDB.Select(informationGridView);
             
         }
 
@@ -47,10 +42,6 @@ namespace CourseWork
             {
                 userForm.Visible = true;
             }
-            else if(adminForm != null)
-            {
-                adminForm.Visible = true;
-            }
         }
 
         private void CheckUserCatalog()
@@ -58,43 +49,33 @@ namespace CourseWork
             if(userForm != null)
             {
                 userForm.Visible = false;
-                button1.Visible = true;
-                button2.Visible = true;
+                addFavouritesButton.Visible = true;
+                detailedInfoButton.Visible = true;
                 button3.Visible = true;
                 button4.Visible = true;
             }
         }
 
-        private void CheckAdminCatalog()
-        {
-            if (adminForm != null)
-            {
-                adminForm.Visible = false;
-                button5.Visible = true;
-                button6.Visible = true;
-            }
-        }
-
         private void DetailedInformation(object sender, EventArgs e)
         {
-            int line = dataGridView1.CurrentRow.Index;
-            int id = Convert.ToInt32(dataGridView1.Rows[line].Cells[0].Value);
+            int line = informationGridView.CurrentRow.Index;
+            int id = Convert.ToInt32(informationGridView.Rows[line].Cells[0].Value);
             string information = CargosDB.SelectAllDetailed(id);
             MessageBox.Show(information,"Просмотр",MessageBoxButtons.OK);
         }
 
         private void StatusChange(object sender, EventArgs e)
         {
-            int line = dataGridView1.CurrentRow.Index;
-            int id = Convert.ToInt32(dataGridView1.Rows[line].Cells[0].Value);
+            int line = informationGridView.CurrentRow.Index;
+            int id = Convert.ToInt32(informationGridView.Rows[line].Cells[0].Value);
             CargosDB.UpdateStatus("В пути", id);
         }
 
         private void AddToFavourites(object sender, EventArgs e)
         {
-            int line = dataGridView1.CurrentRow.Index;
-            int id = Convert.ToInt32(dataGridView1.Rows[line].Cells[0].Value);
-            string result = UsersDB.SelectCargoId("kess") + " " + Convert.ToString(id);
+            int line = informationGridView.CurrentRow.Index;
+            int id = Convert.ToInt32(informationGridView.Rows[line].Cells[0].Value);
+            string result = UsersDB.SelectCargoId(userForm.Login) + " " + Convert.ToString(id);
             UsersDB.UpdateFavourites(result, userForm.Login);
             CargosDB.UpdateStatus("В пути", id);
         }
@@ -107,8 +88,8 @@ namespace CourseWork
 
         private void DeleteCargo(object sender, EventArgs e)
         {
-            int line = dataGridView1.CurrentRow.Index;
-            int id = Convert.ToInt32(dataGridView1.Rows[line].Cells[0].Value);
+            int line = informationGridView.CurrentRow.Index;
+            int id = Convert.ToInt32(informationGridView.Rows[line].Cells[0].Value);
 
         }
 

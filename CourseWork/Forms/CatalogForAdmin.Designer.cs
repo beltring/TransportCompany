@@ -1,6 +1,6 @@
-﻿namespace CourseWork
+﻿namespace CourseWork.Forms
 {
-    partial class Catalog
+    partial class CatalogForAdmin
     {
         /// <summary>
         /// Required designer variable.
@@ -29,15 +29,18 @@
         private void InitializeComponent()
         {
             this.informationGridView = new System.Windows.Forms.DataGridView();
-            this.addFavouritesButton = new System.Windows.Forms.Button();
-            this.detailedInfoButton = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.weight = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.volume = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.trailerType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.uploadDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.downloadLocation = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.placeOfDischarge = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.distance = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.exitButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.informationGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,58 +54,20 @@
             this.name,
             this.cost,
             this.weight,
-            this.volume});
-            this.informationGridView.Location = new System.Drawing.Point(209, 12);
+            this.volume,
+            this.trailerType,
+            this.uploadDate,
+            this.status,
+            this.downloadLocation,
+            this.placeOfDischarge,
+            this.distance});
+            this.informationGridView.Location = new System.Drawing.Point(12, 12);
             this.informationGridView.Name = "informationGridView";
             this.informationGridView.RowHeadersWidth = 51;
             this.informationGridView.RowTemplate.Height = 24;
             this.informationGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.informationGridView.Size = new System.Drawing.Size(408, 403);
-            this.informationGridView.TabIndex = 2;
-            // 
-            // addFavouritesButton
-            // 
-            this.addFavouritesButton.Location = new System.Drawing.Point(12, 12);
-            this.addFavouritesButton.Name = "addFavouritesButton";
-            this.addFavouritesButton.Size = new System.Drawing.Size(191, 64);
-            this.addFavouritesButton.TabIndex = 3;
-            this.addFavouritesButton.Text = "Добавить в избранное";
-            this.addFavouritesButton.UseVisualStyleBackColor = true;
-            this.addFavouritesButton.Visible = false;
-            this.addFavouritesButton.Click += new System.EventHandler(this.AddToFavourites);
-            // 
-            // detailedInfoButton
-            // 
-            this.detailedInfoButton.Location = new System.Drawing.Point(12, 100);
-            this.detailedInfoButton.Name = "detailedInfoButton";
-            this.detailedInfoButton.Size = new System.Drawing.Size(191, 64);
-            this.detailedInfoButton.TabIndex = 4;
-            this.detailedInfoButton.Text = "Просмотр подробной информации";
-            this.detailedInfoButton.UseVisualStyleBackColor = true;
-            this.detailedInfoButton.Visible = false;
-            this.detailedInfoButton.Click += new System.EventHandler(this.DetailedInformation);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(12, 189);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(191, 64);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "Взять заказ на выполнение";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Visible = false;
-            this.button3.Click += new System.EventHandler(this.StatusChange);
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(12, 280);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(191, 64);
-            this.button4.TabIndex = 6;
-            this.button4.Text = "Вернуться на страницу пользователя";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Visible = false;
-            this.button4.Click += new System.EventHandler(this.ExitToUserPage);
+            this.informationGridView.Size = new System.Drawing.Size(776, 374);
+            this.informationGridView.TabIndex = 3;
             // 
             // Id
             // 
@@ -125,6 +90,7 @@
             this.cost.HeaderText = "Стоимость";
             this.cost.MinimumWidth = 6;
             this.cost.Name = "cost";
+            this.cost.Width = 125;
             // 
             // weight
             // 
@@ -140,20 +106,69 @@
             this.volume.Name = "volume";
             this.volume.Width = 70;
             // 
-            // Catalog
+            // trailerType
+            // 
+            this.trailerType.HeaderText = "Тип Кузова";
+            this.trailerType.MinimumWidth = 6;
+            this.trailerType.Name = "trailerType";
+            this.trailerType.Width = 125;
+            // 
+            // uploadDate
+            // 
+            this.uploadDate.HeaderText = "Дата загрузки";
+            this.uploadDate.MinimumWidth = 6;
+            this.uploadDate.Name = "uploadDate";
+            this.uploadDate.Width = 125;
+            // 
+            // status
+            // 
+            this.status.HeaderText = "Статус";
+            this.status.MinimumWidth = 6;
+            this.status.Name = "status";
+            this.status.Width = 125;
+            // 
+            // downloadLocation
+            // 
+            this.downloadLocation.HeaderText = "Место загрузки";
+            this.downloadLocation.MinimumWidth = 6;
+            this.downloadLocation.Name = "downloadLocation";
+            this.downloadLocation.Width = 125;
+            // 
+            // placeOfDischarge
+            // 
+            this.placeOfDischarge.HeaderText = "Место выгрузки";
+            this.placeOfDischarge.MinimumWidth = 6;
+            this.placeOfDischarge.Name = "placeOfDischarge";
+            this.placeOfDischarge.Width = 125;
+            // 
+            // distance
+            // 
+            this.distance.HeaderText = "Расстояние";
+            this.distance.MinimumWidth = 6;
+            this.distance.Name = "distance";
+            this.distance.Width = 125;
+            // 
+            // exitButton
+            // 
+            this.exitButton.Location = new System.Drawing.Point(297, 392);
+            this.exitButton.Name = "exitButton";
+            this.exitButton.Size = new System.Drawing.Size(191, 46);
+            this.exitButton.TabIndex = 9;
+            this.exitButton.Text = "Вернуться на страницу администратора";
+            this.exitButton.UseVisualStyleBackColor = true;
+            this.exitButton.Click += new System.EventHandler(this.ExitButton_Click);
+            // 
+            // CatalogForAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(623, 420);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.detailedInfoButton);
-            this.Controls.Add(this.addFavouritesButton);
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.exitButton);
             this.Controls.Add(this.informationGridView);
-            this.Name = "Catalog";
+            this.Name = "CatalogForAdmin";
             this.Text = "Каталог";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Catalog_FormClosed);
-            this.Load += new System.EventHandler(this.Catalog_Load);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.CatalogForAdmin_FormClosed);
+            this.Load += new System.EventHandler(this.CatalogForAdmin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.informationGridView)).EndInit();
             this.ResumeLayout(false);
 
@@ -162,14 +177,17 @@
         #endregion
 
         private System.Windows.Forms.DataGridView informationGridView;
-        private System.Windows.Forms.Button addFavouritesButton;
-        private System.Windows.Forms.Button detailedInfoButton;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
         private System.Windows.Forms.DataGridViewTextBoxColumn cost;
         private System.Windows.Forms.DataGridViewTextBoxColumn weight;
         private System.Windows.Forms.DataGridViewTextBoxColumn volume;
+        private System.Windows.Forms.DataGridViewTextBoxColumn trailerType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn uploadDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn status;
+        private System.Windows.Forms.DataGridViewTextBoxColumn downloadLocation;
+        private System.Windows.Forms.DataGridViewTextBoxColumn placeOfDischarge;
+        private System.Windows.Forms.DataGridViewTextBoxColumn distance;
+        private System.Windows.Forms.Button exitButton;
     }
 }

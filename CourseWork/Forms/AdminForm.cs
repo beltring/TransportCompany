@@ -45,13 +45,13 @@ namespace CourseWork
 
         private void DeleteCargo(object sender, EventArgs e)
         {
-            Catalog catalog = new Catalog(this);
-            catalog.Show();
+            DeleteCargoForm deleteForm = new DeleteCargoForm(this);
+            deleteForm.ShowDialog();
         }
 
         private void ViewTheListOfCargos(object sender, EventArgs e)
         {
-            Catalog catalog = new Catalog();
+            CatalogForAdmin catalog = new CatalogForAdmin(this);
             catalog.Show();
         }
 
@@ -59,6 +59,11 @@ namespace CourseWork
         {
             EditForm editForm = new EditForm(this);
             editForm.Show();
+        }
+
+        private void EditStatusButton_Click(object sender, EventArgs e)
+        {
+            EditCargo(sender, e);
         }
     }
 }

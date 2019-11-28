@@ -9,7 +9,7 @@ namespace CourseWork.Context
 {
     public class CargosDB
     {
-        public static void SelectAll(DataGridView dataGridView1)
+        public static void SelectAllInfo(DataGridView dataGridView1)
         {
             try
             {
@@ -56,13 +56,6 @@ namespace CourseWork.Context
                             Convert.ToString(cargo.Cost),
                             Convert.ToString(cargo.Weight),
                             Convert.ToString(cargo.Volume),
-                            cargo.TrailerType,
-                            cargo.UploadDate.ToString(),
-                            cargo.Status,
-                            cargo.DownloadLocation,
-                            cargo.PlaceOfDischarge,
-                            Convert.ToString(cargo.Distance)
-
                         });
                     }
                 }
