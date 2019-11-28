@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CourseWork.Context;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data.SqlClient;
@@ -37,40 +38,42 @@ namespace CourseWork
                     {
                         if (dv.CheckPasswordMatch(textBox2.Text, textBox3.Text))
                         {
-                            using (TransportCompanyContext db = new TransportCompanyContext())
+                            if (UsersDB.CheckUserInDB(textBox1.Text))
                             {
-                                User newUser = new User { Login = textBox1.Text, Password = textBox2.Text };
-                                db.Users.Add(newUser);
-                                db.SaveChanges();
-
+                                UsersDB.AddUser(textBox1.Text, textBox2.Text);
                                 MessageBox.Show("Регистрация прошла успешно");
                                 form.Visible = true;
+                                this.Close();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Пользователь с таким логином уже существует. Введите другой логин","",MessageBoxButtons.OK,MessageBoxIcon.Warning);
                             }
                         }
                         else
                         {
-                            MessageBox.Show("Пароли не совпадают");
+                            MessageBox.Show("Пароли не совпадают","", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             textBox2.Clear();
                             textBox3.Clear();
                         }
                     }
                     else
                     {
-                        MessageBox.Show("Пароль содержит недоступное количество символов");
+                        MessageBox.Show("Пароль содержит недоступное количество символов", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         textBox2.Clear();
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Логин содержит недоступное количество символов");
+                    MessageBox.Show("Логин содержит недоступное количество символов", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     textBox1.Clear();
                 }
             }
             else
             {
-                MessageBox.Show("Одно из полей пустое");
+                MessageBox.Show("Одно из полей пустое", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            this.Close();
+            
         }
 
         private void Registration_FormClosed(object sender, FormClosedEventArgs e)
