@@ -19,29 +19,36 @@ namespace CourseWork
         }
 
         //Авторизация пользователя и администратора
-        private void UserAuthorization(object sender, EventArgs e)
+        private bool UserAuthorization(object sender, EventArgs e)
         {
-            bool isUser = IsUser(textBox1.Text, textBox2.Text);
-            bool isAdmin = IsAdmin(textBox1.Text, textBox2.Text);
+            DataValidation dv = new DataValidation();
+            if (dv.CheckAuth(loginTextBox.Text, passwordTextBox.Text))
+            {
+                bool isUser = IsUser(loginTextBox.Text, passwordTextBox.Text);
+                bool isAdmin = IsAdmin(loginTextBox.Text, passwordTextBox.Text);
 
-            if (isAdmin)
-            {
-                AdminForm admin = new AdminForm(new HomeForm());
-                admin.Show();
-                Visible = false;
+                if (isAdmin)
+                {
+                    AdminForm admin = new AdminForm(new HomeForm());
+                    admin.Show();
+                    Close();
+                    return true;
+                }
+                else if (isUser)
+                {
+                    UserForm user = new UserForm(homeForm, loginTextBox.Text);
+                    user.Show();
+                    Close();
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show("Логин или пароль введены неверно! Попробуйте ещё раз!", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    loginTextBox.Clear();
+                    passwordTextBox.Clear();
+                }
             }
-            else if (isUser)
-            {
-                UserForm user = new UserForm(homeForm, textBox1.Text);
-                user.Show();
-                Visible = false;
-            }
-            else
-            {
-                MessageBox.Show("Логин или пароль введены неверно! Попробуйте ещё раз!");
-                textBox1.Clear();
-                textBox2.Clear();
-            }
+            return false;
         }
 
         //Проверка авторизации адинистратора

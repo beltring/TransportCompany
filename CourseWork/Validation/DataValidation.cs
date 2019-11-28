@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace CourseWork
 {
@@ -170,5 +171,24 @@ namespace CourseWork
             }
         }
 
+        public bool CheckAuth(string login, string password)
+        {
+            if (CheckLenghtLogin(login))
+            {
+                if (CheckLenghtLogin(password))
+                {
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show("Пароль должен содержать от 6 до 25 символов", "", MessageBoxButtons.OK, MessageBoxIcon.Error); 
+                }
+            }
+            else
+            {
+                MessageBox.Show("Логин должен содержать от 4 до 25 символов", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return false;
+        }
     }
 }
