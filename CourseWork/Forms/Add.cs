@@ -51,7 +51,6 @@ namespace CourseWork
 
                 if (CargosDB.AddCargo(cargo))
                 {
-                    //CatalogContext.closeConection();
                     MessageBox.Show("Груз успешно добавлен.");
                     this.Close();
                 }
@@ -63,7 +62,7 @@ namespace CourseWork
                 }
             }
             catch {
-                MessageBox.Show("Не все поля заполнены", "Ошибка",
+                MessageBox.Show("Проверьте правильность ввода данных", "Ошибка",
                 MessageBoxButtons.OK, MessageBoxIcon.Error,
                 MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
             }

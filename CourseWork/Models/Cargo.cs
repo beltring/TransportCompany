@@ -36,5 +36,19 @@ namespace CourseWork
         public string PlaceOfDischarge { get; set; }
 
         public int Distance { get; set; }
+
+        public void CopyFields(Cargo cargo)
+        {
+            this.Cost = cargo.Cost;
+            this.Name = cargo.Name;
+            this.Weight = cargo.Weight;
+            this.Volume = cargo.Volume;
+            this.UploadDate = cargo.UploadDate;
+            this.TrailerType = cargo.TrailerType;
+            this.Status = cargo.Status;
+            this.DownloadLocation = cargo.DownloadLocation;
+            this.PlaceOfDischarge = cargo.PlaceOfDischarge;
+            this.Distance = cargo.Distance;
+        }
     }
 }

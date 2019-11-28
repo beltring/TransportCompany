@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CourseWork.Util;
+using System;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -92,6 +94,38 @@ namespace CourseWork.Context
             {
                 MessageBox.Show(ex.Message.ToString(), ex.Source.ToString(), MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;
+            }
+        }
+
+        public static bool EditCargo(int id, Cargo cargo)
+        {
+            try
+            {
+                DataValidation dv = new DataValidation();
+                using (TransportCompanyContext db = new TransportCompanyContext())
+                {
+                    if (dv.CheckEmptyFields(cargo.Name, cargo.UploadDate.ToString(), cargo.TrailerType, cargo.Status, cargo.DownloadLocation,
+                        cargo.PlaceOfDischarge) && dv.CheckCost(cargo.Cost) && dv.CheckDistance(cargo.Distance) &&
+                        dv.CheckVolume(cargo.Volume) && dv.CheckWeight(cargo.Weight) && dv.CheckDate(cargo.UploadDate.ToString()))
+                    {
+                        var cargos = db.Cargos.ToList();
+                        for (int i = 0; i < cargos.Count; i++)
+                        {
+                            if (cargos[i].Id == id)
+                            {
+                                cargos[i].CopyFields(cargo);
+                                db.SaveChanges();
+                                return true;
+                            }
+                        }
+                    }
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString(), ex.Source.ToString(), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
         }
 
@@ -248,5 +282,7 @@ namespace CourseWork.Context
                 return false;
             }
         }
+
+
     }
 }

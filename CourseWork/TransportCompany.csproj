@@ -107,6 +107,7 @@
     <Compile Include="Forms\Catalog.Designer.cs">
       <DependentUpon>Catalog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Util\Editor.cs" />
     <Compile Include="Validation\DataValidation.cs" />
     <Compile Include="Forms\Delete.cs">
       <SubType>Form</SubType>

@@ -1,6 +1,6 @@
 ﻿namespace CourseWork.Forms
 {
-    partial class EditForm
+    public class EditForm
     {
         /// <summary>
         /// Required designer variable.
@@ -366,6 +366,7 @@
             this.editCargoButton.TabIndex = 43;
             this.editCargoButton.Text = "Изменить";
             this.editCargoButton.UseVisualStyleBackColor = true;
+            this.editCargoButton.Click += new System.EventHandler(this.EditCargoButton_Click);
             // 
             // EditForm
             // 

@@ -1,4 +1,5 @@
 ﻿using CourseWork.Context;
+using CourseWork.Util;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +15,8 @@ namespace CourseWork.Forms
     public partial class EditForm : Form
     {
         readonly AdminForm adminForm;
+        private Cargo cargo;
+        private int id;
         public EditForm()
         {
             InitializeComponent();
@@ -36,6 +39,30 @@ namespace CourseWork.Forms
             adminForm.Visible = false;
         }
 
+        private void SelectCargoButton_Click(object sender, EventArgs e)
+        {
+            int line = informationGridView.CurrentRow.Index;
+            id = Convert.ToInt32(informationGridView.Rows[line].Cells[0].Value);
+            cargo = CargosDB.SelectById(id);
+            OpenFields();
+            FillFields();
+        }
+
+        private void EditCargoButton_Click(object sender, EventArgs e)
+        {  
+            if (EditFiledsCargo() && CargosDB.EditCargo(id,cargo))
+            {
+                MessageBox.Show("Груз изменён.");
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Проверьте правильность ввода данных", "Ошибка",
+                MessageBoxButtons.OK, MessageBoxIcon.Error,
+                MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
+            }
+        }
+
         private void OpenFields()
         {
             nameTextBox.ReadOnly = false;
@@ -49,11 +76,46 @@ namespace CourseWork.Forms
             editCargoButton.Enabled = true;
         }
 
-        private void SelectCargoButton_Click(object sender, EventArgs e)
+        private void FillFields()
         {
-            int line = informationGridView.CurrentRow.Index;
-            int id = Convert.ToInt32(informationGridView.Rows[line].Cells[0].Value);
-            Cargo cargo = CargosDB.SelectById(id);
+            nameTextBox.Text = cargo.Name;
+            costTextBox.Text = cargo.Cost.ToString();
+            weightTextBox.Text = cargo.Weight.ToString();
+            volumeTextBox.Text = cargo.Volume.ToString();
+            uploadDateTextBox.Text = cargo.UploadDate.ToString();
+            trailerTypeComboBox.Text = cargo.TrailerType;
+            statusComboBox.Text = cargo.Status;
+            loadLocationTextBox.Text = cargo.DownloadLocation;
+            placeOfDischargeTextBox.Text = cargo.PlaceOfDischarge;
+            distanceTextBox.Text = cargo.Distance.ToString();
+        }
+
+        private bool EditFiledsCargo()
+        {
+            try
+            {
+                cargo.Name = nameTextBox.Text;
+                cargo.Cost = Convert.ToDouble(costTextBox.Text);
+                cargo.Weight = Convert.ToDouble(weightTextBox.Text);
+                cargo.Volume = Convert.ToDouble(volumeTextBox.Text);
+                cargo.UploadDate = DateTime.Parse(uploadDateTextBox.Text);
+                cargo.TrailerType = trailerTypeComboBox.SelectedItem.ToString();
+                cargo.Status = statusComboBox.SelectedItem.ToString();
+                cargo.DownloadLocation = loadLocationTextBox.Text;
+                cargo.PlaceOfDischarge = placeOfDischargeTextBox.Text;
+                cargo.Distance = Convert.ToInt32(distanceTextBox.Text);
+
+                return true;
+            }
+            catch
+            {
+                MessageBox.Show("Проверьте правильность ввода данных", "Ошибка",
+                MessageBoxButtons.OK, MessageBoxIcon.Error,
+                MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
+
+                return false;
+            }
+            
         }
     }
 }
