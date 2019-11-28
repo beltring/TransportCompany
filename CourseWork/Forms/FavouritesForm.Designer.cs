@@ -1,6 +1,6 @@
 ﻿namespace CourseWork
 {
-    partial class Favourites
+    partial class FavouritesForm
     {
         /// <summary>
         /// Required designer variable.
@@ -42,6 +42,8 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
@@ -53,6 +55,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(554, 403);
             this.dataGridView1.TabIndex = 3;
             // 
@@ -123,7 +126,7 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.ExitUserPage);
             // 
-            // Favourites
+            // FavouritesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -132,7 +135,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.dataGridView1);
-            this.Name = "Favourites";
+            this.Name = "FavouritesForm";
             this.Text = "Избранное";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Favourites_FormClosed);
             this.Load += new System.EventHandler(this.Favourites_Load);

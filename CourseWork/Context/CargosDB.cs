@@ -132,12 +132,14 @@ namespace CourseWork.Context
                     var cargos = db.Cargos.ToList();
                     foreach (var cargo in cargos)
                     {
-                        result.Append(Convert.ToString("Название:" + cargo.Name + "\n" + "Стоимость:" + cargo.Cost + "\n"
-                                                    + "Вес:" + cargo.Weight + "\n" + "Объём:" + cargo.Volume + "\n" + "Тип кузова:" +
-                                                    cargo.TrailerType + "\n" + "Дата загрузки:" + cargo.UploadDate + "\n" + "Статус заказа:" +
-                                                    cargo.Status + "\n" + "Место загрузки:" + cargo.DownloadLocation + "\n" + "Место разгрузки:" +
-                                                    cargo.PlaceOfDischarge + "\n" + "Расстояние:" + cargo.Distance));
+                        if(cargo.Id == id)
+                        {
+                            result.Append($"Название: {cargo.Name} \nСтоимость: {cargo.Cost} \nВес: {cargo.Weight} \nОбъём: {cargo.Volume} \n" +
+                                $"Тип кузова: { cargo.TrailerType} \nДата загрузки: {cargo.UploadDate} \nСтатус заказа: {cargo.Status} \nМесто загрузки: " +
+                                $"{cargo.DownloadLocation} \nМесто разгрузки: {cargo.PlaceOfDischarge} \nРасстояние: {cargo.Distance}\n");    
+                        }
                     }
+                    return result.ToString();
                 }
             }
             catch (Exception ex)

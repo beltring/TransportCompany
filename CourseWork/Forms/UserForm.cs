@@ -30,9 +30,8 @@ namespace CourseWork
 
         private void LoadFavourites(object sender, EventArgs e)
         {
-            Favourites favourites = new Favourites(this);
+            FavouritesForm favourites = new FavouritesForm(this);
             favourites.Show();
-            this.Visible = false;
         }
 
         private void Exit(object sender, EventArgs e)

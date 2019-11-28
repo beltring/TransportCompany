@@ -1,13 +1,5 @@
 ﻿using CourseWork.Context;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CourseWork
@@ -30,7 +22,7 @@ namespace CourseWork
         //Запись данных в таблицу
         private void Catalog_Load(object sender, EventArgs e)
         {
-            CheckUserCatalog();
+            //CheckUserCatalog();
             userForm.Visible = false;
             CargosDB.Select(informationGridView);
             
@@ -41,18 +33,6 @@ namespace CourseWork
             if(userForm != null)
             {
                 userForm.Visible = true;
-            }
-        }
-
-        private void CheckUserCatalog()
-        {
-            if(userForm != null)
-            {
-                userForm.Visible = false;
-                addFavouritesButton.Visible = true;
-                detailedInfoButton.Visible = true;
-                button3.Visible = true;
-                button4.Visible = true;
             }
         }
 
@@ -86,17 +66,16 @@ namespace CourseWork
             userForm.Visible = true;
         }
 
-        private void DeleteCargo(object sender, EventArgs e)
+        private void CheckUserCatalog()
         {
-            int line = informationGridView.CurrentRow.Index;
-            int id = Convert.ToInt32(informationGridView.Rows[line].Cells[0].Value);
-
-        }
-
-        private void ExitToAdminFrom(object sender, EventArgs e)
-        {
-            Close();
-            adminForm.Visible = true;
+            if (userForm != null)
+            {
+                userForm.Visible = false;
+                addFavouritesButton.Visible = true;
+                detailedInfoButton.Visible = true;
+                button3.Visible = true;
+                button4.Visible = true;
+            }
         }
     }
 }

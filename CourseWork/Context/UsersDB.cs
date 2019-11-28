@@ -45,8 +45,6 @@ namespace CourseWork.Context
                             result = user.CargoId;
                         }
                     }
-
-                    //db.SaveChanges();
                 }
             }
             catch (Exception ex)

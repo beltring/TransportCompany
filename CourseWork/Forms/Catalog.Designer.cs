@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.informationGridView = new System.Windows.Forms.DataGridView();
-            this.addFavouritesButton = new System.Windows.Forms.Button();
-            this.detailedInfoButton = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.weight = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.volume = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.addFavouritesButton = new System.Windows.Forms.Button();
+            this.detailedInfoButton = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.informationGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,50 +60,6 @@
             this.informationGridView.Size = new System.Drawing.Size(408, 403);
             this.informationGridView.TabIndex = 2;
             // 
-            // addFavouritesButton
-            // 
-            this.addFavouritesButton.Location = new System.Drawing.Point(12, 12);
-            this.addFavouritesButton.Name = "addFavouritesButton";
-            this.addFavouritesButton.Size = new System.Drawing.Size(191, 64);
-            this.addFavouritesButton.TabIndex = 3;
-            this.addFavouritesButton.Text = "Добавить в избранное";
-            this.addFavouritesButton.UseVisualStyleBackColor = true;
-            this.addFavouritesButton.Visible = false;
-            this.addFavouritesButton.Click += new System.EventHandler(this.AddToFavourites);
-            // 
-            // detailedInfoButton
-            // 
-            this.detailedInfoButton.Location = new System.Drawing.Point(12, 100);
-            this.detailedInfoButton.Name = "detailedInfoButton";
-            this.detailedInfoButton.Size = new System.Drawing.Size(191, 64);
-            this.detailedInfoButton.TabIndex = 4;
-            this.detailedInfoButton.Text = "Просмотр подробной информации";
-            this.detailedInfoButton.UseVisualStyleBackColor = true;
-            this.detailedInfoButton.Visible = false;
-            this.detailedInfoButton.Click += new System.EventHandler(this.DetailedInformation);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(12, 189);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(191, 64);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "Взять заказ на выполнение";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Visible = false;
-            this.button3.Click += new System.EventHandler(this.StatusChange);
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(12, 280);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(191, 64);
-            this.button4.TabIndex = 6;
-            this.button4.Text = "Вернуться на страницу пользователя";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Visible = false;
-            this.button4.Click += new System.EventHandler(this.ExitToUserPage);
-            // 
             // Id
             // 
             this.Id.HeaderText = "Id";
@@ -125,6 +81,7 @@
             this.cost.HeaderText = "Стоимость";
             this.cost.MinimumWidth = 6;
             this.cost.Name = "cost";
+            this.cost.Width = 125;
             // 
             // weight
             // 
@@ -139,6 +96,46 @@
             this.volume.MinimumWidth = 6;
             this.volume.Name = "volume";
             this.volume.Width = 70;
+            // 
+            // addFavouritesButton
+            // 
+            this.addFavouritesButton.Location = new System.Drawing.Point(12, 12);
+            this.addFavouritesButton.Name = "addFavouritesButton";
+            this.addFavouritesButton.Size = new System.Drawing.Size(191, 64);
+            this.addFavouritesButton.TabIndex = 3;
+            this.addFavouritesButton.Text = "Добавить в избранное";
+            this.addFavouritesButton.UseVisualStyleBackColor = true;
+            this.addFavouritesButton.Click += new System.EventHandler(this.AddToFavourites);
+            // 
+            // detailedInfoButton
+            // 
+            this.detailedInfoButton.Location = new System.Drawing.Point(12, 100);
+            this.detailedInfoButton.Name = "detailedInfoButton";
+            this.detailedInfoButton.Size = new System.Drawing.Size(191, 64);
+            this.detailedInfoButton.TabIndex = 4;
+            this.detailedInfoButton.Text = "Просмотр подробной информации";
+            this.detailedInfoButton.UseVisualStyleBackColor = true;
+            this.detailedInfoButton.Click += new System.EventHandler(this.DetailedInformation);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(12, 189);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(191, 64);
+            this.button3.TabIndex = 5;
+            this.button3.Text = "Взять заказ на выполнение";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.StatusChange);
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(12, 280);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(191, 64);
+            this.button4.TabIndex = 6;
+            this.button4.Text = "Вернуться на страницу пользователя";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.ExitToUserPage);
             // 
             // Catalog
             // 

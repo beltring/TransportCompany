@@ -11,15 +11,15 @@ using System.Windows.Forms;
 
 namespace CourseWork
 {
-    public partial class Favourites : Form
+    public partial class FavouritesForm : Form
     {
         readonly UserForm userForm;
-        public Favourites()
+        public FavouritesForm()
         {
             InitializeComponent();
         }
 
-        public Favourites(UserForm userForm)
+        public FavouritesForm(UserForm userForm)
         {
             this.userForm = userForm;
             InitializeComponent();
@@ -28,13 +28,21 @@ namespace CourseWork
         private void Favourites_Load(object sender, EventArgs e)
         {
             string resultId = UsersDB.SelectCargoId(userForm.Login);
-
-            int[] id = resultId.Split(' ').
+            if(resultId != null && resultId != " ")
+            {
+                userForm.Visible = false;
+                int[] id = resultId.Split(' ').
                         Where(x => !string.IsNullOrWhiteSpace(x)).
                         Select(x => int.Parse(x)).ToArray();
-
-            CargosDB.SelectFavourites(dataGridView1, id);
-
+                CargosDB.SelectFavourites(dataGridView1, id);
+            }
+            else
+            {
+                MessageBox.Show("Добавьте груз в избранное", "Предупреждение",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning,
+                MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
+                this.Close();
+            }
         }
 
         private void DetailedInformation(object sender, EventArgs e)
@@ -43,12 +51,6 @@ namespace CourseWork
             int id = Convert.ToInt32(dataGridView1.Rows[line].Cells[0].Value);
             string information = CargosDB.SelectAllDetailed(id);
             MessageBox.Show(information, "Просмотр", MessageBoxButtons.OK);
-        }
-
-        private void ExitUserPage(object sender, EventArgs e)
-        {
-            Close();
-            userForm.Visible = true;
         }
 
         private void DeleteFavouritesCargo(object sender, EventArgs e)
@@ -62,9 +64,15 @@ namespace CourseWork
             //Favourites_Load(sender, e);
         }
 
+        private void ExitUserPage(object sender, EventArgs e)
+        {
+            Close();
+            userForm.Visible = true;
+        }
+
         private void Favourites_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Visible = true;
+            userForm.Visible = true;
         }
     }
 }
