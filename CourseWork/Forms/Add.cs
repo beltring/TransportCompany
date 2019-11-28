@@ -6,12 +6,12 @@ namespace CourseWork
 {
     public partial class Add : Form
     {
-        readonly Admin admin;
+        readonly AdminForm admin;
         public Add()
         {
             InitializeComponent();
         }
-        public Add(Admin admin)
+        public Add(AdminForm admin)
         {
             InitializeComponent();
             this.admin = admin;

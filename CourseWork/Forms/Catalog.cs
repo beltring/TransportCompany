@@ -16,7 +16,7 @@ namespace CourseWork
     public partial class Catalog : Form
     {
         readonly UserForm userForm = null;
-        readonly Admin adminForm = null;
+        readonly AdminForm adminForm = null;
         public Catalog()
         {
             InitializeComponent();
@@ -26,7 +26,7 @@ namespace CourseWork
             InitializeComponent();
             this.userForm = user;
         }
-        public Catalog(Admin admin)
+        public Catalog(AdminForm admin)
         {
             InitializeComponent();
             this.adminForm = admin;
@@ -37,7 +37,7 @@ namespace CourseWork
         {
             CheckUserCatalog();
             CheckAdminCatalog();
-            CargosDB.Select(dataGridView1);
+            CargosDB.SelectAll(dataGridView1);
             
         }
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CourseWork.Forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,16 +11,16 @@ using System.Windows.Forms;
 
 namespace CourseWork
 {
-    public partial class Admin : Form
+    public partial class AdminForm : Form
     {
         readonly HomeForm homeForm;
 
-        public Admin()
+        public AdminForm()
         {
             InitializeComponent();
         }
 
-        public Admin(HomeForm homeForm)
+        public AdminForm(HomeForm homeForm)
         {
             InitializeComponent();
             this.homeForm = homeForm;
@@ -54,9 +55,10 @@ namespace CourseWork
             catalog.Show();
         }
 
-        private void Button2_Click(object sender, EventArgs e)
+        private void EditCargo(object sender, EventArgs e)
         {
-
+            EditForm editForm = new EditForm(this);
+            editForm.Show();
         }
     }
 }

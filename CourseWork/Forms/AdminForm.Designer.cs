@@ -1,6 +1,6 @@
 ﻿namespace CourseWork
 {
-    partial class Admin
+    partial class AdminForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.editCargoButton = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
@@ -46,15 +46,15 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.AddCargo);
             // 
-            // button2
+            // editCargoButton
             // 
-            this.button2.Location = new System.Drawing.Point(53, 85);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(260, 34);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Редактировать груз";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.Button2_Click);
+            this.editCargoButton.Location = new System.Drawing.Point(53, 85);
+            this.editCargoButton.Name = "editCargoButton";
+            this.editCargoButton.Size = new System.Drawing.Size(260, 34);
+            this.editCargoButton.TabIndex = 1;
+            this.editCargoButton.Text = "Редактировать груз";
+            this.editCargoButton.UseVisualStyleBackColor = true;
+            this.editCargoButton.Click += new System.EventHandler(this.EditCargo);
             // 
             // button3
             // 
@@ -104,7 +104,7 @@
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.editCargoButton);
             this.Controls.Add(this.button1);
             this.Name = "Admin";
             this.Text = "Администратор";
@@ -116,7 +116,7 @@
         #endregion
 
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button editCargoButton;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;

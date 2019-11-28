@@ -7,6 +7,38 @@ namespace CourseWork.Context
 {
     public class CargosDB
     {
+        public static void SelectAll(DataGridView dataGridView1)
+        {
+            try
+            {
+                using (TransportCompanyContext db = new TransportCompanyContext())
+                {
+                    var cargos = db.Cargos.ToList();
+                    foreach (var cargo in cargos)
+                    {
+                        dataGridView1.Rows.Add(new string[] {
+                            Convert.ToString(cargo.Id),
+                            cargo.Name,
+                            Convert.ToString(cargo.Cost),
+                            Convert.ToString(cargo.Weight),
+                            Convert.ToString(cargo.Volume),
+                            cargo.TrailerType,
+                            cargo.UploadDate.ToString(),
+                            cargo.Status,
+                            cargo.DownloadLocation,
+                            cargo.PlaceOfDischarge,
+                            Convert.ToString(cargo.Distance)
+
+                        });
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString(), ex.Source.ToString(), MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         public static void Select(DataGridView dataGridView1)
         {
             try
@@ -36,6 +68,30 @@ namespace CourseWork.Context
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message.ToString(), ex.Source.ToString(), MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public static Cargo SelectById(int id)
+        {
+            try
+            {
+                using (TransportCompanyContext db = new TransportCompanyContext())
+                {
+                    var cargos = db.Cargos.ToList();
+                    foreach (var cargo in cargos)
+                    {
+                        if(cargo.Id == id)
+                        {
+                            return cargo;
+                        }
+                    }
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString(), ex.Source.ToString(), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
             }
         }
 

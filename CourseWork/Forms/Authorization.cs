@@ -26,7 +26,7 @@ namespace CourseWork
 
             if (isAdmin)
             {
-                Admin admin = new Admin(new HomeForm());
+                AdminForm admin = new AdminForm(new HomeForm());
                 admin.Show();
                 Visible = false;
             }

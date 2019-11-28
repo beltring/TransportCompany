@@ -22,7 +22,7 @@ namespace CourseWork
         //Запись данных в таблицу
         private void Delete_Load(object sender, EventArgs e)
         {
-            CargosDB.Select(dataGridView1);
+            CargosDB.SelectAll(dataGridView1);
         }
 
         //Удаление записи из БД
