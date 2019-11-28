@@ -8,6 +8,7 @@ namespace CourseWork
     public partial class Catalog : Form
     {
         readonly UserForm userForm = null;
+        readonly HomeForm homeForm;
         public Catalog()
         {
             InitializeComponent();
@@ -18,22 +19,31 @@ namespace CourseWork
             this.userForm = user;
         }
 
+        public Catalog(HomeForm homeForm)
+        {
+            InitializeComponent();
+            this.homeForm = homeForm;
+        }
 
         //Запись данных в таблицу
         private void Catalog_Load(object sender, EventArgs e)
         {
-            //CheckUserCatalog();
-            userForm.Visible = false;
-            CargosDB.Select(informationGridView);
+            if (userForm != null)
+            {
+                userForm.Visible = false;
+            }
+            else
+            {
+                CheckGuestCatalog();
+                homeForm.Visible = false;
+            }
             
+            CargosDB.Select(informationGridView);
         }
 
         private void Catalog_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if(userForm != null)
-            {
-                userForm.Visible = true;
-            }
+            CheckRole();
         }
 
         private void DetailedInformation(object sender, EventArgs e)
@@ -63,18 +73,30 @@ namespace CourseWork
         private void ExitToUserPage(object sender, EventArgs e)
         {
             Close();
-            userForm.Visible = true;
+            CheckRole();
         }
 
-        private void CheckUserCatalog()
+        private void CheckGuestCatalog()
+        {
+            if (userForm == null)
+            {
+                addFavouritesButton.Visible = false;
+                detailedInfoButton.Visible = false;
+                takeOrderButton.Visible = false;
+                exitButton.Visible = true;
+                exitButton.Text = "Вернуться";
+            }
+        }
+
+        private void CheckRole()
         {
             if (userForm != null)
             {
-                userForm.Visible = false;
-                addFavouritesButton.Visible = true;
-                detailedInfoButton.Visible = true;
-                button3.Visible = true;
-                button4.Visible = true;
+                userForm.Visible = true;
+            }
+            else
+            {
+                homeForm.Visible = true;
             }
         }
     }

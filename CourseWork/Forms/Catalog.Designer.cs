@@ -36,8 +36,8 @@
             this.volume = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.addFavouritesButton = new System.Windows.Forms.Button();
             this.detailedInfoButton = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.takeOrderButton = new System.Windows.Forms.Button();
+            this.exitButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.informationGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -117,33 +117,33 @@
             this.detailedInfoButton.UseVisualStyleBackColor = true;
             this.detailedInfoButton.Click += new System.EventHandler(this.DetailedInformation);
             // 
-            // button3
+            // takeOrderButton
             // 
-            this.button3.Location = new System.Drawing.Point(12, 189);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(191, 64);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "Взять заказ на выполнение";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.StatusChange);
+            this.takeOrderButton.Location = new System.Drawing.Point(12, 189);
+            this.takeOrderButton.Name = "takeOrderButton";
+            this.takeOrderButton.Size = new System.Drawing.Size(191, 64);
+            this.takeOrderButton.TabIndex = 5;
+            this.takeOrderButton.Text = "Взять заказ на выполнение";
+            this.takeOrderButton.UseVisualStyleBackColor = true;
+            this.takeOrderButton.Click += new System.EventHandler(this.StatusChange);
             // 
-            // button4
+            // exitButton
             // 
-            this.button4.Location = new System.Drawing.Point(12, 280);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(191, 64);
-            this.button4.TabIndex = 6;
-            this.button4.Text = "Вернуться на страницу пользователя";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.ExitToUserPage);
+            this.exitButton.Location = new System.Drawing.Point(12, 280);
+            this.exitButton.Name = "exitButton";
+            this.exitButton.Size = new System.Drawing.Size(191, 64);
+            this.exitButton.TabIndex = 6;
+            this.exitButton.Text = "Вернуться на страницу пользователя";
+            this.exitButton.UseVisualStyleBackColor = true;
+            this.exitButton.Click += new System.EventHandler(this.ExitToUserPage);
             // 
             // Catalog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(623, 420);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.exitButton);
+            this.Controls.Add(this.takeOrderButton);
             this.Controls.Add(this.detailedInfoButton);
             this.Controls.Add(this.addFavouritesButton);
             this.Controls.Add(this.informationGridView);
@@ -161,8 +161,8 @@
         private System.Windows.Forms.DataGridView informationGridView;
         private System.Windows.Forms.Button addFavouritesButton;
         private System.Windows.Forms.Button detailedInfoButton;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button takeOrderButton;
+        private System.Windows.Forms.Button exitButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
         private System.Windows.Forms.DataGridViewTextBoxColumn cost;

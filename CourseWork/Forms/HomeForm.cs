@@ -41,5 +41,11 @@ namespace CourseWork
         {
             Authorization(sender,e);
         }
+
+        private void ViewCatalog(object sender, EventArgs e)
+        {
+            Catalog catalog = new Catalog(this);
+            catalog.Show();
+        }
     }
 }
