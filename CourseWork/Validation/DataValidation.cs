@@ -69,7 +69,7 @@ namespace CourseWork
             return true;
         }
 
-        public bool CheckCost(int number) {
+        public bool CheckCost(double number) {
             bool result = false;
             if(number >= 1 && number <= 10000)
             {
@@ -78,7 +78,7 @@ namespace CourseWork
             return result;
         }
 
-        public bool CheckWeight(int number)
+        public bool CheckWeight(double number)
         {
             bool result = false;
             if (number >= 1 && number <= 38)
@@ -87,7 +87,7 @@ namespace CourseWork
             }
             return result;
         }
-        public bool CheckVolume(int number)
+        public bool CheckVolume(double number)
         {
             bool result = false;
             if (number >= 1 && number <= 120)
@@ -125,10 +125,18 @@ namespace CourseWork
                     if (month >= 1 && month <= 12 && month >= monthNow) // добавление monthNow
                     {
                         dayInMonth = Convert.ToInt32(DateTime.DaysInMonth(year, month));
-                        if (day >= 1 && day <= dayInMonth && day >= dayNow)
+                        if (day >= 1 && day <= dayInMonth)
                         {
-                            return true;
+                            if (month == monthNow && day >= dayNow)
+                            {
+                                return true;
+                            }
+                            else if (month != monthNow)
+                            {
+                                return true;
+                            }
                         }
+                        
                     }
                 }
                 else if (year > yearNow)

@@ -11,7 +11,7 @@ namespace CourseWork.Context
         {
             try
             {
-                using (CourseWork.TransportCompanyContext db = new CourseWork.TransportCompanyContext())
+                using (TransportCompanyContext db = new TransportCompanyContext())
                 {
                     var cargos = db.Cargos.ToList();
                     foreach (var cargo in cargos)
@@ -139,7 +139,7 @@ namespace CourseWork.Context
                 {
                     if (dataValidation.CheckEmptyFields(cargo.Name, cargo.UploadDate.ToString(), cargo.TrailerType, cargo.Status, cargo.DownloadLocation, 
                         cargo.PlaceOfDischarge) && dataValidation.CheckCost(cargo.Cost) && dataValidation.CheckDistance(cargo.Distance) && 
-                        dataValidation.CheckVolume(cargo.Volume) && dataValidation.CheckWeight(cargo.Weight))
+                        dataValidation.CheckVolume(cargo.Volume) && dataValidation.CheckWeight(cargo.Weight) && dataValidation.CheckDate(cargo.UploadDate.ToString()))
                     {
                         db.Cargos.Add(cargo);
                         db.SaveChanges();

@@ -25,9 +25,9 @@ namespace CourseWork
             try {
                 DataValidation dv = new DataValidation();
                 string name = textBox1.Text;
-                int cost = Convert.ToInt32(textBox2.Text);
-                int weight = Convert.ToInt32(textBox3.Text);
-                int volume = Convert.ToInt32(textBox4.Text);
+                double cost = Convert.ToDouble(textBox2.Text);
+                double weight = Convert.ToDouble(textBox3.Text);
+                double volume = Convert.ToDouble(textBox4.Text);
                 string uploadDate = textBox5.Text;
                 string trailerType = comboBox1.SelectedItem.ToString();
                 string status = comboBox2.SelectedItem.ToString();
@@ -41,7 +41,7 @@ namespace CourseWork
                     Cost = cost,
                     Weight = weight,
                     Volume = volume,
-                    UploadDate = Convert.ToDateTime(uploadDate),
+                    UploadDate = DateTime.Parse(uploadDate),
                     TrailerType = trailerType,
                     Status = status,
                     DownloadLocation = downloadLocation,

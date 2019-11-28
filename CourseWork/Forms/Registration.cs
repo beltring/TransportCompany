@@ -26,7 +26,7 @@ namespace CourseWork
         }
 
         //Регистрация пользователя и занесение данных в БД
-        public async void RegistrationOfUsers(object sender, EventArgs e)
+        public void RegistrationOfUsers(object sender, EventArgs e)
         {
             DataValidation dv = new DataValidation();
             if (dv.CheckEmptyFields(textBox1.Text, textBox2.Text, textBox3.Text))
@@ -70,7 +70,6 @@ namespace CourseWork
             {
                 MessageBox.Show("Одно из полей пустое");
             }
-            CatalogContext.closeConection();
             this.Close();
         }
 

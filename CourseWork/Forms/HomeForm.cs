@@ -20,7 +20,7 @@ namespace CourseWork
 
         private void Close(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         private void Authorization(object sender, EventArgs e)

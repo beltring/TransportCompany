@@ -14,11 +14,11 @@ namespace CourseWork
         [StringLength(30)]
         public string Name { get; set; }
 
-        public int Cost { get; set; }
+        public double Cost { get; set; }
 
-        public int Weight { get; set; }
+        public double Weight { get; set; }
 
-        public int Volume { get; set; }
+        public double Volume { get; set; }
 
         [StringLength(10)]
         public string TrailerType { get; set; }

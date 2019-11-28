@@ -36,8 +36,6 @@
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.placeOfDischarge = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.distance = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.weight = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,6 +44,8 @@
             this.uploadDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.downloadLocation = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.placeOfDischarge = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.distance = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,8 +54,6 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
-            this.placeOfDischarge,
-            this.distance,
             this.name,
             this.cost,
             this.weight,
@@ -63,7 +61,9 @@
             this.trailerType,
             this.uploadDate,
             this.status,
-            this.downloadLocation});
+            this.downloadLocation,
+            this.placeOfDischarge,
+            this.distance});
             this.dataGridView1.Location = new System.Drawing.Point(209, 12);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
@@ -146,20 +146,6 @@
             this.Id.Visible = false;
             this.Id.Width = 125;
             // 
-            // placeOfDischarge
-            // 
-            this.placeOfDischarge.HeaderText = "Место выгрузки";
-            this.placeOfDischarge.MinimumWidth = 6;
-            this.placeOfDischarge.Name = "placeOfDischarge";
-            this.placeOfDischarge.Width = 125;
-            // 
-            // distance
-            // 
-            this.distance.HeaderText = "Расстояние";
-            this.distance.MinimumWidth = 6;
-            this.distance.Name = "distance";
-            this.distance.Width = 125;
-            // 
             // name
             // 
             this.name.HeaderText = "Название";
@@ -216,6 +202,20 @@
             this.downloadLocation.Name = "downloadLocation";
             this.downloadLocation.Width = 125;
             // 
+            // placeOfDischarge
+            // 
+            this.placeOfDischarge.HeaderText = "Место выгрузки";
+            this.placeOfDischarge.MinimumWidth = 6;
+            this.placeOfDischarge.Name = "placeOfDischarge";
+            this.placeOfDischarge.Width = 125;
+            // 
+            // distance
+            // 
+            this.distance.HeaderText = "Расстояние";
+            this.distance.MinimumWidth = 6;
+            this.distance.Name = "distance";
+            this.distance.Width = 125;
+            // 
             // Catalog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -247,8 +247,6 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn placeOfDischarge;
-        private System.Windows.Forms.DataGridViewTextBoxColumn distance;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
         private System.Windows.Forms.DataGridViewTextBoxColumn cost;
         private System.Windows.Forms.DataGridViewTextBoxColumn weight;
@@ -257,5 +255,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn uploadDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn status;
         private System.Windows.Forms.DataGridViewTextBoxColumn downloadLocation;
+        private System.Windows.Forms.DataGridViewTextBoxColumn placeOfDischarge;
+        private System.Windows.Forms.DataGridViewTextBoxColumn distance;
     }
 }

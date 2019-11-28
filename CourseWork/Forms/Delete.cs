@@ -28,19 +28,15 @@ namespace CourseWork
         //Удаление записи из БД
         private void CargoDelete(object sender, EventArgs e)
         {
-            CatalogContext.openConection();
-            if (MessageBox.Show("Удалить груз?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Удалить запись?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 int line = dataGridView1.CurrentRow.Index;
-                int Id = Convert.ToInt32(dataGridView1.Rows[line].Cells[0].Value.ToString());
+                int id = Convert.ToInt32(dataGridView1.Rows[line].Cells[0].Value.ToString());
 
-                SqlCommand command = new SqlCommand(@"DELETE FROM Cargos WHERE Id = @Id", CatalogContext.sqlConnection);
-                command.Parameters.AddWithValue("Id", Id);
-                command.ExecuteNonQuery();
+                CargosDB.DeleteCargo(id);
 
-                MessageBox.Show("Книга успешно удалена", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Запись удалена", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            CatalogContext.closeConection();
             this.Close();
         }
     }
