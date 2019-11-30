@@ -50,5 +50,19 @@ namespace CourseWork
             this.PlaceOfDischarge = cargo.PlaceOfDischarge;
             this.Distance = cargo.Distance;
         }
+
+        public bool Equals(Cargo cargo)
+        {
+            if(Name == cargo.Name && Cost == cargo.Cost && Weight == cargo.Weight && Volume ==cargo.Volume && UploadDate == cargo.UploadDate 
+                && TrailerType == cargo.TrailerType && Status == cargo.Status && DownloadLocation ==cargo.DownloadLocation && Distance == cargo.Distance 
+                && PlaceOfDischarge == cargo.PlaceOfDischarge)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

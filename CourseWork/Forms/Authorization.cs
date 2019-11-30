@@ -19,7 +19,7 @@ namespace CourseWork
         }
 
         //Авторизация пользователя и администратора
-        private bool UserAuthorization(object sender, EventArgs e)
+        private void UserAuthorization(object sender, EventArgs e)
         {
             DataValidation dv = new DataValidation();
             if (dv.CheckAuth(loginTextBox.Text, passwordTextBox.Text))
@@ -29,17 +29,17 @@ namespace CourseWork
 
                 if (isAdmin)
                 {
-                    AdminForm admin = new AdminForm(new HomeForm());
+                    AdminForm admin = new AdminForm(homeForm);
                     admin.Show();
                     Close();
-                    return true;
+                    homeForm.Visible = false;
                 }
                 else if (isUser)
                 {
                     UserForm user = new UserForm(homeForm, loginTextBox.Text);
                     user.Show();
                     Close();
-                    return true;
+                    homeForm.Visible = false;
                 }
                 else
                 {
@@ -48,7 +48,6 @@ namespace CourseWork
                     passwordTextBox.Clear();
                 }
             }
-            return false;
         }
 
         //Проверка авторизации адинистратора

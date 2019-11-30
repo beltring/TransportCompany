@@ -28,35 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.nameTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.costTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.weightTextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.volumeTextBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.uploadDateTextBox = new System.Windows.Forms.TextBox();
+            this.trailerTypeComboBox = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.statusComboBox = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.addButton = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.loadLocationTextBox = new System.Windows.Forms.TextBox();
+            this.placeOfDischargeTextBox = new System.Windows.Forms.TextBox();
+            this.distanceTextBox = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
+            this.exitButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // textBox1
+            // nameTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(146, 4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(121, 22);
-            this.textBox1.TabIndex = 0;
+            this.nameTextBox.Location = new System.Drawing.Point(146, 4);
+            this.nameTextBox.Name = "nameTextBox";
+            this.nameTextBox.Size = new System.Drawing.Size(121, 22);
+            this.nameTextBox.TabIndex = 0;
             // 
             // label1
             // 
@@ -76,12 +77,12 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Стоимость";
             // 
-            // textBox2
+            // costTextBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(146, 32);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(121, 22);
-            this.textBox2.TabIndex = 2;
+            this.costTextBox.Location = new System.Drawing.Point(146, 32);
+            this.costTextBox.Name = "costTextBox";
+            this.costTextBox.Size = new System.Drawing.Size(121, 22);
+            this.costTextBox.TabIndex = 2;
             // 
             // label3
             // 
@@ -92,12 +93,12 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "Вес";
             // 
-            // textBox3
+            // weightTextBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(146, 60);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(121, 22);
-            this.textBox3.TabIndex = 4;
+            this.weightTextBox.Location = new System.Drawing.Point(146, 60);
+            this.weightTextBox.Name = "weightTextBox";
+            this.weightTextBox.Size = new System.Drawing.Size(121, 22);
+            this.weightTextBox.TabIndex = 4;
             // 
             // label4
             // 
@@ -108,12 +109,12 @@
             this.label4.TabIndex = 7;
             this.label4.Text = "Объём";
             // 
-            // textBox4
+            // volumeTextBox
             // 
-            this.textBox4.Location = new System.Drawing.Point(146, 88);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(121, 22);
-            this.textBox4.TabIndex = 6;
+            this.volumeTextBox.Location = new System.Drawing.Point(146, 88);
+            this.volumeTextBox.Name = "volumeTextBox";
+            this.volumeTextBox.Size = new System.Drawing.Size(121, 22);
+            this.volumeTextBox.TabIndex = 6;
             // 
             // label5
             // 
@@ -124,25 +125,25 @@
             this.label5.TabIndex = 9;
             this.label5.Text = "Дата загрузки";
             // 
-            // textBox5
+            // uploadDateTextBox
             // 
-            this.textBox5.Location = new System.Drawing.Point(146, 116);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(121, 22);
-            this.textBox5.TabIndex = 8;
+            this.uploadDateTextBox.Location = new System.Drawing.Point(146, 116);
+            this.uploadDateTextBox.Name = "uploadDateTextBox";
+            this.uploadDateTextBox.Size = new System.Drawing.Size(121, 22);
+            this.uploadDateTextBox.TabIndex = 8;
             // 
-            // comboBox1
+            // trailerTypeComboBox
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.trailerTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.trailerTypeComboBox.FormattingEnabled = true;
+            this.trailerTypeComboBox.Items.AddRange(new object[] {
             "Крытый",
             "Открытый",
             "Цистерна"});
-            this.comboBox1.Location = new System.Drawing.Point(146, 144);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 24);
-            this.comboBox1.TabIndex = 11;
+            this.trailerTypeComboBox.Location = new System.Drawing.Point(146, 144);
+            this.trailerTypeComboBox.Name = "trailerTypeComboBox";
+            this.trailerTypeComboBox.Size = new System.Drawing.Size(121, 24);
+            this.trailerTypeComboBox.TabIndex = 11;
             // 
             // label6
             // 
@@ -153,17 +154,17 @@
             this.label6.TabIndex = 12;
             this.label6.Text = "Тип кузова";
             // 
-            // comboBox2
+            // statusComboBox
             // 
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.statusComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.statusComboBox.FormattingEnabled = true;
+            this.statusComboBox.Items.AddRange(new object[] {
             "Доставлен",
             "Не доставлен"});
-            this.comboBox2.Location = new System.Drawing.Point(146, 174);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 24);
-            this.comboBox2.TabIndex = 13;
+            this.statusComboBox.Location = new System.Drawing.Point(146, 174);
+            this.statusComboBox.Name = "statusComboBox";
+            this.statusComboBox.Size = new System.Drawing.Size(121, 24);
+            this.statusComboBox.TabIndex = 13;
             // 
             // label7
             // 
@@ -174,15 +175,15 @@
             this.label7.TabIndex = 14;
             this.label7.Text = "Статус";
             // 
-            // button1
+            // addButton
             // 
-            this.button1.Location = new System.Drawing.Point(91, 312);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(99, 23);
-            this.button1.TabIndex = 15;
-            this.button1.Text = "Добавить";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.CargoAdd);
+            this.addButton.Location = new System.Drawing.Point(89, 288);
+            this.addButton.Name = "addButton";
+            this.addButton.Size = new System.Drawing.Size(99, 31);
+            this.addButton.TabIndex = 15;
+            this.addButton.Text = "Добавить";
+            this.addButton.UseVisualStyleBackColor = true;
+            this.addButton.Click += new System.EventHandler(this.CargoAdd);
             // 
             // label8
             // 
@@ -202,26 +203,26 @@
             this.label9.TabIndex = 17;
             this.label9.Text = "Место разгрузки";
             // 
-            // textBox6
+            // loadLocationTextBox
             // 
-            this.textBox6.Location = new System.Drawing.Point(146, 204);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(121, 22);
-            this.textBox6.TabIndex = 18;
+            this.loadLocationTextBox.Location = new System.Drawing.Point(146, 204);
+            this.loadLocationTextBox.Name = "loadLocationTextBox";
+            this.loadLocationTextBox.Size = new System.Drawing.Size(121, 22);
+            this.loadLocationTextBox.TabIndex = 18;
             // 
-            // textBox7
+            // placeOfDischargeTextBox
             // 
-            this.textBox7.Location = new System.Drawing.Point(146, 232);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(121, 22);
-            this.textBox7.TabIndex = 19;
+            this.placeOfDischargeTextBox.Location = new System.Drawing.Point(146, 232);
+            this.placeOfDischargeTextBox.Name = "placeOfDischargeTextBox";
+            this.placeOfDischargeTextBox.Size = new System.Drawing.Size(121, 22);
+            this.placeOfDischargeTextBox.TabIndex = 19;
             // 
-            // textBox8
+            // distanceTextBox
             // 
-            this.textBox8.Location = new System.Drawing.Point(146, 260);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(121, 22);
-            this.textBox8.TabIndex = 20;
+            this.distanceTextBox.Location = new System.Drawing.Point(146, 260);
+            this.distanceTextBox.Name = "distanceTextBox";
+            this.distanceTextBox.Size = new System.Drawing.Size(121, 22);
+            this.distanceTextBox.TabIndex = 20;
             // 
             // label10
             // 
@@ -232,32 +233,43 @@
             this.label10.TabIndex = 21;
             this.label10.Text = "Расстояние";
             // 
+            // exitButton
+            // 
+            this.exitButton.Location = new System.Drawing.Point(42, 325);
+            this.exitButton.Name = "exitButton";
+            this.exitButton.Size = new System.Drawing.Size(186, 28);
+            this.exitButton.TabIndex = 22;
+            this.exitButton.Text = "Вернуться на страницу администратора";
+            this.exitButton.UseVisualStyleBackColor = true;
+            this.exitButton.Click += new System.EventHandler(this.ExitButton_Click);
+            // 
             // Add
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(288, 347);
+            this.ClientSize = new System.Drawing.Size(288, 357);
+            this.Controls.Add(this.exitButton);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.textBox8);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.distanceTextBox);
+            this.Controls.Add(this.placeOfDischargeTextBox);
+            this.Controls.Add(this.loadLocationTextBox);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.addButton);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.statusComboBox);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.trailerTypeComboBox);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.uploadDateTextBox);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.volumeTextBox);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.weightTextBox);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.costTextBox);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.nameTextBox);
             this.Name = "Add";
             this.Text = "Добавление груза";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Add_FormClosed);
@@ -269,26 +281,27 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox nameTextBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox costTextBox;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox weightTextBox;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox volumeTextBox;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox uploadDateTextBox;
+        private System.Windows.Forms.ComboBox trailerTypeComboBox;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox statusComboBox;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox loadLocationTextBox;
+        private System.Windows.Forms.TextBox placeOfDischargeTextBox;
+        private System.Windows.Forms.TextBox distanceTextBox;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button exitButton;
     }
 }

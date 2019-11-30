@@ -24,16 +24,16 @@ namespace CourseWork
 
             try {
                 DataValidation dv = new DataValidation();
-                string name = textBox1.Text;
-                double cost = Convert.ToDouble(textBox2.Text);
-                double weight = Convert.ToDouble(textBox3.Text);
-                double volume = Convert.ToDouble(textBox4.Text);
-                string uploadDate = textBox5.Text;
-                string trailerType = comboBox1.SelectedItem.ToString();
-                string status = comboBox2.SelectedItem.ToString();
-                string downloadLocation = textBox6.Text;
-                string placeOfDischarge = textBox7.Text;
-                int distance = Convert.ToInt32(textBox8.Text);
+                string name = nameTextBox.Text;
+                double cost = Convert.ToDouble(costTextBox.Text);
+                double weight = Convert.ToDouble(weightTextBox.Text);
+                double volume = Convert.ToDouble(volumeTextBox.Text);
+                string uploadDate = uploadDateTextBox.Text;
+                string trailerType = trailerTypeComboBox.SelectedItem.ToString();
+                string status = statusComboBox.SelectedItem.ToString();
+                string downloadLocation = loadLocationTextBox.Text;
+                string placeOfDischarge = placeOfDischargeTextBox.Text;
+                int distance = Convert.ToInt32(distanceTextBox.Text);
 
                 cargo = new Cargo
                 {
@@ -49,14 +49,23 @@ namespace CourseWork
                     Distance = distance
                 };
 
-                if (CargosDB.AddCargo(cargo))
+                if (!CargosDB.CheckCargoInDB(cargo))
                 {
-                    MessageBox.Show("Груз успешно добавлен.");
-                    this.Close();
+                    if (CargosDB.AddCargo(cargo))
+                    {
+                        MessageBox.Show("Груз успешно добавлен.");
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Проверьте правильность ввода данных", "Ошибка",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error,
+                        MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Проверьте правильность ввода данных", "Ошибка",
+                    MessageBox.Show("Груз с таким наименованием уже существует", "Ошибка",
                     MessageBoxButtons.OK, MessageBoxIcon.Error,
                     MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
                 }
@@ -76,6 +85,12 @@ namespace CourseWork
         private void Add_FormClosed(object sender, FormClosedEventArgs e)
         {
             admin.Visible = true;
+        }
+
+        private void ExitButton_Click(object sender, EventArgs e)
+        {
+            admin.Visible = true;
+            Close();
         }
     }
 }

@@ -278,6 +278,30 @@ namespace CourseWork.Context
             }
         }
 
+        public static bool CheckCargoInDB(Cargo newCargo)
+        {
+            try
+            {
+                using (TransportCompanyContext db = new TransportCompanyContext())
+                {
+                    var cargos = db.Cargos.ToList();
+                    foreach (var cargo in cargos)
+                    {
+                        if (cargo.Equals(newCargo))
+                        {
+                            return true;
+                        }
+                    }
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString(), ex.Source.ToString(), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
 
     }
 }
