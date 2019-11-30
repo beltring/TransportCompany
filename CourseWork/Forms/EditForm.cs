@@ -58,8 +58,7 @@ namespace CourseWork.Forms
             else
             {
                 MessageBox.Show("Проверьте правильность ввода данных", "Ошибка",
-                MessageBoxButtons.OK, MessageBoxIcon.Error,
-                MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

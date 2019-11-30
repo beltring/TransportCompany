@@ -190,5 +190,19 @@ namespace CourseWork
             }
             return false;
         }
+
+        public bool CheckAllInput(Cargo cargo)
+        {
+            if (CheckEmptyFields(cargo.Name, cargo.UploadDate.ToString(), cargo.TrailerType, cargo.Status, cargo.DownloadLocation,
+                       cargo.PlaceOfDischarge) && CheckCost(cargo.Cost) && CheckDistance(cargo.Distance) &&
+                       CheckVolume(cargo.Volume) && CheckWeight(cargo.Weight) && CheckDate(cargo.UploadDate.ToString()))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

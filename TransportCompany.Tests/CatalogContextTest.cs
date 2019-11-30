@@ -13,7 +13,19 @@ namespace TransportCompany.Tests
         public void AddCargoTest_CorrectData_ReturnTrue()
         {
             bool factResult;
-            Cargo cargo = new Cargo("Минеральная воа", 1900, 4, 20, "09.11.2019", "Крытый", "В пути", "Минск", "Витебск", 350);
+            Cargo cargo = new Cargo
+            {
+                Name = "Минеральная вода",
+                Cost = 1900,
+                Weight = 4,
+                Volume = 20,
+                UploadDate = DateTime.Parse("25.12.2019"),
+                TrailerType = "Крытый",
+                Status = "В пути",
+                DownloadLocation = "Минск",
+                PlaceOfDischarge = "Витебск",
+                Distance = 290
+            };
 
             factResult = CargosDB.AddCargo(cargo);
             Assert.IsTrue(factResult);
@@ -23,7 +35,19 @@ namespace TransportCompany.Tests
         public void AddCargoTest_IncorrectData_ReturnFalse()
         {
             bool factResult;
-            Cargo cargo = new Cargo("Минеральная вода", -50, 0, 20, "", "Крытый", "В пути", "", "Гомель", -10);
+            Cargo cargo = new Cargo
+            {
+                Name = "Минеральная вода",
+                Cost = -50,
+                Weight = 0,
+                Volume = 20,
+                UploadDate = DateTime.Parse("09.11.2019"),
+                TrailerType = "Крытый",
+                Status = "В пути",
+                DownloadLocation = "",
+                PlaceOfDischarge = "Витебск",
+                Distance = -10
+            };
 
             factResult = CargosDB.AddCargo(cargo);
             Assert.IsFalse(factResult);

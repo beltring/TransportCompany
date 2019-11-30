@@ -94,12 +94,10 @@ namespace CourseWork.Context
         {
             try
             {
-                DataValidation dv = new DataValidation();
                 using (TransportCompanyContext db = new TransportCompanyContext())
                 {
-                    if (dv.CheckEmptyFields(cargo.Name, cargo.UploadDate.ToString(), cargo.TrailerType, cargo.Status, cargo.DownloadLocation,
-                        cargo.PlaceOfDischarge) && dv.CheckCost(cargo.Cost) && dv.CheckDistance(cargo.Distance) &&
-                        dv.CheckVolume(cargo.Volume) && dv.CheckWeight(cargo.Weight) && dv.CheckDate(cargo.UploadDate.ToString()))
+                    DataValidation dataValidation = new DataValidation();
+                    if (dataValidation.CheckAllInput(cargo))
                     {
                         var cargos = db.Cargos.ToList();
                         for (int i = 0; i < cargos.Count; i++)
@@ -214,7 +212,7 @@ namespace CourseWork.Context
             }  
         }
 
-        public static bool AddCargo(Cargo cargo)
+        public static bool AddCargo(Cargo cargo) //************
         {
             try
             {
@@ -222,9 +220,7 @@ namespace CourseWork.Context
 
                 using (TransportCompanyContext db = new TransportCompanyContext())
                 {
-                    if (dataValidation.CheckEmptyFields(cargo.Name, cargo.UploadDate.ToString(), cargo.TrailerType, cargo.Status, cargo.DownloadLocation, 
-                        cargo.PlaceOfDischarge) && dataValidation.CheckCost(cargo.Cost) && dataValidation.CheckDistance(cargo.Distance) && 
-                        dataValidation.CheckVolume(cargo.Volume) && dataValidation.CheckWeight(cargo.Weight) && dataValidation.CheckDate(cargo.UploadDate.ToString()))
+                    if (!CheckCargoInDB(cargo) && dataValidation.CheckAllInput(cargo))
                     {
                         db.Cargos.Add(cargo);
                         db.SaveChanges();
