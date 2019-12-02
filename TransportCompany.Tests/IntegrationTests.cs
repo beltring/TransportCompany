@@ -123,9 +123,9 @@ namespace TransportCompany.Tests
             bool factResult;
             Cargo cargo = new Cargo
             {
-                Name = "Картофель в сетке",
+                Name = "Чипсы",
                 Cost = 1900,
-                Weight = 21,
+                Weight = 4,
                 Volume = 86,
                 UploadDate = DateTime.Parse("20.12.2019"),
                 TrailerType = "Крытый",

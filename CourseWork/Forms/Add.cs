@@ -18,12 +18,11 @@ namespace CourseWork
         }
 
         //Добавление записи в БД
-        private void CargoAdd(object sender, EventArgs e)
+        private void CargoAdd_Click(object sender, EventArgs e)
         {
             Cargo cargo;
 
             try {
-                DataValidation dv = new DataValidation();
                 string name = nameTextBox.Text;
                 double cost = Convert.ToDouble(costTextBox.Text);
                 double weight = Convert.ToDouble(weightTextBox.Text);

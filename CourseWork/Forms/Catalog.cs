@@ -67,7 +67,7 @@ namespace CourseWork
             int id = Convert.ToInt32(informationGridView.Rows[line].Cells[0].Value);
             string result = UsersDB.SelectCargoId(userForm.Login) + " " + Convert.ToString(id);
             UsersDB.UpdateFavourites(result, userForm.Login);
-            CargosDB.UpdateStatus("В пути", id);
+            //CargosDB.UpdateStatus("В пути", id);
         }
 
         private void ExitToUserPage(object sender, EventArgs e)

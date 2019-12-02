@@ -61,7 +61,6 @@ namespace CourseWork
             int n = cargoId.IndexOf(id.ToString());
             cargoId = cargoId.Remove(n, id.ToString().Length);
             UsersDB.UpdateFavourites(cargoId, userForm.Login);
-            //Favourites_Load(sender, e);
         }
 
         private void ExitUserPage(object sender, EventArgs e)

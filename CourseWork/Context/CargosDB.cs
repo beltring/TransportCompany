@@ -212,7 +212,7 @@ namespace CourseWork.Context
             }  
         }
 
-        public static bool AddCargo(Cargo cargo) //************
+        public static bool AddCargo(Cargo cargo)
         {
             try
             {
@@ -220,7 +220,7 @@ namespace CourseWork.Context
 
                 using (TransportCompanyContext db = new TransportCompanyContext())
                 {
-                    if (!CheckCargoInDB(cargo) && dataValidation.CheckAllInput(cargo))
+                    if (dataValidation.CheckAllInput(cargo))
                     {
                         db.Cargos.Add(cargo);
                         db.SaveChanges();
