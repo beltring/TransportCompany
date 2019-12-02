@@ -204,5 +204,18 @@ namespace CourseWork
                 return false;
             }
         }
+
+        
+        public bool CheckStringForDigits(String str)
+        {
+            foreach(char ch in str)
+            {
+                if (char.IsDigit(ch))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }

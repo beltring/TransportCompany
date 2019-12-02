@@ -28,7 +28,7 @@ namespace CourseWork
         private void Favourites_Load(object sender, EventArgs e)
         {
             string resultId = UsersDB.SelectCargoId(userForm.Login);
-            if(resultId != null && resultId != " ")
+            if(resultId != null && resultId != "")
             {
                 userForm.Visible = false;
                 int[] id = resultId.Split(' ').
@@ -55,11 +55,16 @@ namespace CourseWork
 
         private void DeleteFavouritesCargo(object sender, EventArgs e)
         {
+            DataValidation dv = new DataValidation();
             int line = dataGridView1.CurrentRow.Index;
             int id = Convert.ToInt32(dataGridView1.Rows[line].Cells[0].Value);
             string cargoId = UsersDB.SelectCargoId(userForm.Login);
             int n = cargoId.IndexOf(id.ToString());
             cargoId = cargoId.Remove(n, id.ToString().Length);
+            if (!dv.CheckStringForDigits(cargoId))
+            {
+                cargoId = "";
+            }
             UsersDB.UpdateFavourites(cargoId, userForm.Login);
         }
 
