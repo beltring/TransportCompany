@@ -94,5 +94,43 @@ namespace CourseWork.Context
                 return false;
             }
         }
+
+        //Проверка авторизации адинистратора
+        public static bool IsAdmin(string login, string password)
+        {
+            bool result = false;
+            if (login.Equals("admin") && password.Equals("admin99"))
+            {
+                result = true;
+            }
+
+            return result;
+        }
+
+        //Проверка авторизации пользователя
+        public static bool IsUser(string login, string password)
+        {
+            using (TransportCompanyContext db = new TransportCompanyContext())
+            {
+                bool result = false;
+
+                try
+                {
+                    var users = db.Users.ToList();
+                    foreach (var user in users)
+                    {
+                        if (user.Login == login && user.Password == password)
+                        {
+                            result = true;
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString());
+                }
+                return result;
+            }
+        }
     }
 }

@@ -9,7 +9,7 @@ namespace CourseWork
 {
     public class DataValidation
     {
-        
+
         public bool CheckEmptyFields(params string[] fields)
         {
             foreach (string str in fields)
@@ -24,7 +24,7 @@ namespace CourseWork
 
         public bool CheckLenghtPassword(string password)
         {
-            if(password.Length >= 6 && password.Length <= 25)
+            if (password.Length >= 6 && password.Length <= 25)
             {
                 return true;
             }
@@ -36,7 +36,7 @@ namespace CourseWork
 
         public bool CheckLenghtLogin(string login)
         {
-            if(login.Length >= 4 && login.Length <= 25)
+            if (login.Length >= 4 && login.Length <= 25)
             {
                 return true;
             }
@@ -60,9 +60,9 @@ namespace CourseWork
 
         public bool CheckNegativeNumber(params int[] fields)
         {
-            foreach(int number in fields)
+            foreach (int number in fields)
             {
-                if(number < 1)
+                if (number < 1)
                 {
                     return false;
                 }
@@ -70,9 +70,10 @@ namespace CourseWork
             return true;
         }
 
-        public bool CheckCost(double number) {
+        public bool CheckCost(double number)
+        {
             bool result = false;
-            if(number >= 1 && number <= 10000)
+            if (number >= 1 && number <= 10000)
             {
                 result = true;
             }
@@ -110,7 +111,8 @@ namespace CourseWork
 
         public bool CheckDate(string date)
         {
-            try {
+            try
+            {
                 string[] dateArray = date.Split(' ', '.', '-', '/', ':');
 
                 int dayInMonth;
@@ -137,7 +139,7 @@ namespace CourseWork
                                 return true;
                             }
                         }
-                        
+
                     }
                 }
                 else if (year > yearNow)
@@ -166,7 +168,8 @@ namespace CourseWork
             {
                 return true;
             }
-            else {
+            else
+            {
                 return false;
             }
         }
@@ -181,7 +184,7 @@ namespace CourseWork
                 }
                 else
                 {
-                    MessageBox.Show("Пароль должен содержать от 6 до 25 символов", "", MessageBoxButtons.OK, MessageBoxIcon.Error); 
+                    MessageBox.Show("Пароль должен содержать от 6 до 25 символов", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
@@ -205,10 +208,10 @@ namespace CourseWork
             }
         }
 
-        
+
         public bool CheckStringForDigits(String str)
         {
-            foreach(char ch in str)
+            foreach (char ch in str)
             {
                 if (char.IsDigit(ch))
                 {

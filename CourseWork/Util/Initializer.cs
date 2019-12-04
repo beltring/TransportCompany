@@ -10,6 +10,8 @@ namespace CourseWork.Util
     {
         public static Cargo InitCargoWithAddForm(AddForm addForm)
         {
+            Cargo cargo = null;
+
             string name = addForm.NameTextBox.Text;
             double cost = Convert.ToDouble(addForm.CostTextBox.Text);
             double weight = Convert.ToDouble(addForm.WeightTextBox.Text);
@@ -21,7 +23,8 @@ namespace CourseWork.Util
             string placeOfDischarge = addForm.PlaceOfDischargeTextBox.Text;
             int distance = Convert.ToInt32(addForm.DistanceTextBox.Text);
 
-            Cargo cargo = new Cargo
+
+            cargo = new Cargo
             {
                 Name = name,
                 Cost = cost,
