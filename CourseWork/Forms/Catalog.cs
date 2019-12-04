@@ -7,8 +7,8 @@ namespace CourseWork
     //Работа со списком грузов
     public partial class Catalog : Form
     {
-        readonly UserForm userForm = null;
-        readonly HomeForm homeForm;
+        private UserForm userForm = null;
+        private HomeForm homeForm;
         public Catalog()
         {
             InitializeComponent();
@@ -48,26 +48,22 @@ namespace CourseWork
 
         private void DetailedInformation(object sender, EventArgs e)
         {
-            int line = informationGridView.CurrentRow.Index;
-            int id = Convert.ToInt32(informationGridView.Rows[line].Cells[0].Value);
+            int id = GetIdInformationGridView(); 
             string information = CargosDB.SelectAllDetailed(id);
             MessageBox.Show(information,"Подробная информация",MessageBoxButtons.OK);
         }
 
         private void StatusChange(object sender, EventArgs e)
         {
-            int line = informationGridView.CurrentRow.Index;
-            int id = Convert.ToInt32(informationGridView.Rows[line].Cells[0].Value);
+            int id = GetIdInformationGridView();
             CargosDB.UpdateStatus("В пути", id);
         }
 
         private void AddToFavourites(object sender, EventArgs e)
         {
-            int line = informationGridView.CurrentRow.Index;
-            int id = Convert.ToInt32(informationGridView.Rows[line].Cells[0].Value);
+            int id = GetIdInformationGridView();
             string result = UsersDB.SelectCargoId(userForm.Login) + " " + Convert.ToString(id);
             UsersDB.UpdateFavourites(result, userForm.Login);
-            //CargosDB.UpdateStatus("В пути", id);
         }
 
         private void ExitToUserPage(object sender, EventArgs e)
@@ -98,6 +94,13 @@ namespace CourseWork
             {
                 homeForm.Visible = true;
             }
+        }
+
+        private int GetIdInformationGridView()
+        {
+            int line = informationGridView.CurrentRow.Index;
+            int id = Convert.ToInt32(informationGridView.Rows[line].Cells[0].Value);
+            return id;
         }
     }
 }
