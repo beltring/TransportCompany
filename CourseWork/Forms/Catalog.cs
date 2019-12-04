@@ -51,7 +51,7 @@ namespace CourseWork
             int line = informationGridView.CurrentRow.Index;
             int id = Convert.ToInt32(informationGridView.Rows[line].Cells[0].Value);
             string information = CargosDB.SelectAllDetailed(id);
-            MessageBox.Show(information,"Просмотр",MessageBoxButtons.OK);
+            MessageBox.Show(information,"Подробная информация",MessageBoxButtons.OK);
         }
 
         private void StatusChange(object sender, EventArgs e)

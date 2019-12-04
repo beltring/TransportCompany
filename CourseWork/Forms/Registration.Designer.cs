@@ -110,7 +110,7 @@
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Name = "Registration";
-            this.Text = "S";
+            this.Text = "Регистрация";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Registration_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
