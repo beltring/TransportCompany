@@ -39,7 +39,7 @@ namespace CourseWork
 
         private void AddCargo(object sender, EventArgs e)
         {
-            Add addForm = new Add(this);
+            AddForm addForm = new AddForm(this);
             addForm.Show();
         }
 
