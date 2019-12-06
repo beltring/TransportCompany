@@ -194,5 +194,27 @@ namespace TransportCompany.Tests
             factResult = dataValidation.CheckLengthString3_10(str);
             Assert.IsFalse(factResult);
         }
+
+        [TestMethod]
+        public void CheckStringForDigitsTest_StringWithDigit_ReturnTrue()
+        {
+            DataValidation dataValidation = new DataValidation();
+            bool factResult;
+            string str = "a12ssdfsdf7sdf";
+
+            factResult = dataValidation.CheckStringForDigits(str);
+            Assert.IsTrue(factResult);
+        }
+
+        [TestMethod]
+        public void CheckStringForDigitsTest_StringWithoutDigit_ReturnFalse()
+        {
+            DataValidation dataValidation = new DataValidation();
+            bool factResult;
+            string str = "ffffffsdjkuyyeklaa";
+
+            factResult = dataValidation.CheckStringForDigits(str);
+            Assert.IsFalse(factResult);
+        }
     }
 }
