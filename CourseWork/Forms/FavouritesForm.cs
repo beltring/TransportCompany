@@ -38,9 +38,7 @@ namespace CourseWork
             }
             else
             {
-                MessageBox.Show("Добавьте груз в избранное", "Предупреждение",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning,
-                MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
+                MessageBox.Show("Добавьте груз в избранное", "Предупреждение",MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 this.Close();
             }
         }
@@ -58,9 +56,11 @@ namespace CourseWork
             DataValidation dv = new DataValidation();
             int line = dataGridView1.CurrentRow.Index;
             int id = Convert.ToInt32(dataGridView1.Rows[line].Cells[0].Value);
+
             string cargoId = UsersDB.SelectCargoId(userForm.Login);
             int n = cargoId.IndexOf(id.ToString());
             cargoId = cargoId.Remove(n, id.ToString().Length);
+
             if (!dv.CheckStringForDigits(cargoId))
             {
                 cargoId = "";

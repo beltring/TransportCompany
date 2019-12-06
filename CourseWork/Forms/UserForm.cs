@@ -44,7 +44,6 @@ namespace CourseWork
         {
             Catalog catalog = new Catalog(this);
             catalog.Show();
-            //this.Visible = false;
         }
 
         private void UserForm_Load(object sender, EventArgs e)

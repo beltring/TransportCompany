@@ -82,10 +82,10 @@ namespace CourseWork.Context
                     {
                         if (user.Login == login)
                         {
-                            return false;
+                            return true;
                         }
                     }
-                    return true;
+                    return false;
                 }
             }
             catch (Exception ex)

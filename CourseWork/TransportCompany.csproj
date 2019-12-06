@@ -113,7 +113,6 @@
     <Compile Include="Forms\Catalog.Designer.cs">
       <DependentUpon>Catalog.cs</DependentUpon>
     </Compile>
-    <Compile Include="Util\Editor.cs" />
     <Compile Include="Util\Initializer.cs" />
     <Compile Include="Validation\DataValidation.cs" />
     <Compile Include="Forms\DeleteCargoForm.cs">

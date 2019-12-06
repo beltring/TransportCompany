@@ -65,6 +65,7 @@
     <Compile Include="DataValidationTestDataConversion.cs" />
     <Compile Include="CatalogContextTest.cs" />
     <Compile Include="IntegrationTests.cs" />
+    <Compile Include="UsersDBTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -38,7 +38,7 @@ namespace CourseWork
                     {
                         if (dv.CheckPasswordMatch(textBox2.Text, textBox3.Text))
                         {
-                            if (UsersDB.CheckUserInDB(textBox1.Text))
+                            if (!UsersDB.CheckUserInDB(textBox1.Text))
                             {
                                 UsersDB.AddUser(textBox1.Text, textBox2.Text);
                                 MessageBox.Show("Регистрация прошла успешно");
