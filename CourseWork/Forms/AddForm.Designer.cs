@@ -30,36 +30,36 @@ namespace CourseWork
         /// </summary>
         private void InitializeComponent()
         {
-            this.NameTextBox = new System.Windows.Forms.TextBox();
+            this.nameTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.CostTextBox = new System.Windows.Forms.TextBox();
+            this.costTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.WeightTextBox = new System.Windows.Forms.TextBox();
+            this.weightTextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.VolumeTextBox = new System.Windows.Forms.TextBox();
+            this.volumeTextBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.UploadDateTextBox = new System.Windows.Forms.TextBox();
-            this.TrailerTypeComboBox = new System.Windows.Forms.ComboBox();
+            this.uploadDateTextBox = new System.Windows.Forms.TextBox();
+            this.trailerTypeComboBox = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.StatusComboBox = new System.Windows.Forms.ComboBox();
+            this.statusComboBox = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.AddButton = new System.Windows.Forms.Button();
+            this.addButton = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.LoadLocationTextBox = new System.Windows.Forms.TextBox();
-            this.PlaceOfDischargeTextBox = new System.Windows.Forms.TextBox();
-            this.DistanceTextBox = new System.Windows.Forms.TextBox();
+            this.loadLocationTextBox = new System.Windows.Forms.TextBox();
+            this.placeOfDischargeTextBox = new System.Windows.Forms.TextBox();
+            this.distanceTextBox = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.exitButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // nameTextBox
             // 
-            this.NameTextBox.Location = new System.Drawing.Point(146, 4);
-            this.NameTextBox.Name = "nameTextBox";
-            this.NameTextBox.Size = new System.Drawing.Size(121, 22);
-            this.NameTextBox.TabIndex = 0;
+            this.nameTextBox.Location = new System.Drawing.Point(146, 4);
+            this.nameTextBox.Name = "nameTextBox";
+            this.nameTextBox.Size = new System.Drawing.Size(121, 22);
+            this.nameTextBox.TabIndex = 0;
             // 
             // label1
             // 
@@ -81,10 +81,10 @@ namespace CourseWork
             // 
             // costTextBox
             // 
-            this.CostTextBox.Location = new System.Drawing.Point(146, 32);
-            this.CostTextBox.Name = "costTextBox";
-            this.CostTextBox.Size = new System.Drawing.Size(121, 22);
-            this.CostTextBox.TabIndex = 2;
+            this.costTextBox.Location = new System.Drawing.Point(146, 32);
+            this.costTextBox.Name = "costTextBox";
+            this.costTextBox.Size = new System.Drawing.Size(121, 22);
+            this.costTextBox.TabIndex = 2;
             // 
             // label3
             // 
@@ -97,10 +97,10 @@ namespace CourseWork
             // 
             // weightTextBox
             // 
-            this.WeightTextBox.Location = new System.Drawing.Point(146, 60);
-            this.WeightTextBox.Name = "weightTextBox";
-            this.WeightTextBox.Size = new System.Drawing.Size(121, 22);
-            this.WeightTextBox.TabIndex = 4;
+            this.weightTextBox.Location = new System.Drawing.Point(146, 60);
+            this.weightTextBox.Name = "weightTextBox";
+            this.weightTextBox.Size = new System.Drawing.Size(121, 22);
+            this.weightTextBox.TabIndex = 4;
             // 
             // label4
             // 
@@ -113,10 +113,10 @@ namespace CourseWork
             // 
             // volumeTextBox
             // 
-            this.VolumeTextBox.Location = new System.Drawing.Point(146, 88);
-            this.VolumeTextBox.Name = "volumeTextBox";
-            this.VolumeTextBox.Size = new System.Drawing.Size(121, 22);
-            this.VolumeTextBox.TabIndex = 6;
+            this.volumeTextBox.Location = new System.Drawing.Point(146, 88);
+            this.volumeTextBox.Name = "volumeTextBox";
+            this.volumeTextBox.Size = new System.Drawing.Size(121, 22);
+            this.volumeTextBox.TabIndex = 6;
             // 
             // label5
             // 
@@ -129,23 +129,23 @@ namespace CourseWork
             // 
             // uploadDateTextBox
             // 
-            this.UploadDateTextBox.Location = new System.Drawing.Point(146, 116);
-            this.UploadDateTextBox.Name = "uploadDateTextBox";
-            this.UploadDateTextBox.Size = new System.Drawing.Size(121, 22);
-            this.UploadDateTextBox.TabIndex = 8;
+            this.uploadDateTextBox.Location = new System.Drawing.Point(146, 116);
+            this.uploadDateTextBox.Name = "uploadDateTextBox";
+            this.uploadDateTextBox.Size = new System.Drawing.Size(121, 22);
+            this.uploadDateTextBox.TabIndex = 8;
             // 
             // trailerTypeComboBox
             // 
-            this.TrailerTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.TrailerTypeComboBox.FormattingEnabled = true;
-            this.TrailerTypeComboBox.Items.AddRange(new object[] {
+            this.trailerTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.trailerTypeComboBox.FormattingEnabled = true;
+            this.trailerTypeComboBox.Items.AddRange(new object[] {
             "Крытый",
             "Открытый",
             "Цистерна"});
-            this.TrailerTypeComboBox.Location = new System.Drawing.Point(146, 144);
-            this.TrailerTypeComboBox.Name = "trailerTypeComboBox";
-            this.TrailerTypeComboBox.Size = new System.Drawing.Size(121, 24);
-            this.TrailerTypeComboBox.TabIndex = 11;
+            this.trailerTypeComboBox.Location = new System.Drawing.Point(146, 144);
+            this.trailerTypeComboBox.Name = "trailerTypeComboBox";
+            this.trailerTypeComboBox.Size = new System.Drawing.Size(121, 24);
+            this.trailerTypeComboBox.TabIndex = 11;
             // 
             // label6
             // 
@@ -158,15 +158,15 @@ namespace CourseWork
             // 
             // statusComboBox
             // 
-            this.StatusComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.StatusComboBox.FormattingEnabled = true;
-            this.StatusComboBox.Items.AddRange(new object[] {
+            this.statusComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.statusComboBox.FormattingEnabled = true;
+            this.statusComboBox.Items.AddRange(new object[] {
             "Доставлен",
             "Не доставлен"});
-            this.StatusComboBox.Location = new System.Drawing.Point(146, 174);
-            this.StatusComboBox.Name = "statusComboBox";
-            this.StatusComboBox.Size = new System.Drawing.Size(121, 24);
-            this.StatusComboBox.TabIndex = 13;
+            this.statusComboBox.Location = new System.Drawing.Point(146, 174);
+            this.statusComboBox.Name = "statusComboBox";
+            this.statusComboBox.Size = new System.Drawing.Size(121, 24);
+            this.statusComboBox.TabIndex = 13;
             // 
             // label7
             // 
@@ -179,13 +179,13 @@ namespace CourseWork
             // 
             // addButton
             // 
-            this.AddButton.Location = new System.Drawing.Point(89, 288);
-            this.AddButton.Name = "addButton";
-            this.AddButton.Size = new System.Drawing.Size(99, 31);
-            this.AddButton.TabIndex = 15;
-            this.AddButton.Text = "Добавить";
-            this.AddButton.UseVisualStyleBackColor = true;
-            this.AddButton.Click += new System.EventHandler(this.CargoAdd_Click);
+            this.addButton.Location = new System.Drawing.Point(89, 288);
+            this.addButton.Name = "addButton";
+            this.addButton.Size = new System.Drawing.Size(99, 31);
+            this.addButton.TabIndex = 15;
+            this.addButton.Text = "Добавить";
+            this.addButton.UseVisualStyleBackColor = true;
+            this.addButton.Click += new System.EventHandler(this.CargoAdd_Click);
             // 
             // label8
             // 
@@ -207,24 +207,24 @@ namespace CourseWork
             // 
             // loadLocationTextBox
             // 
-            this.LoadLocationTextBox.Location = new System.Drawing.Point(146, 204);
-            this.LoadLocationTextBox.Name = "loadLocationTextBox";
-            this.LoadLocationTextBox.Size = new System.Drawing.Size(121, 22);
-            this.LoadLocationTextBox.TabIndex = 18;
+            this.loadLocationTextBox.Location = new System.Drawing.Point(146, 204);
+            this.loadLocationTextBox.Name = "loadLocationTextBox";
+            this.loadLocationTextBox.Size = new System.Drawing.Size(121, 22);
+            this.loadLocationTextBox.TabIndex = 18;
             // 
             // placeOfDischargeTextBox
             // 
-            this.PlaceOfDischargeTextBox.Location = new System.Drawing.Point(146, 232);
-            this.PlaceOfDischargeTextBox.Name = "placeOfDischargeTextBox";
-            this.PlaceOfDischargeTextBox.Size = new System.Drawing.Size(121, 22);
-            this.PlaceOfDischargeTextBox.TabIndex = 19;
+            this.placeOfDischargeTextBox.Location = new System.Drawing.Point(146, 232);
+            this.placeOfDischargeTextBox.Name = "placeOfDischargeTextBox";
+            this.placeOfDischargeTextBox.Size = new System.Drawing.Size(121, 22);
+            this.placeOfDischargeTextBox.TabIndex = 19;
             // 
             // distanceTextBox
             // 
-            this.DistanceTextBox.Location = new System.Drawing.Point(146, 260);
-            this.DistanceTextBox.Name = "distanceTextBox";
-            this.DistanceTextBox.Size = new System.Drawing.Size(121, 22);
-            this.DistanceTextBox.TabIndex = 20;
+            this.distanceTextBox.Location = new System.Drawing.Point(146, 260);
+            this.distanceTextBox.Name = "distanceTextBox";
+            this.distanceTextBox.Size = new System.Drawing.Size(121, 22);
+            this.distanceTextBox.TabIndex = 20;
             // 
             // label10
             // 
@@ -252,26 +252,26 @@ namespace CourseWork
             this.ClientSize = new System.Drawing.Size(288, 357);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.DistanceTextBox);
-            this.Controls.Add(this.PlaceOfDischargeTextBox);
-            this.Controls.Add(this.LoadLocationTextBox);
+            this.Controls.Add(this.distanceTextBox);
+            this.Controls.Add(this.placeOfDischargeTextBox);
+            this.Controls.Add(this.loadLocationTextBox);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.AddButton);
+            this.Controls.Add(this.addButton);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.StatusComboBox);
+            this.Controls.Add(this.statusComboBox);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.TrailerTypeComboBox);
+            this.Controls.Add(this.trailerTypeComboBox);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.UploadDateTextBox);
+            this.Controls.Add(this.uploadDateTextBox);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.VolumeTextBox);
+            this.Controls.Add(this.volumeTextBox);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.WeightTextBox);
+            this.Controls.Add(this.weightTextBox);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.CostTextBox);
+            this.Controls.Add(this.costTextBox);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.NameTextBox);
+            this.Controls.Add(this.nameTextBox);
             this.Name = "Add";
             this.Text = "Добавление груза";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Add_FormClosed);
@@ -283,39 +283,29 @@ namespace CourseWork
 
         #endregion
 
-        private System.Windows.Forms.TextBox nameTextBox;
+        public System.Windows.Forms.TextBox nameTextBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox costTextBox;
+        public System.Windows.Forms.TextBox costTextBox;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox weightTextBox;
+        public System.Windows.Forms.TextBox weightTextBox;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox volumeTextBox;
+        public System.Windows.Forms.TextBox volumeTextBox;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox uploadDateTextBox;
-        private System.Windows.Forms.ComboBox trailerTypeComboBox;
+        public System.Windows.Forms.TextBox uploadDateTextBox;
+        public System.Windows.Forms.ComboBox trailerTypeComboBox;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox statusComboBox;
+        public System.Windows.Forms.ComboBox statusComboBox;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button addButton;
+        public System.Windows.Forms.Button addButton;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox loadLocationTextBox;
-        private System.Windows.Forms.TextBox placeOfDischargeTextBox;
-        private System.Windows.Forms.TextBox distanceTextBox;
+        public System.Windows.Forms.TextBox loadLocationTextBox;
+        public System.Windows.Forms.TextBox placeOfDischargeTextBox;
+        public System.Windows.Forms.TextBox distanceTextBox;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Button exitButton;
+        public System.Windows.Forms.Button exitButton;
 
-        public Button AddButton { get => addButton; set => addButton = value; }
-        public TextBox NameTextBox { get => nameTextBox; set => nameTextBox = value; }
-        public TextBox CostTextBox { get => costTextBox; set => costTextBox = value; }
-        public TextBox WeightTextBox { get => weightTextBox; set => weightTextBox = value; }
-        public TextBox VolumeTextBox { get => volumeTextBox; set => volumeTextBox = value; }
-        public TextBox UploadDateTextBox { get => uploadDateTextBox; set => uploadDateTextBox = value; }
-        public ComboBox TrailerTypeComboBox { get => trailerTypeComboBox; set => trailerTypeComboBox = value; }
-        public ComboBox StatusComboBox { get => statusComboBox; set => statusComboBox = value; }
-        public TextBox LoadLocationTextBox { get => loadLocationTextBox; set => loadLocationTextBox = value; }
-        public TextBox PlaceOfDischargeTextBox { get => placeOfDischargeTextBox; set => placeOfDischargeTextBox = value; }
-        public TextBox DistanceTextBox { get => distanceTextBox; set => distanceTextBox = value; }
+        
     }
 }
