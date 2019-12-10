@@ -67,6 +67,7 @@ namespace CourseWork.Context
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message.ToString(), ex.Source.ToString(), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return result;
             }
             return result;
         }

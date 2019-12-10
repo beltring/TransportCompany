@@ -44,8 +44,8 @@ namespace TransportCompany.Tests
         public void IsUserTest_WrongString_ReturnFalse()
         {
             bool factResult;
-            string s1 = "";
-            string s2 = "";
+            string s1 = "abcd";
+            string s2 = "123456";
 
             factResult = UsersDB.IsUser(s1, s2);
             Assert.IsFalse(factResult);
@@ -69,16 +69,6 @@ namespace TransportCompany.Tests
             string expectResult = null;
 
             factResult = UsersDB.SelectCargoId("sdfdfgfg");
-            Assert.AreEqual(expectResult, factResult);
-        }
-
-        [TestMethod]
-        public void SelectCargoIdTest_CorrectLogin_ReturnNull()
-        {
-            string factResult;
-            string expectResult = null;
-
-            factResult = UsersDB.SelectCargoId("garik");
             Assert.AreEqual(expectResult, factResult);
         }
 

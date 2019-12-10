@@ -55,27 +55,6 @@ namespace TransportCompany.Tests
 
         //**************
         [TestMethod]
-        public void DeleteCargoTest_CorrectId_ReturnTrue()
-        {
-            bool factResult;
-            int id = 14;
-
-            factResult = CargosDB.DeleteCargo(id);
-            Assert.IsTrue(factResult);
-        }
-
-        [TestMethod]
-        public void DeleteCargoTest_IncorrectId_ReturnFalse()
-        {
-            bool factResult;
-            int id = 0;
-
-            factResult = CargosDB.DeleteCargo(id);
-            Assert.IsFalse(factResult);
-        }
-
-        //**************
-        [TestMethod]
         public void SelectByIdTest_CorrectId_ReturnCargo()
         {
             Cargo expectResult = new Cargo
@@ -102,7 +81,7 @@ namespace TransportCompany.Tests
         public void SelectByIdTest_InCorrectId_ReturnNull()
         {
             Cargo factResult;
-            int id = 33;
+            int id = 99;
 
             factResult = CargosDB.SelectById(id);
             Assert.AreEqual(null, factResult);

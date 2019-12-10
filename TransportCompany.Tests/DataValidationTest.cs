@@ -127,51 +127,6 @@ namespace TransportCompany.Tests
             Assert.IsFalse(factResult);
         }
 
-        //*****************************************************************
-        [TestMethod]
-        public void CheckDateTest_CorrectDate_ReturnTrue()
-        {
-            DataValidation dataValidation = new DataValidation();
-            bool factResult;
-            string date = "12.12.2019";
-
-            factResult = dataValidation.CheckDate(date);
-            Assert.IsTrue(factResult);
-        }
-
-        [TestMethod]
-        public void CheckDateTest_incorrectYear_ReturnFalse()
-        {
-            DataValidation dataValidation = new DataValidation();
-            bool factResult;
-            string date = "12.12.2010";
-
-            factResult = dataValidation.CheckDate(date);
-            Assert.IsFalse(factResult);
-        }
-
-        [TestMethod]
-        public void CheckDateTest_incorrectMonth_ReturnFalse()
-        {
-            DataValidation dataValidation = new DataValidation();
-            bool factResult;
-            string date = "12.13.2019";
-
-            factResult = dataValidation.CheckDate(date);
-            Assert.IsFalse(factResult);
-        }
-
-        [TestMethod]
-        public void CheckDateTest_incorrectDay_ReturnFalse()
-        {
-            DataValidation dataValidation = new DataValidation();
-            bool factResult;
-            string date = "39.12.2019";
-
-            factResult = dataValidation.CheckDate(date);
-            Assert.IsFalse(factResult);
-        }
-
         //*********************************************
         [TestMethod]
         public void CheckLengthString3_10Test_CorrectStringLength_ReturnTrue()
@@ -215,6 +170,131 @@ namespace TransportCompany.Tests
 
             factResult = dataValidation.CheckStringForDigits(str);
             Assert.IsFalse(factResult);
+        }
+
+        [TestMethod]
+        public void CheckAuthTest_IncorrectLogin_ReturnFalse()
+        {
+            DataValidation dataValidation = new DataValidation();
+            bool factResult;
+            string login = "abc";
+            string password = "123456";
+
+            factResult = dataValidation.CheckAuth(login,password);
+            Assert.IsFalse(factResult);
+        }
+
+        [TestMethod]
+        public void CheckAuthTest_IncorrectPassword_ReturnFalse()
+        {
+            DataValidation dataValidation = new DataValidation();
+            bool factResult;
+            string login = "abcd";
+            string password = "123";
+
+            factResult = dataValidation.CheckAuth(login, password);
+            Assert.IsFalse(factResult);
+        }
+
+        [TestMethod]
+        public void CheckAuthTest_CorrectData_ReturnTrue()
+        {
+            DataValidation dataValidation = new DataValidation();
+            bool factResult;
+            string login = "abcd";
+            string password = "123456";
+
+            factResult = dataValidation.CheckAuth(login, password);
+            Assert.IsTrue(factResult);
+        }
+
+        //*****************************************************************
+        [TestMethod]
+        public void CheckDateTest_IncorrectYear_ReturnFalse()
+        {
+            DataValidation dataValidation = new DataValidation();
+            bool factResult;
+            string date = "12.12.2018";
+
+            factResult = dataValidation.CheckDate(date);
+            Assert.IsFalse(factResult);
+        }
+
+        [TestMethod]
+        public void CheckDateTest_IncorrectMonth_ReturnFalse()
+        {
+            DataValidation dataValidation = new DataValidation();
+            bool factResult;
+            string date = "25.13.2020";
+
+            factResult = dataValidation.CheckDate(date);
+            Assert.IsFalse(factResult);
+        }
+
+        [TestMethod]
+        public void CheckDateTest_IncorrectDay_ReturnFalse()
+        {
+            DataValidation dataValidation = new DataValidation();
+            bool factResult;
+            string date = "35.12.2019";
+
+            factResult = dataValidation.CheckDate(date);
+            Assert.IsFalse(factResult);
+        }
+
+        [TestMethod]
+        public void CheckDateTest_CorrectDate_ReturnTrue()
+        {
+            DataValidation dataValidation = new DataValidation();
+            bool factResult;
+            string date = "12.01.2020";
+
+            factResult = dataValidation.CheckDate(date);
+            Assert.IsTrue(factResult);
+        }
+
+        [TestMethod]
+        public void CheckDateTest_IncorrectYear1_ReturnFalse()
+        {
+            DataValidation dataValidation = new DataValidation();
+            bool factResult;
+            string date = "25.12.2018";
+
+            factResult = dataValidation.CheckDate(date);
+            Assert.IsFalse(factResult);
+        }
+
+        [TestMethod]
+        public void CheckDateTest_IncorrectMonth1_ReturnFalse()
+        {
+            DataValidation dataValidation = new DataValidation();
+            bool factResult;
+            string date = "25.13.2019";
+
+            factResult = dataValidation.CheckDate(date);
+            Assert.IsFalse(factResult);
+        }
+
+        [TestMethod]
+        public void CheckDateTest_IncorrectDay1_ReturnFalse()
+        {
+            DataValidation dataValidation = new DataValidation();
+            bool factResult;
+            string date = "35.12.2019";
+
+            factResult = dataValidation.CheckDate(date);
+            Assert.IsFalse(factResult);
+        }
+
+        [TestMethod]
+        public void CheckDateTest_CorrectDate1_ReturnTrue()
+        {
+            DataValidation dataValidation = new DataValidation();
+            bool factResult;
+            string date = "31.12.2019";
+
+            factResult = dataValidation.CheckDate(date);
+            Assert.IsTrue(factResult);
         }
     }
 }

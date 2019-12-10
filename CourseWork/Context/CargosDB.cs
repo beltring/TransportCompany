@@ -96,6 +96,7 @@ namespace CourseWork.Context
             {
                 using (TransportCompanyContext db = new TransportCompanyContext())
                 {
+                    bool result = false;
                     DataValidation dataValidation = new DataValidation();
                     if (dataValidation.CheckAllInput(cargo))
                     {
@@ -106,11 +107,11 @@ namespace CourseWork.Context
                             {
                                 cargos[i].CopyFields(cargo);
                                 db.SaveChanges();
-                                return true;
+                                result = true;
                             }
                         }
                     }
-                    return false;
+                    return result;
                 }
             }
             catch (Exception ex)
@@ -220,16 +221,18 @@ namespace CourseWork.Context
 
                 using (TransportCompanyContext db = new TransportCompanyContext())
                 {
+                    bool result;
                     if (dataValidation.CheckAllInput(cargo))
                     {
                         db.Cargos.Add(cargo);
                         db.SaveChanges();
-                        return true;
+                        result = true;
                     }
                     else
                     {
-                        return false;
+                        result = false;
                     }
+                    return result;
                 }
             }
             catch (Exception ex)
@@ -241,10 +244,11 @@ namespace CourseWork.Context
 
         public static bool DeleteCargo(int id)
         {
-            try // обработчик ошибок
+            try 
             {
                 using (TransportCompanyContext db = new TransportCompanyContext())
                 {
+                    bool result = false;
                     if(id > 0)
                     {
                         var cargos = db.Cargos.ToList();
@@ -253,19 +257,18 @@ namespace CourseWork.Context
                             if (id > 0 && cargo.Id == id)
                             {
                                 db.Cargos.Remove(cargo);
-                                
+                                result = true;
                             }
                         }
 
                         db.SaveChanges();
-                        return true;
                     }
                     else
                     {
-                        return false;
+                        result = false;
                     }
+                    return result;
                 }
-
             }
             catch (Exception ex)
             {
@@ -297,7 +300,5 @@ namespace CourseWork.Context
                 return false;
             }
         }
-
-
     }
 }

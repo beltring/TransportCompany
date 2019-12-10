@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="CourseWork.Context.CargosDB">
+    <Position X="2.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIEAAIAAAAAAAAAAAAEIAAECAAAAAACQAACAAA=</HashCode>
+      <FileName>Context\CargosDB.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CourseWork.Context.UsersDB">
+    <Position X="0.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAAAAAQAAAACAAAAAAgBAAAAAAAAAI=</HashCode>
+      <FileName>Context\UsersDB.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CourseWork.TransportCompanyContext">
+    <Position X="9.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAAAAAAAAAEAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Context\TransportCompanyContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CourseWork.AddForm">
+    <Position X="0.5" Y="4.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAACAAAFAJIACAQAADAAEABAiIgAAABiAYAAA=</HashCode>
+      <FileName>Forms\AddForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CourseWork.AdminForm">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAoAACQAAAAAAACQAAAKAAAFCgAEgBAAIAAAAIA=</HashCode>
+      <FileName>Forms\AdminForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CourseWork.Authorization">
+    <Position X="5.75" Y="4.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAABEAAACAAABAAACCAAAACAAAIAQAAAAAAAAAAAIA=</HashCode>
+      <FileName>Forms\Authorization.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CourseWork.Catalog">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>CAAKEABACCAAAAAAIQCAAAACBAAUAAAgIAQAgGACAKA=</HashCode>
+      <FileName>Forms\Catalog.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CourseWork.DeleteCargoForm">
+    <Position X="4" Y="4.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>gAQaABAACCAIAAIAAACAAAACAEAUAAAkAAAAIAAiAAA=</HashCode>
+      <FileName>Forms\DeleteCargoForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CourseWork.FavouritesForm">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAKAAAAAAAACAAAECBEgcQAAgAAAAgAAKAAA=</HashCode>
+      <FileName>Forms\FavouritesForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CourseWork.HomeForm">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAQAEAAACAAAAAAIACAAAACAMA4AAAAAAAAAACEAAA=</HashCode>
+      <FileName>Forms\HomeForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CourseWork.Registration">
+    <Position X="7.5" Y="4.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>ASAAAABAACAAABAAAACAAABCAAAIAAAAEQAAAAAAAAA=</HashCode>
+      <FileName>Forms\Registration.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CourseWork.UserForm">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAABIACQAAAAAIACAAAACAAAQAIAAIAAQAAAAEIA=</HashCode>
+      <FileName>Forms\UserForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CourseWork.Cargo">
+    <Position X="7.5" Y="7.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>EAACAAAEEAAAAAAAgAAAABQCACCAAABAAAIAIAAAAAA=</HashCode>
+      <FileName>Models\Cargo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CourseWork.User">
+    <Position X="5.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAEAAAAAAAAAACAAAQAAAAAAA=</HashCode>
+      <FileName>Models\User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CourseWork.DataValidation">
+    <Position X="4" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAICAAUAABAgEAMAIQCAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Validation\DataValidation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CourseWork.Forms.CatalogForAdmin">
+    <Position X="2.25" Y="4.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>gAQaAJAACCAIAAAAIACAAAACAEAUAAAiAAAABAACAAA=</HashCode>
+      <FileName>Forms\CatalogForAdmin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CourseWork.Forms.EditForm">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>kAQaABICCCAIIFIJAQCAQAALAEAUBACgAAAAASAaAgI=</HashCode>
+      <FileName>Forms\EditForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

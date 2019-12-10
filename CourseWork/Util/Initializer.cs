@@ -12,16 +12,16 @@ namespace CourseWork.Util
         {
             Cargo cargo = null;
 
-            string name = addForm.NameTextBox.Text;
-            double cost = Convert.ToDouble(addForm.CostTextBox.Text);
-            double weight = Convert.ToDouble(addForm.WeightTextBox.Text);
-            double volume = Convert.ToDouble(addForm.VolumeTextBox.Text);
-            string uploadDate = addForm.UploadDateTextBox.Text;
-            string trailerType = addForm.TrailerTypeComboBox.SelectedItem.ToString();
-            string status = addForm.StatusComboBox.SelectedItem.ToString();
-            string downloadLocation = addForm.LoadLocationTextBox.Text;
-            string placeOfDischarge = addForm.PlaceOfDischargeTextBox.Text;
-            int distance = Convert.ToInt32(addForm.DistanceTextBox.Text);
+            string name = addForm.nameTextBox.Text;
+            double cost = Convert.ToDouble(addForm.costTextBox.Text);
+            double weight = Convert.ToDouble(addForm.weightTextBox.Text);
+            double volume = Convert.ToDouble(addForm.volumeTextBox.Text);
+            string uploadDate = addForm.uploadDateTextBox.Text;
+            string trailerType = addForm.trailerTypeComboBox.SelectedItem.ToString();
+            string status = addForm.statusComboBox.SelectedItem.ToString();
+            string downloadLocation = addForm.loadLocationTextBox.Text;
+            string placeOfDischarge = addForm.placeOfDischargeTextBox.Text;
+            int distance = Convert.ToInt32(addForm.distanceTextBox.Text);
 
 
             cargo = new Cargo

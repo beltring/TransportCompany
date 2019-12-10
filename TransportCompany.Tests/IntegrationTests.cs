@@ -79,11 +79,11 @@ namespace TransportCompany.Tests
         public void EditCargoTest_IncorrectData_ReturnFalse()
         {
             bool factResult;
-            int idCargo = 9;
+            int idCargo = -4;
             Cargo cargo = new Cargo
             {
                 Name = "Минеральная вода",
-                Cost = -683,
+                Cost = -10,
                 Weight = 5,
                 Volume = 0,
                 UploadDate = DateTime.Parse("30.12.2018"),
@@ -99,10 +99,33 @@ namespace TransportCompany.Tests
         }
 
         [TestMethod]
+        public void EditCargoTest_IncorrectId_ReturnFalse()
+        {
+            bool factResult;
+            int idCargo = -4;
+            Cargo cargo = new Cargo
+            {
+                Name = "Минеральная вода",
+                Cost = 683,
+                Weight = 5,
+                Volume = 25,
+                UploadDate = DateTime.Parse("30.12.2019"),
+                TrailerType = "Крытый",
+                Status = "Не доставлен",
+                DownloadLocation = "Минск",
+                PlaceOfDischarge = "Несвиж",
+                Distance = 130
+            };
+
+            factResult = CargosDB.EditCargo(idCargo, cargo);
+            Assert.IsFalse(factResult, "Проверьте введенные данные");
+        }
+
+        [TestMethod]
         public void DeleteCargoTest_CorrectId_ReturnTrue()
         {
             bool factResult;
-            int id = 10;
+            int id = 18;
 
             factResult = CargosDB.DeleteCargo(id);
             Assert.IsTrue(factResult);
@@ -111,7 +134,17 @@ namespace TransportCompany.Tests
         public void DeleteCargoTest_IncorrectId_ReturnFalse()
         {
             bool factResult;
-            int id = 0;
+            int id = -1;
+
+            factResult = CargosDB.DeleteCargo(id);
+            Assert.IsFalse(factResult);
+        }
+
+        [TestMethod]
+        public void DeleteCargoTest_CorrectId_ReturnFalse()
+        {
+            bool factResult;
+            int id = 99;
 
             factResult = CargosDB.DeleteCargo(id);
             Assert.IsFalse(factResult);

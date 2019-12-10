@@ -122,6 +122,7 @@ namespace CourseWork
                 int day = Convert.ToInt32(dateArray[0]);
                 int month = Convert.ToInt32(dateArray[1]);
                 int year = Convert.ToInt32(dateArray[2]);
+                bool result = false;
 
                 if (year == yearNow)
                 {
@@ -130,13 +131,9 @@ namespace CourseWork
                         dayInMonth = Convert.ToInt32(DateTime.DaysInMonth(year, month));
                         if (day >= 1 && day <= dayInMonth)
                         {
-                            if (month == monthNow && day >= dayNow)
+                            if (month == monthNow && day >= dayNow || month != monthNow)
                             {
-                                return true;
-                            }
-                            else if (month != monthNow)
-                            {
-                                return true;
+                                result = true;
                             }
                         }
 
@@ -149,15 +146,16 @@ namespace CourseWork
                         dayInMonth = Convert.ToInt32(DateTime.DaysInMonth(year, month));
                         if (day >= 1 && day <= dayInMonth)
                         {
-                            return true;
+                            result = true;
                         }
                     }
                 }
 
-                return false;
+                return result;
             }
-            catch
+            catch(Exception ex)
             {
+                MessageBox.Show(ex.Message.ToString(), ex.Source.ToString(), MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }
@@ -176,22 +174,23 @@ namespace CourseWork
 
         public bool CheckAuth(string login, string password)
         {
+            bool result = false;
             if (CheckLenghtLogin(login))
             {
                 if (CheckLenghtLogin(password))
                 {
-                    return true;
+                    result = true;
                 }
                 else
                 {
-                    MessageBox.Show("Пароль должен содержать от 6 до 25 символов", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Пароль должен содержать от 6 до 25 символов", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
             {
-                MessageBox.Show("Логин должен содержать от 4 до 25 символов", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Логин должен содержать от 4 до 25 символов", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            return false;
+            return result;
         }
 
         public bool CheckAllInput(Cargo cargo)
